@@ -3,41 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مسلك — ملف قرار: تحضير الطالب وإشعار الوصول</title>
+<title>مسلك — ملف قرار الامتثال وتشغيل النقل التعليمي</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#F6F2EA;
-  --paper-2:#FFFDF7;
-  --paper-3:#EFEADF;
-  --ink:#191512;
-  --ink-2:#4B443A;
-  --ink-3:#837A6B;
-  --rule:#DCD4C4;
-  --rule-2:#C9BFAA;
+  --paper:#F7F7FB;
+  --paper-2:#FFFFFF;
+  --paper-3:#F1F0FA;
+  --ink:#16162C;
+  --ink-2:#4F4F6B;
+  --ink-3:#6B6B85;
+  --rule:#E9E7F4;
+  --rule-2:#D8D5ED;
 
   --brand:#5C4CE3;
-  --brand-soft:#ECEAFB;
-  --brand-deep:#2F2585;
+  --brand-soft:#EDEBFC;
+  --brand-deep:#4636BF;
 
-  --go:#2C6A4A;
-  --go-soft:#E3EEE6;
-  --hold:#8A5B06;
-  --hold-soft:#F8EFD9;
-  --no:#9E2B25;
-  --no-soft:#F7E6E3;
+  --sky:#BEEFF5;
+  --pink:#FFD1E3;
+  --yellow:#FFEFB0;
+  --lightblue:#D6DEFF;
+  --go:#15803D;
+  --go-soft:#E7F9EE;
+  --hold:#8A6D00;
+  --hold-soft:#FFF6D5;
+  --no:#B91C1C;
+  --no-soft:#FDEAEA;
 
-  --shadow-sm:0 1px 2px rgba(25,21,18,.06), 0 2px 8px rgba(25,21,18,.04);
-  --shadow-md:0 2px 4px rgba(25,21,18,.05), 0 12px 32px rgba(25,21,18,.08);
-  --shadow-lg:0 4px 8px rgba(25,21,18,.06), 0 24px 60px rgba(25,21,18,.12);
+  --shadow-sm:0 8px 24px rgba(22,22,44,.06);
+  --shadow-md:0 12px 34px rgba(22,22,44,.10);
+  --shadow-lg:0 26px 70px rgba(22,22,44,.16);
 
-  --display:'Reem Kufi', serif;
-  --body:'IBM Plex Sans Arabic', sans-serif;
-  --mono:'IBM Plex Mono', monospace;
+  --display:'Tajawal', sans-serif;
+  --body:'Tajawal', sans-serif;
+  --mono:'Tajawal', sans-serif;
 
-  --maxw:1080px;
+  --maxw:1160px;
 }
 
 *{box-sizing:border-box;}
@@ -47,109 +51,121 @@ body{
   background:var(--paper);
   color:var(--ink);
   font-family:var(--body);
-  font-size:16.5px;
+  font-size:16px;
   line-height:1.85;
-  font-weight:400;
+  font-weight:500;
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
 
-/* paper grain */
+/* soft platform backdrop */
 body::before{
-  content:''; position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.5;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.06'/%3E%3C/svg%3E");
+  content:''; position:fixed; inset:0; z-index:0; pointer-events:none;
+  background:
+    radial-gradient(circle at 7% 5%, rgba(190,239,245,.55), transparent 25rem),
+    radial-gradient(circle at 93% 18%, rgba(214,222,255,.62), transparent 29rem),
+    radial-gradient(circle at 25% 92%, rgba(255,209,227,.24), transparent 25rem);
 }
 
 /* ============ typography ============ */
-h1,h2,h3,h4{font-family:var(--display); font-weight:600; line-height:1.35; margin:0; letter-spacing:0;}
+h1,h2,h3,h4{font-family:var(--display); font-weight:800; line-height:1.35; margin:0; letter-spacing:0;}
 p{margin:0 0 1.05em;}
 p:last-child{margin-bottom:0;}
-strong,b{font-weight:600; color:var(--ink);}
-em{font-style:normal; background:linear-gradient(transparent 62%, #FBE9A7 62%); padding:0 .12em;}
+strong,b{font-weight:800; color:var(--ink);}
+em{font-style:normal; background:linear-gradient(transparent 62%, var(--yellow) 62%); padding:0 .12em;}
 a{color:var(--brand); text-underline-offset:3px; text-decoration-thickness:1px;}
 code,.mono{font-family:var(--mono); font-size:.87em; direction:ltr; display:inline-block;}
 
 /* ============ nav ============ */
 .topbar{
   position:sticky; top:0; z-index:60;
-  background:rgba(246,242,234,.86);
-  backdrop-filter:blur(14px) saturate(1.4);
-  border-bottom:1px solid var(--rule);
+  background:rgba(22,22,44,.96);
+  color:#fff;
+  backdrop-filter:blur(16px) saturate(1.25);
+  box-shadow:0 8px 28px rgba(22,22,44,.16);
 }
 .topbar-in{
   max-width:var(--maxw); margin:0 auto; padding:0 32px;
-  height:58px; display:flex; align-items:center; gap:22px;
+  min-height:64px; display:flex; align-items:center; gap:22px;
 }
-.tb-mark{display:flex; align-items:center; gap:9px; flex-shrink:0;}
-.tb-mark .dot{width:9px; height:9px; border-radius:50%; background:var(--brand); box-shadow:0 0 0 3.5px var(--brand-soft);}
-.tb-mark span{font-family:var(--display); font-weight:700; font-size:15px; letter-spacing:.01em;}
+.tb-mark{display:flex; align-items:center; gap:10px; flex-shrink:0; color:#fff; text-decoration:none;}
+.tb-mark .logo{width:38px; height:38px; border-radius:12px; background:var(--brand); display:grid; place-items:center; box-shadow:0 8px 18px rgba(92,76,227,.34);}
+.tb-mark .logo svg{width:20px; height:20px; stroke:#fff; fill:none; stroke-width:2;}
+.tb-mark .brand-copy{line-height:1.15;}
+.tb-mark b{display:block; color:#fff; font-size:15px; font-weight:800;}
+.tb-mark small{display:block; margin-top:4px; color:#A8A6C9; font-size:10px; font-weight:700;}
 .tb-nav{display:flex; gap:2px; margin-inline-start:auto; flex-wrap:wrap;}
 .tb-nav a{
-  font-size:12.5px; font-weight:500; color:var(--ink-3); text-decoration:none;
-  padding:6px 11px; border-radius:6px; white-space:nowrap; transition:.16s;
+  font-size:12px; font-weight:700; color:#C7C6E6; text-decoration:none;
+  padding:7px 11px; border-radius:999px; white-space:nowrap; transition:.16s;
 }
-.tb-nav a:hover{color:var(--ink); background:var(--paper-3);}
-.tb-nav a.on{color:var(--brand); background:var(--brand-soft);}
+.tb-nav a:hover{color:#fff; background:rgba(255,255,255,.10);}
+.tb-nav a.on{color:#fff; background:var(--brand);}
 
 /* ============ layout ============ */
 .wrap{max-width:var(--maxw); margin:0 auto; padding:0 32px; position:relative; z-index:1;}
-section{padding:72px 0; border-top:1px solid var(--rule); position:relative;}
+section{padding:76px 0; border-top:1px solid var(--rule); position:relative;}
 section:first-of-type{border-top:none;}
 
 /* ============ hero ============ */
 .hero{
-  padding:84px 0 68px; border-top:none; position:relative; overflow:hidden;
+  margin-top:30px; padding:72px 64px 56px; border:1px solid #E2DFF5; border-radius:28px;
+  position:relative; overflow:hidden; background:linear-gradient(140deg,#FFFFFF 0%,#F4F2FF 58%,#EDEBFC 100%);
+  box-shadow:var(--shadow-lg);
 }
 .hero::after{
-  content:''; position:absolute; top:-190px; left:-170px; width:520px; height:520px; z-index:-1;
-  background:radial-gradient(circle, rgba(92,76,227,.13), transparent 68%);
+  content:''; position:absolute; top:-150px; left:-110px; width:420px; height:420px; z-index:0;
+  border-radius:50%; background:rgba(190,239,245,.58); filter:blur(2px);
 }
+.hero::before{content:''; position:absolute; bottom:-170px; right:-120px; width:360px; height:360px; border-radius:50%; background:rgba(255,209,227,.45);}
+.hero > *{position:relative; z-index:1;}
 .eyebrow{
-  font-family:var(--mono); font-size:11px; font-weight:500; letter-spacing:.19em;
-  color:var(--brand); text-transform:uppercase; margin-bottom:26px;
-  display:flex; align-items:center; gap:13px;
+  font-family:var(--body); font-size:12px; font-weight:800; letter-spacing:0;
+  color:var(--brand); margin-bottom:22px; display:inline-flex; align-items:center; gap:8px;
+  padding:7px 13px; border-radius:999px; background:var(--brand-soft);
 }
-.eyebrow::after{content:''; flex:1; height:1px; background:linear-gradient(to left, var(--rule), transparent);}
+.eyebrow::before{content:''; width:7px; height:7px; border-radius:50%; background:var(--brand);}
 .hero h1{
-  font-size:clamp(38px, 6.4vw, 68px); font-weight:700; line-height:1.16;
-  letter-spacing:-.015em; margin-bottom:26px; max-width:17ch;
+  font-size:clamp(36px, 5.7vw, 66px); font-weight:800; line-height:1.18;
+  margin-bottom:24px; max-width:18ch;
 }
 .hero h1 .accent{color:var(--brand); position:relative; white-space:nowrap;}
 .hero-lede{
-  font-size:clamp(17px,2.1vw,20.5px); line-height:1.82; color:var(--ink-2);
-  max-width:62ch; font-weight:300;
+  font-size:clamp(17px,2.1vw,20px); line-height:1.82; color:var(--ink-2);
+  max-width:65ch; font-weight:500;
 }
 .hero-meta{
   display:flex; flex-wrap:wrap; gap:0; margin-top:44px;
-  border:1px solid var(--rule); border-radius:12px; overflow:hidden; background:var(--paper-2);
+  border:1px solid var(--rule); border-radius:20px; overflow:hidden; background:rgba(255,255,255,.86);
   box-shadow:var(--shadow-sm);
 }
 .hero-meta div{
   flex:1 1 158px; padding:15px 20px; border-inline-start:1px solid var(--rule);
 }
 .hero-meta div:first-child{border-inline-start:none;}
-.hero-meta dt{font-family:var(--mono); font-size:10px; letter-spacing:.13em; color:var(--ink-3); text-transform:uppercase; margin-bottom:5px;}
-.hero-meta dd{margin:0; font-size:14.5px; font-weight:600; font-family:var(--display);}
+.hero-meta dt{font-family:var(--body); font-size:10px; letter-spacing:0; color:var(--ink-3); margin-bottom:5px; font-weight:700;}
+.hero-meta dd{margin:0; font-size:14.5px; font-weight:800; font-family:var(--display);}
 
 /* ============ section heads ============ */
 .sec-head{margin-bottom:44px; position:relative;}
 .sec-num{
-  font-family:var(--mono); font-size:12px; font-weight:600; color:var(--brand);
-  letter-spacing:.16em; display:block; margin-bottom:14px;
+  font-family:var(--body); font-size:12px; font-weight:800; color:var(--brand);
+  letter-spacing:0; display:inline-flex; margin-bottom:14px; padding:6px 12px;
+  border-radius:999px; background:var(--brand-soft);
 }
-.sec-head h2{font-size:clamp(27px,3.9vw,40px); font-weight:700; letter-spacing:-.01em; line-height:1.28; max-width:22ch;}
-.sec-head .sub{margin-top:15px; font-size:17px; color:var(--ink-2); max-width:66ch; font-weight:300; line-height:1.8;}
+.sec-head h2{font-size:clamp(28px,3.9vw,42px); font-weight:800; line-height:1.28; max-width:24ch;}
+.sec-head .sub{margin-top:15px; font-size:17px; color:var(--ink-2); max-width:69ch; font-weight:500; line-height:1.8;}
 
 h3.blockhead{
-  font-size:21px; font-weight:600; margin:52px 0 18px;
-  padding-bottom:11px; border-bottom:1.5px solid var(--ink); display:inline-block;
+  font-size:22px; font-weight:800; margin:54px 0 18px;
+  padding-bottom:10px; border-bottom:3px solid var(--brand); display:inline-block;
 }
-h4.minihead{font-size:16.5px; font-weight:600; margin:32px 0 12px; color:var(--ink);}
+h4.minihead{font-size:17px; font-weight:800; margin:32px 0 12px; color:var(--ink);}
 
 /* ============ verdict chips ============ */
 .chip{
   display:inline-flex; align-items:center; gap:5px; font-family:var(--body);
-  font-size:11.5px; font-weight:600; padding:3px 10px; border-radius:5px;
+  font-size:11.5px; font-weight:800; padding:4px 11px; border-radius:999px;
   white-space:nowrap; line-height:1.7; border:1px solid;
 }
 .chip.go{background:var(--go-soft); color:var(--go); border-color:#BFD8C7;}
@@ -159,18 +175,18 @@ h4.minihead{font-size:16.5px; font-weight:600; margin:32px 0 12px; color:var(--i
 .chip.brand{background:var(--brand-soft); color:var(--brand-deep); border-color:#CFC9F5;}
 
 /* confidence marks */
-.cf{font-family:var(--mono); font-size:9.5px; font-weight:600; letter-spacing:.07em; padding:1.5px 6px; border-radius:4px; vertical-align:middle; margin-inline-start:5px;}
+.cf{font-family:var(--body); font-size:9.5px; font-weight:800; letter-spacing:0; padding:2px 7px; border-radius:999px; vertical-align:middle; margin-inline-start:5px;}
 .cf.v{background:var(--go-soft); color:var(--go);}
 .cf.e{background:var(--paper-3); color:var(--ink-3);}
 
 /* ============ callouts ============ */
 .callout{
-  margin:30px 0; padding:24px 26px; border-radius:12px; position:relative;
+  margin:30px 0; padding:25px 28px; border-radius:20px; position:relative;
   border:1px solid var(--rule); background:var(--paper-2); box-shadow:var(--shadow-sm);
 }
 .callout .ct{
-  font-family:var(--mono); font-size:10.5px; font-weight:600; letter-spacing:.15em;
-  text-transform:uppercase; margin-bottom:11px; display:flex; align-items:center; gap:8px;
+  font-family:var(--body); font-size:11px; font-weight:800; letter-spacing:0;
+  margin-bottom:11px; display:flex; align-items:center; gap:8px;
 }
 .callout p{font-size:16px;}
 .callout.principle{border-color:#CFC9F5; background:linear-gradient(180deg,#F4F2FD,#FBFAFE);}
@@ -181,22 +197,23 @@ h4.minihead{font-size:16.5px; font-weight:600; margin:32px 0 12px; color:var(--i
 .callout.danger .ct{color:var(--no);}
 .callout.find{border-color:#BFD8C7; background:linear-gradient(180deg,#EBF3EE,#FBFDFB);}
 .callout.find .ct{color:var(--go);}
-.callout .big{font-family:var(--display); font-size:19.5px; font-weight:600; line-height:1.65; color:var(--ink);}
+.callout .big{font-family:var(--display); font-size:20px; font-weight:800; line-height:1.65; color:var(--ink);}
 
 /* legal citation */
 .legal{
   margin:26px 0; padding:20px 24px; background:var(--paper-2);
-  border:1px solid var(--rule); border-inline-start:3px solid var(--brand); border-radius:0 10px 10px 0;
+  border:1px solid var(--rule); border-inline-start:5px solid var(--brand); border-radius:18px;
+  box-shadow:var(--shadow-sm);
 }
-.legal .art{font-family:var(--mono); font-size:11px; font-weight:600; color:var(--brand); letter-spacing:.08em; margin-bottom:7px;}
+.legal .art{font-family:var(--body); font-size:11px; font-weight:800; color:var(--brand); letter-spacing:0; margin-bottom:7px;}
 .legal q{font-size:16.5px; font-style:normal; color:var(--ink); font-weight:500; display:block; line-height:1.8;}
 .legal .impl{margin-top:12px; padding-top:12px; border-top:1px dashed var(--rule-2); font-size:14.5px; color:var(--ink-2);}
 
 /* ============ tables ============ */
-.tscroll{overflow-x:auto; margin:26px 0; border:1px solid var(--rule); border-radius:12px; background:var(--paper-2); box-shadow:var(--shadow-sm);}
+.tscroll{overflow-x:auto; margin:26px 0; border:1px solid var(--rule); border-radius:20px; background:var(--paper-2); box-shadow:var(--shadow-sm);}
 table{width:100%; border-collapse:collapse; min-width:660px;}
 thead th{
-  font-family:var(--mono); font-size:10.5px; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
+  font-family:var(--body); font-size:11px; font-weight:800; letter-spacing:0;
   color:var(--ink-3); text-align:right; padding:13px 16px; background:var(--paper-3);
   border-bottom:1.5px solid var(--rule-2); white-space:nowrap;
 }
@@ -205,7 +222,7 @@ tbody tr:last-child td{border-bottom:none;}
 tbody tr:hover{background:rgba(92,76,227,.028);}
 tbody td:first-child{font-weight:600; color:var(--ink);}
 td .n{color:var(--ink-2); font-weight:400; font-size:13.5px; display:block; margin-top:3px;}
-.rate{font-family:var(--mono); font-size:13px; font-weight:600;}
+.rate{font-family:var(--body); font-size:13px; font-weight:800;}
 .rate.a{color:var(--go);} .rate.b{color:var(--hold);} .rate.c{color:var(--no);}
 tr.dim td{opacity:.6;}
 tr.star td{background:linear-gradient(90deg, rgba(92,76,227,.07), transparent);}
@@ -216,70 +233,83 @@ tr.star td{background:linear-gradient(90deg, rgba(92,76,227,.07), transparent);}
 .g3{grid-template-columns:repeat(auto-fit,minmax(232px,1fr));}
 
 .tcard{
-  border:1px solid var(--rule); border-radius:13px; padding:22px 23px; background:var(--paper-2);
+  border:1px solid var(--rule); border-radius:20px; padding:23px 24px; background:var(--paper-2);
   box-shadow:var(--shadow-sm); transition:.22s cubic-bezier(.3,.8,.4,1); position:relative; overflow:hidden;
 }
 .tcard:hover{transform:translateY(-3px); box-shadow:var(--shadow-md); border-color:var(--rule-2);}
 .tcard .top{display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:13px;}
-.tcard h4{font-family:var(--display); font-size:17.5px; font-weight:600; margin:0; line-height:1.45;}
-.tcard .spec{font-family:var(--mono); font-size:10.5px; color:var(--ink-3); letter-spacing:.05em; margin-bottom:13px; direction:ltr; text-align:right;}
+.tcard h4{font-family:var(--display); font-size:18px; font-weight:800; margin:0; line-height:1.45;}
+.tcard .spec{font-family:var(--body); font-size:10.5px; color:var(--ink-3); letter-spacing:0; margin-bottom:13px; direction:ltr; text-align:right; font-weight:700;}
 .tcard p{font-size:14.5px; color:var(--ink-2); line-height:1.78; margin-bottom:.85em;}
 .tcard .pro,.tcard .con{
   font-size:13.5px; padding-inline-start:19px; position:relative; margin-bottom:6px; color:var(--ink-2); line-height:1.7;
 }
-.tcard .pro::before{content:'+'; position:absolute; right:0; color:var(--go); font-weight:700; font-family:var(--mono);}
-.tcard .con::before{content:'−'; position:absolute; right:0; color:var(--no); font-weight:700; font-family:var(--mono);}
+.tcard .pro::before{content:'+'; position:absolute; right:0; color:var(--go); font-weight:800; font-family:var(--body);}
+.tcard .con::before{content:'−'; position:absolute; right:0; color:var(--no); font-weight:800; font-family:var(--body);}
 .tcard.rejected{background:repeating-linear-gradient(-45deg, #FCF7F6, #FCF7F6 11px, #FAF2F0 11px, #FAF2F0 22px); border-color:#E5BFB9;}
 .tcard.starred{border-color:#CFC9F5; box-shadow:0 0 0 3px rgba(92,76,227,.07), var(--shadow-sm);}
 .tcard.starred::after{
   content:'مرشّح قوي'; position:absolute; top:13px; left:-31px; transform:rotate(-45deg);
-  background:var(--brand); color:#fff; font-size:9.5px; font-weight:700; padding:3px 34px; letter-spacing:.05em;
+  background:var(--brand); color:#fff; font-size:9.5px; font-weight:800; padding:3px 34px; letter-spacing:0;
 }
+
+/* ============ positioning cards ============ */
+.position-card .picon{
+  width:44px; height:44px; border-radius:14px; display:grid; place-items:center;
+  margin-bottom:16px; color:var(--brand);
+}
+.position-card .picon svg{width:22px; height:22px; stroke:currentColor; fill:none; stroke-width:2;}
+.position-card:nth-child(1) .picon{background:var(--pink);}
+.position-card:nth-child(2) .picon{background:var(--sky);}
+.position-card:nth-child(3) .picon{background:var(--lightblue);}
+.position-card:nth-child(4) .picon{background:var(--yellow);}
+.position-card h4{margin-bottom:9px;}
+.position-card p{margin:0;}
 
 /* ============ layer stack ============ */
 .stack{margin:32px 0; display:flex; flex-direction:column; gap:11px;}
 .layer{
-  display:flex; align-items:stretch; gap:0; border:1px solid var(--rule); border-radius:12px;
+  display:flex; align-items:stretch; gap:0; border:1px solid var(--rule); border-radius:18px;
   overflow:hidden; background:var(--paper-2); box-shadow:var(--shadow-sm);
 }
 .layer .lnum{
   flex-shrink:0; width:66px; display:flex; flex-direction:column; align-items:center; justify-content:center;
-  background:var(--brand); color:#fff; font-family:var(--display); font-weight:700; font-size:25px; gap:1px;
+  background:var(--brand); color:#fff; font-family:var(--display); font-weight:800; font-size:25px; gap:1px;
 }
-.layer .lnum small{font-family:var(--mono); font-size:8.5px; font-weight:500; opacity:.72; letter-spacing:.1em;}
+.layer .lnum small{font-family:var(--body); font-size:8.5px; font-weight:700; opacity:.72; letter-spacing:0;}
 .layer .lbody{padding:18px 22px; flex:1;}
-.layer .lbody h4{font-family:var(--display); font-size:18px; font-weight:600; margin:0 0 7px;}
+.layer .lbody h4{font-family:var(--display); font-size:18px; font-weight:800; margin:0 0 7px;}
 .layer .lbody p{font-size:14.5px; color:var(--ink-2); margin:0; line-height:1.78;}
 .layer.safety .lnum{background:var(--go);}
 .layer.safety{border-color:#BFD8C7;}
 
 /* ============ hop diagram ============ */
 .hops{display:grid; gap:20px; margin:32px 0; grid-template-columns:repeat(auto-fit,minmax(310px,1fr));}
-.hopbox{border:1px solid var(--rule); border-radius:13px; padding:22px; background:var(--paper-2); box-shadow:var(--shadow-sm);}
+.hopbox{border:1px solid var(--rule); border-radius:20px; padding:22px; background:var(--paper-2); box-shadow:var(--shadow-sm);}
 .hopbox.bad{border-color:#E5BFB9;}
 .hopbox.good{border-color:#BFD8C7;}
 .hopbox .ht{display:flex; align-items:center; justify-content:space-between; margin-bottom:17px; gap:10px; flex-wrap:wrap;}
-.hopbox .ht h4{font-family:var(--display); font-size:17px; font-weight:600; margin:0;}
+.hopbox .ht h4{font-family:var(--display); font-size:17px; font-weight:800; margin:0;}
 .hoplist{display:flex; flex-direction:column; gap:5px;}
 .hop{
   display:flex; align-items:center; gap:10px; font-size:13.5px; padding:7px 12px;
-  border-radius:7px; background:var(--paper); border:1px solid var(--rule); color:var(--ink-2);
+  border-radius:12px; background:var(--paper); border:1px solid var(--rule); color:var(--ink-2);
 }
-.hop .hn{font-family:var(--mono); font-size:10px; font-weight:600; width:15px; flex-shrink:0; color:var(--ink-3);}
+.hop .hn{font-family:var(--body); font-size:10px; font-weight:800; width:15px; flex-shrink:0; color:var(--ink-3);}
 .hop.risk{border-color:#E8CBC5; background:#FCF4F2; color:var(--no);}
 .hop.risk .hn{color:var(--no);}
 .hopfoot{margin-top:15px; padding-top:14px; border-top:1px dashed var(--rule-2); font-size:13.5px; color:var(--ink-2); line-height:1.7;}
 
 /* ============ roadmap ============ */
 .phases{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(258px,1fr)); margin:30px 0;}
-.phase{border:1px solid var(--rule); border-radius:13px; background:var(--paper-2); overflow:hidden; box-shadow:var(--shadow-sm); display:flex; flex-direction:column;}
+.phase{border:1px solid var(--rule); border-radius:20px; background:var(--paper-2); overflow:hidden; box-shadow:var(--shadow-sm); display:flex; flex-direction:column;}
 .phase .ph{padding:15px 20px; border-bottom:1px solid var(--rule); background:var(--paper-3);}
-.phase .ph .pn{font-family:var(--mono); font-size:10px; letter-spacing:.15em; color:var(--brand); font-weight:600; margin-bottom:4px;}
-.phase .ph h4{font-family:var(--display); font-size:18px; font-weight:600; margin:0;}
+.phase .ph .pn{font-family:var(--body); font-size:10px; letter-spacing:0; color:var(--brand); font-weight:800; margin-bottom:4px;}
+.phase .ph h4{font-family:var(--display); font-size:18px; font-weight:800; margin:0;}
 .phase .pb{padding:17px 20px; flex:1;}
 .phase ul{margin:0; padding-inline-start:17px; font-size:14px; color:var(--ink-2); line-height:1.9;}
 .phase ul li::marker{color:var(--brand);}
-.phase .pf{padding:12px 20px; border-top:1px dashed var(--rule-2); font-family:var(--mono); font-size:11px; color:var(--ink-3); letter-spacing:.04em;}
+.phase .pf{padding:12px 20px; border-top:1px dashed var(--rule-2); font-family:var(--body); font-size:11px; color:var(--ink-3); letter-spacing:0; font-weight:700;}
 .phase.now{border-color:#CFC9F5;}
 .phase.now .ph{background:var(--brand-soft);}
 
@@ -287,24 +317,24 @@ tr.star td{background:linear-gradient(90deg, rgba(92,76,227,.07), transparent);}
 .steps{display:flex; flex-direction:column; gap:11px; margin:28px 0; counter-reset:st;}
 .step{
   display:flex; gap:17px; align-items:flex-start; padding:18px 21px; background:var(--paper-2);
-  border:1px solid var(--rule); border-radius:12px; box-shadow:var(--shadow-sm); transition:.2s;
+  border:1px solid var(--rule); border-radius:18px; box-shadow:var(--shadow-sm); transition:.2s;
 }
 .step:hover{border-color:var(--rule-2); transform:translateX(-3px);}
 .step::before{
   counter-increment:st; content:counter(st);
-  font-family:var(--mono); font-size:13px; font-weight:600; color:var(--brand);
-  width:29px; height:29px; flex-shrink:0; border-radius:50%; background:var(--brand-soft);
+  font-family:var(--body); font-size:13px; font-weight:800; color:#fff;
+  width:31px; height:31px; flex-shrink:0; border-radius:10px; background:var(--brand);
   display:flex; align-items:center; justify-content:center; margin-top:1px;
 }
 .step .sb{flex:1;}
-.step .sb b{display:block; font-size:16px; font-weight:600; margin-bottom:4px; font-family:var(--display);}
+.step .sb b{display:block; font-size:16px; font-weight:800; margin-bottom:4px; font-family:var(--display);}
 .step .sb span{font-size:14px; color:var(--ink-2); line-height:1.7;}
-.step .cost{font-family:var(--mono); font-size:11px; color:var(--ink-3); white-space:nowrap; padding-top:4px; letter-spacing:.03em;}
+.step .cost{font-family:var(--body); font-size:11px; color:var(--brand); white-space:nowrap; padding:5px 10px; letter-spacing:0; background:var(--brand-soft); border-radius:999px; font-weight:800;}
 
 /* ============ misc ============ */
-.kv{display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:1px; background:var(--rule); border:1px solid var(--rule); border-radius:12px; overflow:hidden; margin:26px 0;}
+.kv{display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:1px; background:var(--rule); border:1px solid var(--rule); border-radius:20px; overflow:hidden; margin:26px 0; box-shadow:var(--shadow-sm);}
 .kv div{background:var(--paper-2); padding:17px 19px;}
-.kv dt{font-family:var(--mono); font-size:10px; letter-spacing:.11em; color:var(--ink-3); text-transform:uppercase; margin-bottom:6px;}
+.kv dt{font-family:var(--body); font-size:10px; letter-spacing:0; color:var(--ink-3); margin-bottom:6px; font-weight:700;}
 .kv dd{margin:0; font-family:var(--display); font-size:24px; font-weight:700; color:var(--brand); line-height:1.2;}
 .kv dd small{display:block; font-family:var(--body); font-size:12.5px; font-weight:400; color:var(--ink-2); margin-top:5px; line-height:1.6;}
 
@@ -316,8 +346,8 @@ ul.clean li b{color:var(--ink);}
 .divider{height:1px; background:linear-gradient(to left, transparent, var(--rule-2), transparent); margin:52px 0;}
 
 footer{
-  border-top:1px solid var(--rule); padding:46px 0 60px; margin-top:34px;
-  font-size:13.5px; color:var(--ink-3);
+  border-top:1px solid var(--rule); padding:42px 32px 52px; margin:34px 0 36px;
+  font-size:13.5px; color:var(--ink-3); background:#fff; border-radius:24px; box-shadow:var(--shadow-sm);
 }
 footer .fx{display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap; align-items:flex-end;}
 footer b{font-family:var(--display); color:var(--ink-2); font-size:15px; display:block; margin-bottom:5px;}
@@ -335,15 +365,25 @@ footer b{font-family:var(--display); color:var(--ink-2); font-size:15px; display
 
 /* ============ responsive ============ */
 @media (max-width:760px){
+  html{scroll-padding-top:126px;}
   body{font-size:15.5px;}
-  .wrap{padding:0 20px;}
-  .topbar-in{padding:0 20px; height:52px;}
-  .tb-nav{display:none;}
+  .wrap{padding:0 16px;}
+  .topbar-in{padding:8px 16px; min-height:58px; align-items:flex-start; flex-direction:column; gap:8px;}
+  .tb-nav{display:flex; width:100%; overflow-x:auto; flex-wrap:nowrap; padding-bottom:2px; scrollbar-width:none;}
+  .tb-nav::-webkit-scrollbar{display:none;}
+  .tb-nav a{font-size:11px; padding:6px 10px;}
   section{padding:54px 0;}
-  .hero{padding:56px 0 46px;}
+  .hero{margin-top:16px; padding:42px 24px 30px; border-radius:22px;}
+  .hero h1{font-size:36px;}
+  .hero-meta{display:grid; grid-template-columns:1fr 1fr;}
+  .hero-meta div{border:0; border-bottom:1px solid var(--rule);}
+  .hero-meta div:nth-child(odd){border-inline-end:1px solid var(--rule);}
   .layer{flex-direction:column;}
   .layer .lnum{width:100%; flex-direction:row; gap:9px; padding:9px; font-size:19px;}
   .srcs{column-count:1;}
+  .step{flex-wrap:wrap;}
+  .step .cost{margin-inline-start:48px;}
+  footer{padding:30px 22px;}
 }
 
 /* ============ print ============ */
@@ -361,9 +401,13 @@ footer b{font-family:var(--display); color:var(--ink-2); font-size:15px; display
 
 <div class="topbar">
   <div class="topbar-in">
-    <div class="tb-mark"><span class="dot"></span><span>مسلك</span></div>
+    <a class="tb-mark" href="index.html" aria-label="العودة إلى منصة مسلك">
+      <span class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 21V9l8-5 8 5v12M9 21v-6h6v6M4 21h16"/></svg></span>
+      <span class="brand-copy"><b>مسلك</b><small>ملف الحلول والقرار</small></span>
+    </a>
     <nav class="tb-nav">
       <a href="#summary">الخلاصة</a>
+      <a href="#market">التموضع</a>
       <a href="#law">المستجد النظامي</a>
       <a href="#boarding">تحضير الطالب</a>
       <a href="#alight">النزول</a>
@@ -380,18 +424,17 @@ footer b{font-family:var(--display); color:var(--ink-2); font-size:15px; display
 
 <!-- ═══════════ HERO ═══════════ -->
 <header class="hero">
-  <div class="eyebrow">ملف قرار · للنقاش في اجتماع الغد</div>
-  <h1>تحضير الطالب، و<span class="accent">إشعار الوصول</span> — أفضل الممارسات والحلول القابلة للتطبيق</h1>
+  <div class="eyebrow">ملف قرار محدث · أغسطس ٢٠٢٦</div>
+  <h1>منصة امتثال وتشغيل <span class="accent">للنقل التعليمي</span></h1>
   <p class="hero-lede">
-    مسح لما تفعله شركات النقل المدرسي عالميًا في مسألتين: التحقق من صعود الطالب ونزوله،
-    وإبلاغ الأسرة بوصول الحافلة دون نزول السائق أو استخدام البوري. مع تقييم صريح لكل تقنية مطروحة
-    — من رمز QR إلى بصمة الوجه — في ضوء النظام السعودي وخصوصية الطالبات وواقع التشغيل.
+    خلاصة بحثية وقرارية لمسلك: كيف يثبت المشغّل والمدرسة الأهلية الامتثال، ويتحقق المرافق من صعود الطالب ونزوله،
+    ويمنع بقاء طفل في الحافلة، ويصل إلى الأسر التي لا يخدمها إشعار التطبيق — دون التضحية بزمن المحطة أو الخصوصية.
   </p>
   <dl class="hero-meta">
-    <div><dt>الحالة</dt><dd>مسوّدة للنقاش</dd></div>
-    <div><dt>النطاق</dt><dd>مسألتان</dd></div>
+    <div><dt>التموضع</dt><dd>امتثال وتشغيل</dd></div>
+    <div><dt>السوق الأول</dt><dd>القطاع الأهلي</dd></div>
     <div><dt>التقنيات المقيَّمة</dt><dd>١١ خيارًا</dd></div>
-    <div><dt>مستوى التحقق</dt><dd>مصادر موثّقة</dd></div>
+    <div><dt>الحالة</dt><dd>موثّق ومحدّث</dd></div>
   </dl>
 </header>
 
@@ -399,42 +442,99 @@ footer b{font-family:var(--display); color:var(--ink-2); font-size:15px; display
 <section id="summary">
   <div class="sec-head">
     <span class="sec-num">٠١ — الخلاصة</span>
-    <h2>ستة قرارات تلخّص الملف</h2>
+    <h2>سبعة قرارات تلخّص الملف</h2>
     <p class="sub">إن لم يكن أمامك وقت لقراءة الباقي، فهذه هي النتائج. كل واحدة مشروحة بالتفصيل في موضعها.</p>
   </div>
 
   <div class="grid g2">
+    <div class="tcard starred">
+      <div class="top"><h4>١ — المنتج: امتثال وتشغيل لا تتبع فقط</h4><span class="chip brand">التموضع</span></div>
+      <p>«رافد» يقدّم بالفعل التتبع وتنبيهات الاقتراب والصعود والنزول. فرصة مسلك الأقوى هي خدمة المدارس الأهلية والمشغّلين عبر دليل امتثال وتنسيق متعدد المدارس.</p>
+    </div>
     <div class="tcard">
-      <div class="top"><h4>١ — التعرف على الوجه والبصمة: مرفوضان</h4><span class="chip no">مرفوض</span></div>
+      <div class="top"><h4>٢ — التعرف على الوجه والبصمة: مرفوضان</h4><span class="chip no">مرفوض</span></div>
       <p>ليس لسبب واحد بل لأربعة مجتمعة: بيانات حيوية حسّاسة لقاصرين تحت نظام حماية البيانات، وخصوصية الطالبات، وغياب أي إلزام نظامي بالكاميرات يمنح غطاءً، ومخاطرة سمعة غير محسوبة.</p>
     </div>
     <div class="tcard">
-      <div class="top"><h4>٢ — القراءة بلا لمس غير موثوقة</h4><span class="chip no">غير صالح</span></div>
+      <div class="top"><h4>٣ — القراءة بلا لمس غير موثوقة</h4><span class="chip no">غير صالح</span></div>
       <p>UHF وBLE يَعِدان بالمرور دون توقّف، لكن باب الحافلة أسوأ بيئة ممكنة لهما: صندوق معدني عاكس، وأجساد تمتص الإشارة، وحدود غير واضحة بين «داخل» و«على الرصيف».</p>
     </div>
     <div class="tcard starred">
-      <div class="top"><h4>٣ — بطاقة NFC كمسار سريع</h4><span class="chip go">موصى به</span></div>
+      <div class="top"><h4>٤ — بطاقة NFC كمسار سريع</h4><span class="chip go">موصى به</span></div>
       <p>معيار الصناعة الفعلي. تُقرأ بجوال المرافق نفسه بلا عتاد إضافي، وتحمل رقمًا مجهولًا لا بيانات شخصية — فالبطاقة الضائعة قطعة بلاستيك بلا معنى.</p>
     </div>
     <div class="tcard starred">
-      <div class="top"><h4>٤ — قائمة المحطة كشبكة أمان</h4><span class="chip go">موصى به</span></div>
+      <div class="top"><h4>٥ — قائمة المحطة كشبكة أمان</h4><span class="chip go">موصى به</span></div>
       <p>من نسي بطاقته: نقرة واحدة على اسمه من قائمة تعرض <b>طلاب هذه المحطة فقط</b>. بلا سبب مطلوب وبلا لوم. هذا ما تفعله مقاطعات تدير تسعين ألف طالب.</p>
     </div>
     <div class="tcard">
-      <div class="top"><h4>٥ — النزول يُستنتج لا يُمسح</h4><span class="chip hold">بتحفّظ</span></div>
+      <div class="top"><h4>٦ — النزول يُستنتج لا يُمسح</h4><span class="chip hold">بتحفّظ</span></div>
       <p>الطالب مسجَّل على محطة؛ التوقف عندها يعني نزوله. يؤكَّد العدد فقط، ويُسجَّل الاستثناء وحده. يوفّر ثواني ثمينة لكل طالب مرتين يوميًا.</p>
     </div>
     <div class="tcard">
-      <div class="top"><h4>٦ — إشعار الوصول: الفرصة فيمن لا يصله</h4><span class="chip brand">إعادة تأطير</span></div>
+      <div class="top"><h4>٧ — إشعار الوصول: الفرصة فيمن لا يصله</h4><span class="chip brand">إعادة تأطير</span></div>
       <p>الإشعار عبر التطبيق مبنيّ ومتاح حكوميًا. لكن ثلث الأسر لا تثبّت التطبيق، وكثير من الطلاب بلا جوال — <b>وهؤلاء بالضبط سبب استمرار البوري</b>.</p>
     </div>
+  </div>
+</section>
+
+<!-- ═══════════ MARKET POSITION ═══════════ -->
+<section id="market">
+  <div class="sec-head">
+    <span class="sec-num">٠٢ — التموضع السوقي</span>
+    <h2>أين يفوز مسلك أمام «رافد»؟</h2>
+    <p class="sub">
+      «رافد» الحكومي يقدّم بالفعل التتبع الحي وتنبيهات صعود الطالب ونزوله واقتراب الحافلة ووصولها للمنزل.
+      لذلك لا يكفي أن يكون مسلك تطبيق ولي أمر آخر؛ قيمة المنتج تبدأ من الفجوات التشغيلية والتنظيمية التي لا يغطيها هذا العرض.
+    </p>
+  </div>
+
+  <div class="grid g2">
+    <div class="tcard position-card">
+      <div class="picon"><svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 21V9l8-5 8 5v12M9 21v-6h6v6M4 21h16"/></svg></div>
+      <h4>المدارس الأهلية والعالمية</h4>
+      <p>هي السوق الطبيعي لمسلك: تدير نقلها بنفسها أو عبر مشغّلين خاصين وتحتاج أداة إدارة كاملة، لا واجهة تتبع للأسرة فقط.</p>
+    </div>
+    <div class="tcard position-card">
+      <div class="picon"><svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M12 22C7 20 4 16 4 10V5l8-3 8 3v5c0 6-3 10-8 12z"/></svg></div>
+      <h4>إثبات الامتثال</h4>
+      <p>سجل مؤرّخ ومختوم جغرافيًا لخلو الحافلة، أهلية المرافق، والاستثناءات؛ بيانات قابلة للتدقيق وليست مجرد حالة لحظية.</p>
+    </div>
+    <div class="tcard position-card">
+      <div class="picon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg></div>
+      <h4>إشراف متعدد المدارس</h4>
+      <p>واجهة أم لمجموعة مدارس أو مشغّل خاص تراقب عشرات المدارس والأساطيل من مكان واحد — وهي بنية موجودة أصلًا في بروتوتايب مسلك.</p>
+    </div>
+    <div class="tcard position-card">
+      <div class="picon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3"/><path stroke-linecap="round" d="M5 21c0-4 3-7 7-7s7 3 7 7M18 7h3m-1.5-1.5v3"/></svg></div>
+      <h4>دور مستقل للمرافق</h4>
+      <p>واجهة وصلاحيات للتحضير عند الصعود والنزول، تعمل دون اتصال، بدل تحميل السائق مهمة لا ينبغي أن ينفّذها أثناء القيادة.</p>
+    </div>
+  </div>
+
+  <div class="tscroll">
+    <table>
+      <thead><tr><th>من</th><th>إلى</th><th>الأثر على القرار</th></tr></thead>
+      <tbody>
+        <tr><td>منصة تتبع نقل مدرسي</td><td><b>منصة امتثال وتشغيل</b></td><td>البيع على التزام لا على ميزة قابلة للمساومة</td></tr>
+        <tr><td>السوق الحكومي العام</td><td><b>القطاع الأهلي ومشغّلو النقل الخاص</b></td><td>تركيز التحقق التجاري والتكاملات</td></tr>
+        <tr><td>تطبيق ولي الأمر هو المنتج</td><td><b>تطبيق ولي الأمر مكوّن داعم</b></td><td>الأولوية للمدرسة والمشغّل والمرافق</td></tr>
+        <tr><td>ميزة سلامة</td><td><b>دليل امتثال قابل للتدقيق</b></td><td>سجل زمني وجغرافي وتصدير للهيئة</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout danger">
+    <div class="ct">▲ فحص سوقي لا يُؤجَّل</div>
+    <p class="big">افحص تطبيق «رافد» شاشة بشاشة، ثم اسأل ثلاث مدارس أهلية أين ينتهي ما يقدّمه وتبدأ نقطة الألم الفعلية.</p>
+    <p style="margin-top:12px;">ساعة فحص وعدة مكالمات قد تغيّر ترتيب خارطة المنتج أكثر من أسابيع من النقاش التقني.</p>
   </div>
 </section>
 
 <!-- ═══════════ LAW ═══════════ -->
 <section id="law">
   <div class="sec-head">
-    <span class="sec-num">٠٢ — المستجد النظامي</span>
+    <span class="sec-num">٠٣ — المستجد النظامي</span>
     <h2>لائحة جديدة تغيّر طبيعة المنتج</h2>
     <p class="sub">
       صدرت اللائحة التنفيذية لنشاط النقل التعليمي عن الهيئة العامة للنقل، وهي نافذة الآن.
@@ -468,6 +568,15 @@ footer b{font-family:var(--display); color:var(--ink-2); font-size:15px; display
     </div>
   </div>
 
+  <div class="legal">
+    <div class="art">نظام حماية البيانات الشخصية — بيانات الأطفال</div>
+    <q>بيانات الأطفال تستلزم حوكمة مشددة، وموافقة ولي الأمر، وتسجيل الجهة المتحكمة لدى سدايا.</q>
+    <div class="impl">
+      <b>الأثر:</b> التسجيل لدى سدايا مسار امتثال مستقل، والاستضافة داخل المملكة هي الخيار المعماري الآمن،
+      وأي وسم للطالب يجب أن يحمل <b>معرّفًا مجهولًا فقط</b> دون اسم أو صورة أو رقم مدني.
+    </div>
+  </div>
+
   <div class="callout find">
     <div class="ct">◆ وما لا تفرضه اللائحة — وهذا مهم بالقدر نفسه</div>
     <p>
@@ -492,7 +601,7 @@ footer b{font-family:var(--display); color:var(--ink-2); font-size:15px; display
 <!-- ═══════════ BOARDING ═══════════ -->
 <section id="boarding">
   <div class="sec-head">
-    <span class="sec-num">٠٣ — المسألة الأولى</span>
+    <span class="sec-num">٠٤ — المسألة الأولى</span>
     <h2>تحضير الطالب عند الصعود</h2>
     <p class="sub">
       الوضع الحالي في البروتوتايب: السائق يضغط ✓ أو ✗ لكل طالب من قائمة تعرض كل طلاب المسار.
@@ -507,7 +616,7 @@ footer b{font-family:var(--display); color:var(--ink-2); font-size:15px; display
 
   <div class="callout danger">
     <div class="ct">▲ نمط الفشل الأخطر</div>
-    <p class="big">أي حل يضيف أكثر من ٣٠ ثانية لكل محطة سيتوقف السائق عن استخدامه.</p>
+    <p class="big">أي حل يضيف أكثر من ٣٠ ثانية لكل محطة سيتوقف الفريق الميداني عن استخدامه.</p>
     <p style="margin-top:12px;">
       وحين يتوقف عن استخدامه، سيملأ البيانات لاحقًا بشكل تقريبي أو وهمي.
       <b>حل مُتجاهَل دقته صفر مهما بلغت دقته الورقية.</b>
@@ -528,74 +637,74 @@ footer b{font-family:var(--display); color:var(--ink-2); font-size:15px; display
     <thead>
       <tr>
         <th>الحل</th><th>زمن المحطة</th><th>مقاومة النسيان</th><th>الجنسان</th>
-        <th>النظام</th><th>التكلفة</th><th>الحكم</th>
+        <th>النظام</th><th>التكلفة</th><th>دون اتصال</th><th>الحكم</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>يدوي — الوضع الحالي<span class="n">قائمة بكل طلاب المسار</span></td>
         <td><span class="rate b">متوسط</span></td><td><span class="rate a">لا ينطبق</span></td>
-        <td><span class="rate a">✓</span></td><td><span class="rate a">✓</span></td><td><span class="rate a">صفر</span></td>
+        <td><span class="rate a">✓</span></td><td><span class="rate a">✓</span></td><td><span class="rate a">صفر</span></td><td><span class="rate a">✓</span></td>
         <td><span class="chip neutral">خط الأساس</span></td>
       </tr>
       <tr class="star">
         <td>بطاقة NFC + جوال المرافق<span class="n">MIFARE DESFire · لمس مقصود</span></td>
         <td><span class="rate a">ممتاز</span></td><td><span class="rate c">ضعيف</span></td>
-        <td><span class="rate a">✓</span></td><td><span class="rate a">✓</span></td><td><span class="rate a">منخفض</span></td>
+        <td><span class="rate a">✓</span></td><td><span class="rate a">✓</span></td><td><span class="rate a">منخفض</span></td><td><span class="rate a">✓</span></td>
         <td><span class="chip go">موصى به</span></td>
       </tr>
       <tr>
         <td>بطاقة NFC + قارئ ثابت<span class="n">قارئ مثبّت عند الباب</span></td>
         <td><span class="rate a">ممتاز</span></td><td><span class="rate c">ضعيف</span></td>
-        <td><span class="rate a">✓</span></td><td><span class="rate a">✓</span></td><td><span class="rate b">متوسط</span></td>
+        <td><span class="rate a">✓</span></td><td><span class="rate a">✓</span></td><td><span class="rate b">متوسط</span></td><td><span class="rate a">✓</span></td>
         <td><span class="chip hold">مرحلة لاحقة</span></td>
       </tr>
       <tr class="star">
         <td>قائمة أسماء على الجهاز<span class="n">طلاب المحطة الحالية فقط</span></td>
         <td><span class="rate b">جيد</span></td><td><span class="rate a">ممتاز</span></td>
-        <td><span class="rate a">✓</span></td><td><span class="rate a">✓</span></td><td><span class="rate a">صفر</span></td>
+        <td><span class="rate a">✓</span></td><td><span class="rate a">✓</span></td><td><span class="rate a">صفر</span></td><td><span class="rate a">✓</span></td>
         <td><span class="chip go">موصى به</span></td>
       </tr>
       <tr>
         <td>رمز QR مطبوع<span class="n">بطاقة أو ملصق على الحقيبة</span></td>
         <td><span class="rate c">بطيء</span></td><td><span class="rate c">ضعيف</span></td>
-        <td><span class="rate a">✓</span></td><td><span class="rate a">✓</span></td><td><span class="rate a">شبه صفر</span></td>
+        <td><span class="rate a">✓</span></td><td><span class="rate a">✓</span></td><td><span class="rate a">شبه صفر</span></td><td><span class="rate a">✓</span></td>
         <td><span class="chip hold">خطة بديلة</span></td>
       </tr>
       <tr>
         <td>QR على شاشة الجوال<span class="n">رمز متغيّر في تطبيق الطالب</span></td>
         <td><span class="rate c">بطيء</span></td><td><span class="rate b">متوسط</span></td>
-        <td><span class="rate a">✓</span></td><td><span class="rate a">✓</span></td><td><span class="rate a">صفر</span></td>
+        <td><span class="rate a">✓</span></td><td><span class="rate a">✓</span></td><td><span class="rate a">صفر</span></td><td><span class="rate a">✓</span></td>
         <td><span class="chip neutral">ثانوي</span></td>
       </tr>
       <tr class="dim">
         <td>UHF RFID بلا لمس<span class="n">٨٦٠–٩٦٠ ميجاهرتز · بوابة</span></td>
         <td><span class="rate a">ممتاز</span></td><td><span class="rate c">ضعيف</span></td>
-        <td><span class="rate a">✓</span></td><td><span class="rate a">✓</span></td><td><span class="rate c">مرتفع</span></td>
+        <td><span class="rate a">✓</span></td><td><span class="rate a">✓</span></td><td><span class="rate c">مرتفع</span></td><td><span class="rate a">✓</span></td>
         <td><span class="chip no">غير موثوق</span></td>
       </tr>
       <tr class="dim">
         <td>وسم BLE نشط<span class="n">بطارية · بوابة في الحافلة</span></td>
         <td><span class="rate a">ممتاز</span></td><td><span class="rate c">ضعيف</span></td>
-        <td><span class="rate a">✓</span></td><td><span class="rate a">✓</span></td><td><span class="rate c">مرتفع</span></td>
+        <td><span class="rate a">✓</span></td><td><span class="rate a">✓</span></td><td><span class="rate c">مرتفع</span></td><td><span class="rate b">جزئي</span></td>
         <td><span class="chip no">غير موثوق</span></td>
       </tr>
       <tr class="dim">
         <td>UWB<span class="n">دقة سنتيمترية · يعرف الاتجاه</span></td>
         <td><span class="rate a">ممتاز</span></td><td><span class="rate c">ضعيف</span></td>
-        <td><span class="rate a">✓</span></td><td><span class="rate a">✓</span></td><td><span class="rate c">مرتفع جدًا</span></td>
+        <td><span class="rate a">✓</span></td><td><span class="rate a">✓</span></td><td><span class="rate c">مرتفع جدًا</span></td><td><span class="rate a">✓</span></td>
         <td><span class="chip neutral">سابق لأوانه</span></td>
       </tr>
       <tr class="dim">
         <td>التعرف على الوجه<span class="n">كاميرا عند الباب</span></td>
         <td><span class="rate b">متوسط</span></td><td><span class="rate a">ممتاز</span></td>
-        <td><span class="rate c">✕</span></td><td><span class="rate c">✕</span></td><td><span class="rate c">مرتفع</span></td>
+        <td><span class="rate c">✕</span></td><td><span class="rate c">✕</span></td><td><span class="rate c">مرتفع</span></td><td><span class="rate c">✕</span></td>
         <td><span class="chip no">مرفوض</span></td>
       </tr>
       <tr class="dim">
         <td>البصمة / راحة اليد<span class="n">قارئ حيوي</span></td>
         <td><span class="rate c">بطيء</span></td><td><span class="rate a">ممتاز</span></td>
-        <td><span class="rate b">إشكالي</span></td><td><span class="rate c">✕</span></td><td><span class="rate c">مرتفع</span></td>
+        <td><span class="rate b">إشكالي</span></td><td><span class="rate c">✕</span></td><td><span class="rate c">مرتفع</span></td><td><span class="rate a">✓</span></td>
         <td><span class="chip no">مرفوض</span></td>
       </tr>
     </tbody>
@@ -625,8 +734,8 @@ footer b{font-family:var(--display); color:var(--ink-2); font-size:15px; display
       <div class="con">بطيء إن عُرضت كل الأسماء — <b>والحل: اعرض طلاب المحطة الحالية فقط (٢–٤)</b></div>
       <div class="con">قابل للتلاعب نظريًا، لكن نموذج التهديد ضعيف: ما دافع الطفل لتحضير زميله؟</div>
       <p style="margin-top:14px; padding-top:13px; border-top:1px dashed var(--rule-2); font-size:14px;">
-        <b>ملاحظة على الصور:</b> إضافة صورة الطالب تجعل الاختيار فوريًا حتى لغير القارئ في الصفوف الأولى —
-        <b>لكنها غير مقبولة في حافلات الطالبات</b>. البديل: لون + رمز + الاسم الأول.
+        <b>لا صور للطلاب في أي واجهة:</b> لتسهيل الاختيار لدى الصفوف الأولى نستخدم لونًا ورمزًا ثابتًا مع الاسم الأول للجميع؛
+        وبذلك يبقى التصميم متطابقًا بين الجنسين ولا ينشئ مستودع صور لقاصرين.
       </p>
     </div>
 
@@ -686,7 +795,7 @@ footer b{font-family:var(--display); color:var(--ink-2); font-size:15px; display
     <p style="margin-top:12px;">
       <b>مسار سريع يخدم تسعين بالمئة، وشبكة أمان تلتقط الباقي في ثوانٍ.</b>
       والخطأ الشائع الذي يقتل هذه الأنظمة هو جعل المسار البديل <b>مؤلمًا</b>:
-      نموذج طويل، سبب إلزامي، تنبيه للإدارة. النتيجة الحتمية أن يتوقف السائق عن استخدام النظام كله.
+      نموذج طويل، سبب إلزامي، تنبيه للإدارة. النتيجة الحتمية أن يتوقف المرافق أو السائق عن استخدام النظام كله.
     </p>
   </div>
 
@@ -704,7 +813,7 @@ footer b{font-family:var(--display); color:var(--ink-2); font-size:15px; display
 
   <div class="stack">
     <div class="layer">
-      <div class="lnum"><small>LAYER</small>١</div>
+      <div class="lnum"><small>طبقة</small>١</div>
       <div class="lbody">
         <h4>المسار السريع — بطاقة NFC تُقرأ بجوال المرافق</h4>
         <p>
@@ -715,7 +824,7 @@ footer b{font-family:var(--display); color:var(--ink-2); font-size:15px; display
       </div>
     </div>
     <div class="layer">
-      <div class="lnum"><small>LAYER</small>٢</div>
+      <div class="lnum"><small>طبقة</small>٢</div>
       <div class="lbody">
         <h4>شبكة الأمان — قائمة طلاب المحطة الحالية</h4>
         <p>
@@ -726,7 +835,7 @@ footer b{font-family:var(--display); color:var(--ink-2); font-size:15px; display
       </div>
     </div>
     <div class="layer">
-      <div class="lnum"><small>LAYER</small>٣</div>
+      <div class="lnum"><small>طبقة</small>٣</div>
       <div class="lbody">
         <h4>النزول — استنتاج لا تحضير</h4>
         <p>
@@ -751,7 +860,7 @@ footer b{font-family:var(--display); color:var(--ink-2); font-size:15px; display
 <!-- ═══════════ ALIGHTING ═══════════ -->
 <section id="alight">
   <div class="sec-head">
-    <span class="sec-num">٠٤ — المسألة الأولى (تتمة)</span>
+    <span class="sec-num">٠٥ — المسألة الأولى (تتمة)</span>
     <h2>التحضير عند النزول</h2>
     <p class="sub">الجزء الذي يُهمَل عادة، ويستحق موقفًا صريحًا — بما في ذلك تصحيح لافتراض بدأتُ به.</p>
   </div>
@@ -794,7 +903,7 @@ footer b{font-family:var(--display); color:var(--ink-2); font-size:15px; display
 <!-- ═══════════ SAFETY ═══════════ -->
 <section id="safety">
   <div class="sec-head">
-    <span class="sec-num">٠٥ — طبقة مستقلة</span>
+    <span class="sec-num">٠٦ — طبقة مستقلة</span>
     <h2>ألّا يبقى طفل في الحافلة</h2>
     <p class="sub">
       هذه ليست ميزة من ميزات التحضير — بل شبكة أمان منفصلة تمامًا.
@@ -862,7 +971,7 @@ footer b{font-family:var(--display); color:var(--ink-2); font-size:15px; display
 <!-- ═══════════ ARRIVAL ═══════════ -->
 <section id="arrival">
   <div class="sec-head">
-    <span class="sec-num">٠٦ — المسألة الثانية</span>
+    <span class="sec-num">٠٧ — المسألة الثانية</span>
     <h2>إشعار الأسرة بوصول الحافلة</h2>
     <p class="sub">
       الهدف المعلن: ألّا يضطر السائق للنزول ورن الجرس، أو الاتصال بجوال الطالب، أو استخدام البوري.
@@ -1081,7 +1190,7 @@ footer b{font-family:var(--display); color:var(--ink-2); font-size:15px; display
 <!-- ═══════════ GIRLS ═══════════ -->
 <section id="girls">
   <div class="sec-head">
-    <span class="sec-num">٠٧ — قيد صلب</span>
+    <span class="sec-num">٠٨ — قيد صلب</span>
     <h2>الحلول الصالحة للجنسين</h2>
     <p class="sub">هذا ليس بندًا فرعيًا — بل قيد يحكم الاختيار التقني من البداية.</p>
   </div>
@@ -1111,7 +1220,7 @@ footer b{font-family:var(--display); color:var(--ink-2); font-size:15px; display
       <tr><td>رمز QR</td><td><span class="chip go">محايد</span></td><td>—</td></tr>
       <tr><td>قائمة أسماء نصية</td><td><span class="chip go">محايد</span></td><td>—</td></tr>
       <tr class="star"><td>رادار mmWave</td><td><span class="chip go">محايد تمامًا</span></td><td><b>لا يلتقط صورة إطلاقًا — يحل السلامة دون مقايضة بالخصوصية</b></td></tr>
-      <tr><td>قائمة بصور الطلاب</td><td><span class="chip hold">للبنين فقط</span></td><td>البديل للطالبات: لون + رمز + الاسم الأول</td></tr>
+      <tr class="dim"><td>قائمة بصور الطلاب</td><td><span class="chip no">مرفوضة للجميع</span></td><td>البديل الموحد: لون + رمز ثابت + الاسم الأول</td></tr>
       <tr class="dim"><td>كاميرا داخلية</td><td><span class="chip no">إشكالي</span></td><td><b>لا نفترض القبول — نسأل المدارس مباشرة</b></td></tr>
       <tr class="dim"><td>التعرف على الوجه</td><td><span class="chip no">مرفوض</span></td><td>—</td></tr>
     </tbody>
@@ -1122,7 +1231,7 @@ footer b{font-family:var(--display); color:var(--ink-2); font-size:15px; display
 <!-- ═══════════ ROADMAP ═══════════ -->
 <section id="roadmap">
   <div class="sec-head">
-    <span class="sec-num">٠٨ — التنفيذ</span>
+    <span class="sec-num">٠٩ — التنفيذ</span>
     <h2>ثلاث مراحل، والأولى بلا عتاد</h2>
     <p class="sub">
       لاحظ أن المرحلة الأولى تحلّ الجزء الأكبر من المسألتين <b>دون شراء قطعة واحدة</b>.
@@ -1132,7 +1241,7 @@ footer b{font-family:var(--display); color:var(--ink-2); font-size:15px; display
 
   <div class="phases">
     <div class="phase now">
-      <div class="ph"><div class="pn">PHASE 01 · برمجي بحت</div><h4>الأساس</h4></div>
+      <div class="ph"><div class="pn">المرحلة ٠١ · برمجي بحت</div><h4>الأساس</h4></div>
       <div class="pb">
         <ul>
           <li><b>دور «مرافق» منفصل</b> بواجهة وصلاحيات</li>
@@ -1150,7 +1259,7 @@ footer b{font-family:var(--display); color:var(--ink-2); font-size:15px; display
     </div>
 
     <div class="phase">
-      <div class="ph"><div class="pn">PHASE 02 · عتاد خفيف</div><h4>التسريع</h4></div>
+      <div class="ph"><div class="pn">المرحلة ٠٢ · عتاد خفيف</div><h4>التسريع</h4></div>
       <div class="pb">
         <ul>
           <li>بطاقات NFC بترميز DESFire</li>
@@ -1164,7 +1273,7 @@ footer b{font-family:var(--display); color:var(--ink-2); font-size:15px; display
     </div>
 
     <div class="phase">
-      <div class="ph"><div class="pn">PHASE 03 · مشروط</div><h4>التعزيز</h4></div>
+      <div class="ph"><div class="pn">المرحلة ٠٣ · مشروط</div><h4>التعزيز</h4></div>
       <div class="pb">
         <ul>
           <li><b>رادار mmWave</b> لكشف بقاء طفل</li>
@@ -1181,12 +1290,20 @@ footer b{font-family:var(--display); color:var(--ink-2); font-size:15px; display
 <!-- ═══════════ NEXT ═══════════ -->
 <section id="next">
   <div class="sec-head">
-    <span class="sec-num">٠٩ — الخطوات التالية</span>
-    <h2>خمسة اختبارات رخيصة تحسم أكبر القرارات</h2>
+    <span class="sec-num">١٠ — الخطوات التالية</span>
+    <h2>سبع خطوات رخيصة تحسم أكبر القرارات</h2>
     <p class="sub">مرتّبة بحسب نسبة ما تحسمه إلى ما تكلّفه.</p>
   </div>
 
   <div class="steps">
+    <div class="step">
+      <div class="sb"><b>فحص «رافد» شاشة بشاشة</b><span>ما آلية التحضير الفعلية؟ هل يخدم المدارس الأهلية؟ وما الذي يقدّمه للمشغّل والمدرسة لا للأسرة فقط؟ هذا الفحص يحسم حدود المنافسة والتكامل.</span></div>
+      <div class="cost">ساعة</div>
+    </div>
+    <div class="step">
+      <div class="sb"><b>سؤال ثلاث مدارس أهلية ومشغّل خاص</b><span>هل إثبات الامتثال للائحة الجديدة نقطة ألم حقيقية؟ وما السجلات التي يطلبها المدقق اليوم؟</span></div>
+      <div class="cost">مكالمات</div>
+    </div>
     <div class="step">
       <div class="sb"><b>اختبار ورقي مع أطفال ابتدائي</b><span>كم يستغرق طفل في الصف الأول ليجد اسمه بين أربعة أسماء بأزرار كبيرة؟ <b>إن كان سريعًا، فقد لا نحتاج بطاقات إطلاقًا</b> — ونوفّر العتاد والاستبدال والدعم بالكامل.</span></div>
       <div class="cost">ورقة</div>
@@ -1204,8 +1321,8 @@ footer b{font-family:var(--display); color:var(--ink-2); font-size:15px; display
       <div class="cost">ساعة</div>
     </div>
     <div class="step">
-      <div class="sb"><b>سؤال ثلاث مدارس أهلية</b><span>هل الامتثال للائحة الجديدة نقطة ألم حقيقية عندكم؟ وأيهما تريدون: سرعة المحطة أم تنبيه المحطة الخاطئة؟</span></div>
-      <div class="cost">مكالمات</div>
+      <div class="sb"><b>مراجعة قانونية وحوكمة بيانات</b><span>قراءة النص الرسمي الكامل للائحة، بدء مسار التسجيل لدى سدايا، والتحقق من متطلبات الاستضافة والتصدير لمنصة الهيئة قبل أي التزام تعاقدي.</span></div>
+      <div class="cost">قانوني</div>
     </div>
   </div>
 
@@ -1221,11 +1338,11 @@ footer b{font-family:var(--display); color:var(--ink-2); font-size:15px; display
 
   <h3 class="blockhead" style="margin-top:0;">مسائل مفتوحة للنقاش في الاجتماع</h3>
   <ul class="clean">
-    <li>هل نستهدف السوق الأهلي أم الحكومي؟ <b>يغيّر المنتج بالكامل.</b></li>
+    <li>هل يخدم «رافد» المدارس الأهلية فعليًا، وأين تنتهي تغطيته التشغيلية؟</li>
     <li>سرعة المحطة أم تنبيه النزول في محطة خاطئة — أيهما يبيع أكثر؟</li>
     <li>من يحمل الجهاز في حافلات الطالبات: السائق أم المرافقة؟</li>
     <li>هل تقبل المدارس تحمّل تكلفة استبدال البطاقات المفقودة؟</li>
-    <li>هل نبني دور «المرافق» في هذه الدورة أم نؤجّله؟ <b>اللائحة تفترض وجوده.</b></li>
+    <li>ما النطاق الأدنى لدور «المرافق» في الدورة الأولى؟ <b>وجود الدور نفسه غير اختياري في حافلات الابتدائي.</b></li>
   </ul>
 </section>
 
@@ -1235,8 +1352,8 @@ footer b{font-family:var(--display); color:var(--ink-2); font-size:15px; display
       <b>مسلك — منصة النقل المدرسي</b>
       ملف قرار للنقاش · جمعية الإحسان — القسم التقني
     </div>
-    <div style="font-family:var(--mono); font-size:11px; letter-spacing:.06em; color:var(--ink-3);">
-      DRAFT · FOR DISCUSSION
+    <div style="font-family:var(--body); font-size:11px; color:var(--ink-3); font-weight:800;">
+      نسخة محدثة · للنقاش واتخاذ القرار
     </div>
   </div>
 
@@ -1246,8 +1363,11 @@ footer b{font-family:var(--display); color:var(--ink-2); font-size:15px; display
       <a href="https://qanoonsa.com/p/510432/" target="_blank" rel="noopener">اللائحة التنفيذية لنشاط النقل التعليمي</a><br>
       <a href="https://www.lexismiddleeast.com/law/SaudiArabia/AdministrativeDecision_11_6TR_2025_4_1447/ar" target="_blank" rel="noopener">قرار الهيئة العامة للنقل ١١-٦ ت ر-٢٠٢٥-٤</a><br>
       <a href="https://www.okaz.com.sa/news/local/2215471" target="_blank" rel="noopener">إلزامية المرافق في حافلات الابتدائي — عكاظ</a><br>
+      <a href="https://apps.apple.com/sa/app/id1589382229" target="_blank" rel="noopener">تطبيق رافد — الميزات المعلنة</a><br>
+      <a href="https://www.rafedsa.com/" target="_blank" rel="noopener">رافد — الموقع الرسمي</a><br>
       <a href="https://sdaia.gov.sa/en/Research/Pages/DataProtection.aspx" target="_blank" rel="noopener">سدايا — حماية البيانات الشخصية</a><br>
       <a href="https://iclg.com/practice-areas/data-protection-laws-and-regulations/saudi-arabia/" target="_blank" rel="noopener">تصنيف البيانات الحساسة تحت PDPL</a><br>
+      <a href="https://www.sgc.consulting/sdaia-saudi-personal-data-protection-law-pdpl-compliance-guide/" target="_blank" rel="noopener">دليل التسجيل والامتثال لدى سدايا</a><br>
       <a href="https://www.zonar.com/solutions/z-pass-student-tracking/" target="_blank" rel="noopener">Zonar Z Pass — تتبع ركوب الطلاب</a><br>
       <a href="https://www.hcpss.org/schools/transportation/student-bus-cards/" target="_blank" rel="noopener">سياسة البطاقة المنسية — Howard County</a><br>
       <a href="https://transportation.lcsd2.org/faq/" target="_blank" rel="noopener">مسح البطاقات دخولًا وخروجًا — Katy ISD</a><br>

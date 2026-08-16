@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مسلك — ملخص حل تحضير الطلاب وإشعار الوصول</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#5C4CE3;
+  --primary-dark:#4636BF;
+  --primary-light:#EDEBFC;
+  --text:#16162C;
+  --text-muted:#6B6B85;
+  --bg:#F7F7FB;
+  --white:#FFFFFF;
+  --line:#E9E7F4;
+  --sky:#BEEFF5;
+  --pink:#FFD1E3;
+  --yellow:#FFEFB0;
+  --lightblue:#D6DEFF;
+  --green:#22C55E;
+  --green-light:#E7F9EE;
+  --red:#EF4444;
+  --red-light:#FDEAEA;
+  --shadow:0 8px 24px rgba(22,22,44,.06);
+  --shadow-lg:0 24px 60px rgba(22,22,44,.14);
+  --max:1080px;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:88px;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Tajawal',sans-serif;
+  font-size:16px;
+  font-weight:500;
+  line-height:1.8;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 5% 7%,rgba(190,239,245,.56),transparent 25rem),
+    radial-gradient(circle at 95% 20%,rgba(214,222,255,.62),transparent 28rem),
+    radial-gradient(circle at 25% 95%,rgba(255,209,227,.25),transparent 25rem);
+}
+
+h1,h2,h3,h4,p{margin-top:0;}
+h1,h2,h3,h4{line-height:1.35;font-weight:800;}
+p{color:var(--text-muted);}
+b,strong{font-weight:800;color:var(--text);}
+a{color:inherit;}
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(22,22,44,.96);
+  color:#fff;
+  box-shadow:0 8px 28px rgba(22,22,44,.16);
+  backdrop-filter:blur(14px);
+}
+.topbar-in{
+  max-width:var(--max);
+  min-height:64px;
+  margin:auto;
+  padding:8px 24px;
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#fff;
+  text-decoration:none;
+  flex-shrink:0;
+}
+.brand-logo{
+  width:38px;
+  height:38px;
+  border-radius:12px;
+  background:var(--primary);
+  display:grid;
+  place-items:center;
+  box-shadow:0 8px 18px rgba(92,76,227,.35);
+}
+.brand-logo svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:2;}
+.brand b{display:block;color:#fff;font-size:15px;line-height:1.1;}
+.brand small{display:block;color:#A8A6C9;font-size:10px;margin-top:4px;font-weight:700;}
+.nav{display:flex;gap:4px;margin-inline-start:auto;}
+.nav a{
+  color:#C7C6E6;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:700;
+  padding:7px 12px;
+  border-radius:999px;
+}
+.nav a:hover,.nav a.active{color:#fff;background:var(--primary);}
+.full-link{
+  color:#fff;
+  text-decoration:none;
+  font-size:11px;
+  font-weight:800;
+  padding:7px 12px;
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:999px;
+  white-space:nowrap;
+}
+
+.wrap{max-width:var(--max);margin:auto;padding:0 24px;}
+.hero{
+  margin-top:30px;
+  padding:66px 58px 48px;
+  border:1px solid #E2DFF5;
+  border-radius:28px;
+  background:linear-gradient(140deg,#fff 0%,#F4F2FF 58%,#EDEBFC 100%);
+  box-shadow:var(--shadow-lg);
+  position:relative;
+  overflow:hidden;
+}
+.hero::before,.hero::after{content:'';position:absolute;border-radius:50%;pointer-events:none;}
+.hero::before{width:330px;height:330px;top:-160px;left:-90px;background:rgba(190,239,245,.64);}
+.hero::after{width:280px;height:280px;bottom:-150px;right:-80px;background:rgba(255,209,227,.48);}
+.hero > *{position:relative;z-index:1;}
+.eyebrow,.section-num{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  color:var(--primary);
+  background:var(--primary-light);
+  padding:6px 12px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:800;
+}
+.eyebrow::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--primary);}
+.hero h1{font-size:clamp(38px,6vw,64px);max-width:16ch;margin:20px 0 18px;}
+.hero h1 span{color:var(--primary);}
+.hero-lede{font-size:clamp(17px,2vw,20px);max-width:63ch;margin-bottom:0;}
+.hero-meta{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  margin-top:36px;
+  border:1px solid var(--line);
+  background:var(--line);
+  border-radius:18px;
+  overflow:hidden;
+}
+.hero-meta div{background:rgba(255,255,255,.9);padding:15px 18px;}
+.hero-meta span{display:block;color:var(--text-muted);font-size:11px;font-weight:700;}
+.hero-meta b{display:block;margin-top:3px;font-size:15px;}
+
+section{padding:70px 0;border-bottom:1px solid var(--line);}
+.section-head{margin-bottom:34px;}
+.section-head h2{font-size:clamp(28px,4vw,42px);margin:14px 0 10px;}
+.section-head p{font-size:17px;max-width:66ch;margin-bottom:0;}
+
+.grid{display:grid;gap:16px;}
+.grid.two{grid-template-columns:repeat(2,minmax(0,1fr));}
+.grid.three{grid-template-columns:repeat(3,minmax(0,1fr));}
+.card{
+  background:var(--white);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:23px 24px;
+  box-shadow:var(--shadow);
+}
+.card h3{font-size:19px;margin-bottom:9px;}
+.card h4{font-size:16px;margin-bottom:7px;}
+.card p:last-child{margin-bottom:0;}
+.icon{
+  width:44px;
+  height:44px;
+  display:grid;
+  place-items:center;
+  border-radius:14px;
+  color:var(--primary);
+  margin-bottom:15px;
+}
+.icon svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;}
+.pink{background:var(--pink);}.sky{background:var(--sky);}.yellow{background:var(--yellow);}.blue{background:var(--lightblue);}
+
+.problem{
+  border-color:#F4CACA;
+  background:linear-gradient(180deg,#fff,#FFF8F8);
+}
+.problem .label{color:#B91C1C;background:var(--red-light);}
+.outcome{border-color:#CFEBD8;background:linear-gradient(180deg,#fff,#F8FFFA);}
+.outcome .label{color:#15803D;background:var(--green-light);}
+.label,.pill{
+  display:inline-flex;
+  align-items:center;
+  padding:4px 10px;
+  border-radius:999px;
+  font-size:11px;
+  font-weight:800;
+  margin-bottom:12px;
+}
+.pill{margin:0;background:var(--primary-light);color:var(--primary);}
+
+.flow{display:flex;flex-direction:column;gap:11px;margin-top:28px;counter-reset:flow;}
+.flow-step{
+  display:flex;
+  gap:15px;
+  align-items:flex-start;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:17px 19px;
+  box-shadow:var(--shadow);
+}
+.flow-step::before{
+  counter-increment:flow;
+  content:counter(flow);
+  width:32px;
+  height:32px;
+  flex:0 0 32px;
+  border-radius:10px;
+  display:grid;
+  place-items:center;
+  color:#fff;
+  background:var(--primary);
+  font-weight:800;
+}
+.flow-step h4{margin:0 0 4px;font-size:16px;}
+.flow-step p{margin:0;font-size:14px;}
+
+.decision{
+  margin-top:26px;
+  padding:24px 26px;
+  border:1px solid #D5D0FA;
+  border-radius:20px;
+  background:linear-gradient(135deg,#F0EEFF,#fff);
+  box-shadow:var(--shadow);
+}
+.decision .label{color:var(--primary);background:#fff;}
+.decision h3{font-size:21px;margin-bottom:8px;}
+.decision p{margin-bottom:0;}
+
+.radio-diagram{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
+  margin:28px 0;
+}
+.radio-node{
+  position:relative;
+  text-align:center;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:20px 12px;
+  box-shadow:var(--shadow);
+}
+.radio-node:not(:last-child)::after{
+  content:'←';
+  position:absolute;
+  left:-20px;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--primary);
+  font-size:22px;
+  font-weight:800;
+}
+.radio-node .icon{margin:0 auto 10px;}
+.radio-node b{display:block;font-size:14px;}
+.radio-node span{display:block;color:var(--text-muted);font-size:12px;margin-top:3px;}
+
+.note{
+  margin-top:18px;
+  padding:18px 20px;
+  border-radius:16px;
+  background:#FFF9E5;
+  border:1px solid #F0DF9B;
+  color:#725E0C;
+  font-size:14px;
+}
+.note b{color:#5E4B00;}
+
+.table-wrap{overflow-x:auto;margin-top:26px;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);}
+table{width:100%;min-width:680px;border-collapse:collapse;background:#fff;}
+th,td{text-align:right;padding:13px 16px;border-bottom:1px solid var(--line);font-size:14px;vertical-align:top;}
+th{background:#F1F0FA;color:var(--text-muted);font-size:11px;font-weight:800;}
+tr:last-child td{border-bottom:0;}
+td:first-child{font-weight:800;color:var(--text);}
+
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:24px;}
+.metric{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow);}
+.metric b{display:block;color:var(--primary);font-size:22px;line-height:1.2;}
+.metric span{display:block;color:var(--text-muted);font-size:12px;margin-top:7px;font-weight:700;}
+
+footer{padding:34px 0 46px;color:var(--text-muted);font-size:13px;}
+.footer-in{display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap;}
+.footer-links{display:flex;gap:8px;flex-wrap:wrap;}
+.footer-links a{text-decoration:none;color:var(--primary);background:var(--primary-light);padding:6px 11px;border-radius:999px;font-weight:800;font-size:11px;}
+
+@media(max-width:780px){
+  html{scroll-padding-top:128px;}
+  .topbar-in{align-items:flex-start;flex-direction:column;gap:7px;padding:8px 16px;}
+  .nav{order:3;margin:0;width:100%;overflow-x:auto;flex-wrap:nowrap;scrollbar-width:none;}
+  .nav::-webkit-scrollbar{display:none;}
+  .full-link{position:absolute;left:16px;top:17px;}
+  .wrap{padding:0 16px;}
+  .hero{margin-top:16px;padding:42px 24px 28px;border-radius:22px;}
+  .hero h1{font-size:38px;}
+  .hero-meta,.grid.two,.grid.three,.metrics{grid-template-columns:1fr;}
+  section{padding:52px 0;}
+  .radio-diagram{grid-template-columns:1fr;gap:12px;}
+  .radio-node:not(:last-child)::after{content:'↓';left:50%;top:auto;bottom:-22px;transform:translateX(-50%);z-index:2;}
+}
+
+@media print{
+  body{background:#fff;}
+  body::before,.topbar{display:none;}
+  .hero{margin-top:0;box-shadow:none;}
+  section{padding:34px 0;}
+  .card,.flow-step,.decision,.radio-node,.metric,.table-wrap{box-shadow:none;break-inside:avoid;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="index.html">
+      <span class="brand-logo"><svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 21V9l8-5 8 5v12M9 21v-6h6v6M4 21h16"/></svg></span>
+      <span><b>مسلك</b><small>ملخص الحلول</small></span>
+    </a>
+    <nav class="nav">
+      <a href="#boarding">الركوب والنزول</a>
+      <a href="#return-trip">رحلة العودة</a>
+      <a href="#arrival">إشعار الوصول</a>
+      <a href="#implementation">التنفيذ</a>
+    </nav>
+    <a class="full-link" href="solutions-briefing.html">الملف التفصيلي</a>
+  </div>
+</div>
+
+<main class="wrap">
+  <header class="hero">
+    <span class="eyebrow">ملخص تنفيذي مركز</span>
+    <h1>مشكلتان، <span>وحلّان واضحان</span></h1>
+    <p class="hero-lede">
+      صفحة مختصرة لاتخاذ القرار حول تحضير الطلاب عند ركوب الحافلة والنزول منها،
+      وإعلام الأسرة بوصول الحافلة قبل أن تضطر للانتظار أو استخدام البوري.
+    </p>
+    <div class="hero-meta">
+      <div><span>المستخدم الميداني</span><b>المرافق</b></div>
+      <div><span>أولوية التصميم</span><b>زمن المحطة</b></div>
+      <div><span>البداية</span><b>حل برمجي بلا عتاد</b></div>
+    </div>
+  </header>
+
+  <section id="boarding">
+    <div class="section-head">
+      <span class="section-num">المشكلة ٠١</span>
+      <h2>تحضير الطلاب عند الركوب والنزول</h2>
+      <p>نحتاج معرفة من ركب ومن نزل، دون قائمة طويلة أو تأخير للمسار، ودون أن يؤدي نسيان بطاقة إلى منع الطالب من الركوب.</p>
+    </div>
+
+    <div class="grid two">
+      <article class="card problem">
+        <span class="label">المشكلة الحالية</span>
+        <h3>تحضير يدوي لكل طلاب المسار</h3>
+        <p>قائمة طويلة وأزرار متعددة، ومسؤولية تقع على السائق، مع احتمال تعبئة البيانات لاحقًا إذا أصبح الاستخدام بطيئًا أثناء الرحلة.</p>
+      </article>
+      <article class="card outcome">
+        <span class="label">النتيجة المطلوبة</span>
+        <h3>تسجيل سريع وواضح عند كل محطة</h3>
+        <p>المرافق يرى طلاب المحطة الحالية فقط، ويسجل الحدث بنقرة واحدة، ويستطيع العمل دون اتصال ثم المزامنة لاحقًا.</p>
+      </article>
+    </div>
+
+    <div class="flow">
+      <div class="flow-step">
+        <div><h4>عند الوصول تظهر قائمة المحطة الحالية</h4><p>بدل عرض جميع الطلاب، يظهر طالبان إلى أربعة فقط بأزرار كبيرة: الاسم الأول + لون + رمز ثابت، دون صور.</p></div>
+      </div>
+      <div class="flow-step">
+        <div><h4>الركوب يُسجَّل بفعل صريح</h4><p>في النسخة الأولى يضغط المرافق اسم الطالب. لاحقًا تصبح بطاقة NFC مسارًا سريعًا، وتبقى القائمة حلًا فوريًا عند نسيان البطاقة.</p></div>
+      </div>
+      <div class="flow-step">
+        <div><h4>النزول يبدأ من المتوقع ويُسجّل الاستثناء</h4><p>يعرض النظام الطلاب المتوقع نزولهم في المحطة، ويؤكد المرافق العدد مرة واحدة. إذا نزل طالب في محطة أخرى أو لم ينزل، يسجّل الاستثناء.</p></div>
+      </div>
+      <div class="flow-step">
+        <div><h4>فحص خلو الحافلة إجراء مستقل</h4><p>لا تنتهي الرحلة حتى يُمسح وسم في مؤخرة الحافلة، لأن سلامة الطفل لا يجوز أن تعتمد على دقة بيانات التحضير.</p></div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>المرحلة</th><th>آلية التحضير</th><th>العتاد</th><th>القرار</th></tr></thead>
+        <tbody>
+          <tr><td>النسخة الأولى</td><td>قائمة طلاب المحطة + نقرة واحدة + تأكيد عدد النزول</td><td>لا شيء</td><td><span class="pill">ابدأ بها</span></td></tr>
+          <tr><td>بعد القياس</td><td>بطاقة NFC للركوب، والقائمة عند النسيان</td><td>بطاقات فقط</td><td><span class="pill">إن ثبتت الحاجة</span></td></tr>
+          <tr><td>دقة نزول أعلى</td><td>مسح NFC عند الركوب والنزول</td><td>بطاقات</td><td><span class="pill">إذا كانت المحطة الخاطئة أولوية</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="decision">
+      <span class="label">القرار المقترح</span>
+      <h3>ابدأ بقائمة المحطة، ثم أضف NFC بناءً على القياس</h3>
+      <p>إذا كان التحضير من قائمة قصيرة سريعًا بما يكفي، فلا حاجة لشراء بطاقات. المعيار الحاسم: ألا يضيف الحل أكثر من ٣٠ ثانية للمحطة.</p>
+    </div>
+  </section>
+
+  <section id="return-trip">
+    <div class="section-head">
+      <span class="section-num">حالة حاسمة ضمن المشكلة ٠١</span>
+      <h2>تسوية قائمة رحلة العودة</h2>
+      <p>
+        قد يصل الطالب صباحًا بالحافلة ثم يغادر المدرسة مع ولي أمره أثناء اليوم.
+        المطلوب أن يعرف طاقم الحافلة أنه لن يعود معهم، وألا تُغادر الحافلة ما دام غياب أي طالب متوقع غير محسوم.
+      </p>
+    </div>
+
+    <div class="grid two">
+      <article class="card problem">
+        <span class="label">الخطر</span>
+        <h3>طالب غير موجود في قائمة الركوب دون سبب مؤكّد</h3>
+        <p>قد يكون غادر مع ولي أمره، أو ما زال داخل المدرسة، أو متأخرًا في طريقه للحافلة. التعامل مع الحالات الثلاث كـ«غائب» فقط قد يجعل الحافلة تغادر وتترك طالبًا خلفها.</p>
+      </article>
+      <article class="card outcome">
+        <span class="label">المبدأ</span>
+        <h3>بوابة المدرسة هي مصدر حالة الخروج</h3>
+        <p>طلب ولي الأمر إشارة أولية، لكن إلغاء رحلة العودة لا يصبح مؤكدًا إلا عندما يسجّل موظف المدرسة خروج الطالب فعليًا مع ولي الأمر أو بتصريح خروج معتمد.</p>
+      </article>
+    </div>
+
+    <div class="flow">
+      <div class="flow-step">
+        <div><h4>ولي الأمر يرسل طلب الاستلام</h4><p>من التطبيق أو عبر المدرسة. يظهر للمدرسة كطلب معلّق، ولا يُحذف الطالب بعد من قائمة رحلة العودة.</p></div>
+      </div>
+      <div class="flow-step">
+        <div><h4>المدرسة تؤكد الخروج الفعلي</h4><p>بعد التحقق من المستلم، يسجّل موظف البوابة «غادر مع ولي الأمر» مع الوقت واسم الموظف. وللطالب الأكبر يمكن تسجيل «خروج مستقل مصرح» بالطريقة نفسها.</p></div>
+      </div>
+      <div class="flow-step">
+        <div><h4>مسلك يلغي رحلة العودة تلقائيًا</h4><p>يُنقل الطالب من «متوقع للركوب» إلى «معفى — غادر المدرسة»، ويصل التنبيه إلى المرافق والسائق ومشرف النقل دون الحاجة لاتصال منفصل.</p></div>
+      </div>
+      <div class="flow-step">
+        <div><h4>تُسوّى القائمة قبل تحرك الحافلة</h4><p>كل طالب متوقع يجب أن ينتهي إلى حالة مؤكدة. أي طالب بقي «غير محسوم» يطلق تنبيهًا للمدرسة ولا يسمح بإغلاق التحضير بصمت.</p></div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>الحالة النهائية</th><th>معناها</th><th>من يؤكدها؟</th><th>أثرها على الرحلة</th></tr></thead>
+        <tbody>
+          <tr><td>ركب الحافلة</td><td>تم تسجيل صعود الطالب</td><td>المرافق</td><td><span class="pill">ضمن الركاب</span></td></tr>
+          <tr><td>غادر المدرسة</td><td>استلمه ولي الأمر أو خرج بتصريح معتمد</td><td>موظف المدرسة</td><td><span class="pill">يُلغى مقعد العودة</span></td></tr>
+          <tr><td>غياب مدرسي مؤكد</td><td>لم يحضر المدرسة أصلًا</td><td>نظام الحضور أو الإدارة</td><td><span class="pill">لا يُنتظر</span></td></tr>
+          <tr><td>غير محسوم</td><td>لم يركب، ولا يوجد خروج أو غياب مؤكد</td><td>مشرف النقل</td><td><span class="pill">تصعيد قبل المغادرة</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="font-size:22px;margin:42px 0 10px;">إذا تأخر الطالب بعد الانصراف</h3>
+    <p>تُفتح نافذة ركوب محددة بعد نهاية اليوم، وتظهر حالة الطالب لحظيًا لطاقم الحافلة ومشرف النقل.</p>
+
+    <div class="grid three">
+      <article class="card">
+        <div class="icon blue"><svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v5l3 2M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+        <h3>متوقع</h3>
+        <p>الطالب حضر المدرسة ولم يُسجّل له خروج؛ لذلك يبقى مطلوبًا في قائمة رحلة العودة.</p>
+      </article>
+      <article class="card">
+        <div class="icon sky"><svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        <h3>في الطريق للحافلة</h3>
+        <p>يؤكدها الطالب من هاتفه إن وجد، أو مشرف التجمع/موظف المدرسة لمن لا يملك هاتفًا.</p>
+      </article>
+      <article class="card">
+        <div class="icon yellow"><svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v4M12 17h.01M10.3 3.9L2 18a2 2 0 001.7 3h16.6a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg></div>
+        <h3>متأخر — يحتاج تحققًا</h3>
+        <p>بعد انتهاء المهلة يتنبه مشرف النقل، ويتحقق من الصف أو النشاط أو البوابة قبل السماح بالمغادرة.</p>
+      </article>
+    </div>
+
+    <div class="decision">
+      <span class="label">قاعدة المغادرة</span>
+      <h3>لا يغادر الباص بوجود طالب «غير محسوم»</h3>
+      <p>
+        يجب أن تكون حالته: ركب، أو غادر المدرسة، أو غائبًا بشكل مؤكد.
+        هاتف الطالب قناة مساعدة فقط؛ الحل الأساسي يعمل للصغار والكبار، ولمن يملك هاتفًا أو لا يملكه، عبر المدرسة والمرافق ومشرف النقل.
+      </p>
+    </div>
+  </section>
+
+  <section id="arrival">
+    <div class="section-head">
+      <span class="section-num">المشكلة ٠٢</span>
+      <h2>إعلام الطالب والأسرة بوصول الحافلة</h2>
+      <p>الهدف ليس إعلان وصول الحافلة بعد توقفها، بل جعل الطالب جاهزًا قبل وصولها وتقليل الانتظار والبوري.</p>
+    </div>
+
+    <div class="grid three">
+      <article class="card">
+        <div class="icon pink"><svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M18 8a6 6 0 00-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg></div>
+        <h3>إشعاران استباقيان</h3>
+        <p>«استعد» قبل عشر دقائق، ثم «اخرج الآن» قبل دقيقتين، اعتمادًا على الزمن المتوقع لا المسافة فقط.</p>
+      </article>
+      <article class="card">
+        <div class="icon sky"><svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12l4 4L19 6M4 21h16"/></svg></div>
+        <h3>الأسرة تبلّغ الحافلة</h3>
+        <p>«لن يركب اليوم» لتجاوز المحطة، و«جاهز عند الباب» لطمأنة المرافق، و«تأخرنا دقيقتين» لمنع المغادرة المبكرة.</p>
+      </article>
+      <article class="card">
+        <div class="icon yellow"><svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4h16v13H7l-3 3V4zM8 9h8M8 13h5"/></svg></div>
+        <h3>تصعيد عند عدم الوصول</h3>
+        <p>إشعار التطبيق أولًا، ثم واتساب عند عدم الفتح، ثم رسالة نصية للحالات المتبقية بدل إرسال كل القنوات للجميع.</p>
+      </article>
+    </div>
+
+    <h3 style="font-size:22px;margin:42px 0 10px;">الخيار الإضافي: جهاز راديوي في المنزل</h3>
+    <p>حل للعائلات التي لا يصلها إشعار التطبيق أو لا تملك جوالًا. يعمل مباشرة بين الحافلة والمنزل دون إنترنت منزلي.</p>
+
+    <div class="radio-diagram" aria-label="آلية الجهاز الراديوي المنزلي">
+      <div class="radio-node">
+        <div class="icon blue"><svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16V9a3 3 0 013-3h10a3 3 0 013 3v7M2 16h20v3H2zM6 19v2M18 19v2"/></svg></div>
+        <b>الحافلة</b><span>زر «المحطة الحالية»</span>
+      </div>
+      <div class="radio-node">
+        <div class="icon sky"><svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" d="M5 12a10 10 0 0114 0M8 15a6 6 0 018 0M11 18a2 2 0 012 0"/></svg></div>
+        <b>إشارة مشفّرة</b><span>معرّف مجهول للمنزل</span>
+      </div>
+      <div class="radio-node">
+        <div class="icon pink"><svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 21V9l8-5 8 5v12M9 21v-6h6v6"/></svg></div>
+        <b>مستقبِل المنزل</b><span>يستجيب لمعرّفه فقط</span>
+      </div>
+      <div class="radio-node">
+        <div class="icon yellow"><svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M18 8a6 6 0 00-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg></div>
+        <b>نغمة أو جرس المنزل</b><span>مرحل كهربائي معزول</span>
+      </div>
+    </div>
+
+    <div class="note">
+      <b>شرطان قبل اعتماده:</b> كل منزل يجب أن يملك معرّفًا مستقلًا حتى لا ترن أجراس الجميع،
+      كما يجب اعتماد النطاق الراديوي وقدرة الإرسال والجهاز من هيئة الاتصالات والفضاء والتقنية قبل التصنيع أو الاستيراد.
+    </div>
+
+    <div class="decision">
+      <span class="label">القرار المقترح</span>
+      <h3>ابدأ بالإشعار البرمجي، واختبر الجهاز الراديوي على منزل واحد</h3>
+      <p>البرنامج يغطي الأغلبية بأقل تكلفة. الجهاز المنزلي خيار إضافي للفئات التي لا يصلها التطبيق، ويُختبر ميدانيًا قبل بناء عتاد مخصص.</p>
+    </div>
+  </section>
+
+  <section id="implementation">
+    <div class="section-head">
+      <span class="section-num">التنفيذ</span>
+      <h2>ما الذي نبنيه أولًا؟</h2>
+      <p>النسخة الأولى تحل الجزء الأكبر من المشكلتين برمجيًا، ثم نضيف العتاد فقط عندما تثبت الحاجة.</p>
+    </div>
+
+    <div class="grid two">
+      <article class="card">
+        <div class="icon blue"><svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+        <h3>النسخة الأولى — بلا عتاد</h3>
+        <p>دور المرافق، قائمة المحطة، تسجيل الركوب، تسوية رحلة العودة مع خروج المدرسة، تأكيد النزول والاستثناءات، العمل دون اتصال، فحص خلو الحافلة، الإشعارات الاستباقية، وحالات «غائب» و«جاهز».</p>
+      </article>
+      <article class="card">
+        <div class="icon sky"><svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2v20M5 9l7-7 7 7M5 15l7 7 7-7"/></svg></div>
+        <h3>اختبارات العتاد</h3>
+        <p>بطاقات NFC لعينة صغيرة، وزوج مرسِل ومستقبِل راديوي لمنزل واحد، وقياس المدى داخل حي سعودي ومن داخل جسم الحافلة.</p>
+      </article>
+    </div>
+
+    <div class="metrics">
+      <div class="metric"><b>≤ ٣٠ ث</b><span>الزمن المضاف للمحطة</span></div>
+      <div class="metric"><b>١٠٠٪</b><span>رحلات أنهت فحص خلو الحافلة</span></div>
+      <div class="metric"><b>صفر</b><span>طلاب غير محسومين عند المغادرة</span></div>
+      <div class="metric"><b>↓</b><span>مرات استخدام البوري والانتظار</span></div>
+      <div class="metric"><b>↑</b><span>الطلاب الجاهزون قبل الوصول</span></div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div class="footer-in">
+    <div><b>مسلك — منصة النقل المدرسي</b><br>ملخص مركز للمشكلتين والحلول المقترحة</div>
+    <div class="footer-links">
+      <a href="solutions-briefing.html">قراءة الملف التفصيلي</a>
+      <a href="docs/README.md">توثيق الأبحاث</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const navLinks=[...document.querySelectorAll('.nav a')];
+const sections=navLinks.map(link=>document.querySelector(link.getAttribute('href'))).filter(Boolean);
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      navLinks.forEach(link=>link.classList.toggle('active',link.getAttribute('href')==='#'+entry.target.id));
+    }
+  });
+},{rootMargin:'-80px 0px -65% 0px'});
+sections.forEach(section=>observer.observe(section));
+</script>
+</body>
+</html>
