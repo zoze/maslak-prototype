@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مسلك — ملف قرار: تحضير الطالب وإشعار الوصول</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F6F2EA;
+  --paper-2:#FFFDF7;
+  --paper-3:#EFEADF;
+  --ink:#191512;
+  --ink-2:#4B443A;
+  --ink-3:#837A6B;
+  --rule:#DCD4C4;
+  --rule-2:#C9BFAA;
+
+  --brand:#5C4CE3;
+  --brand-soft:#ECEAFB;
+  --brand-deep:#2F2585;
+
+  --go:#2C6A4A;
+  --go-soft:#E3EEE6;
+  --hold:#8A5B06;
+  --hold-soft:#F8EFD9;
+  --no:#9E2B25;
+  --no-soft:#F7E6E3;
+
+  --shadow-sm:0 1px 2px rgba(25,21,18,.06), 0 2px 8px rgba(25,21,18,.04);
+  --shadow-md:0 2px 4px rgba(25,21,18,.05), 0 12px 32px rgba(25,21,18,.08);
+  --shadow-lg:0 4px 8px rgba(25,21,18,.06), 0 24px 60px rgba(25,21,18,.12);
+
+  --display:'Reem Kufi', serif;
+  --body:'IBM Plex Sans Arabic', sans-serif;
+  --mono:'IBM Plex Mono', monospace;
+
+  --maxw:1080px;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth; scroll-padding-top:90px;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:16.5px;
+  line-height:1.85;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* paper grain */
+body::before{
+  content:''; position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.06'/%3E%3C/svg%3E");
+}
+
+/* ============ typography ============ */
+h1,h2,h3,h4{font-family:var(--display); font-weight:600; line-height:1.35; margin:0; letter-spacing:0;}
+p{margin:0 0 1.05em;}
+p:last-child{margin-bottom:0;}
+strong,b{font-weight:600; color:var(--ink);}
+em{font-style:normal; background:linear-gradient(transparent 62%, #FBE9A7 62%); padding:0 .12em;}
+a{color:var(--brand); text-underline-offset:3px; text-decoration-thickness:1px;}
+code,.mono{font-family:var(--mono); font-size:.87em; direction:ltr; display:inline-block;}
+
+/* ============ nav ============ */
+.topbar{
+  position:sticky; top:0; z-index:60;
+  background:rgba(246,242,234,.86);
+  backdrop-filter:blur(14px) saturate(1.4);
+  border-bottom:1px solid var(--rule);
+}
+.topbar-in{
+  max-width:var(--maxw); margin:0 auto; padding:0 32px;
+  height:58px; display:flex; align-items:center; gap:22px;
+}
+.tb-mark{display:flex; align-items:center; gap:9px; flex-shrink:0;}
+.tb-mark .dot{width:9px; height:9px; border-radius:50%; background:var(--brand); box-shadow:0 0 0 3.5px var(--brand-soft);}
+.tb-mark span{font-family:var(--display); font-weight:700; font-size:15px; letter-spacing:.01em;}
+.tb-nav{display:flex; gap:2px; margin-inline-start:auto; flex-wrap:wrap;}
+.tb-nav a{
+  font-size:12.5px; font-weight:500; color:var(--ink-3); text-decoration:none;
+  padding:6px 11px; border-radius:6px; white-space:nowrap; transition:.16s;
+}
+.tb-nav a:hover{color:var(--ink); background:var(--paper-3);}
+.tb-nav a.on{color:var(--brand); background:var(--brand-soft);}
+
+/* ============ layout ============ */
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 32px; position:relative; z-index:1;}
+section{padding:72px 0; border-top:1px solid var(--rule); position:relative;}
+section:first-of-type{border-top:none;}
+
+/* ============ hero ============ */
+.hero{
+  padding:84px 0 68px; border-top:none; position:relative; overflow:hidden;
+}
+.hero::after{
+  content:''; position:absolute; top:-190px; left:-170px; width:520px; height:520px; z-index:-1;
+  background:radial-gradient(circle, rgba(92,76,227,.13), transparent 68%);
+}
+.eyebrow{
+  font-family:var(--mono); font-size:11px; font-weight:500; letter-spacing:.19em;
+  color:var(--brand); text-transform:uppercase; margin-bottom:26px;
+  display:flex; align-items:center; gap:13px;
+}
+.eyebrow::after{content:''; flex:1; height:1px; background:linear-gradient(to left, var(--rule), transparent);}
+.hero h1{
+  font-size:clamp(38px, 6.4vw, 68px); font-weight:700; line-height:1.16;
+  letter-spacing:-.015em; margin-bottom:26px; max-width:17ch;
+}
+.hero h1 .accent{color:var(--brand); position:relative; white-space:nowrap;}
+.hero-lede{
+  font-size:clamp(17px,2.1vw,20.5px); line-height:1.82; color:var(--ink-2);
+  max-width:62ch; font-weight:300;
+}
+.hero-meta{
+  display:flex; flex-wrap:wrap; gap:0; margin-top:44px;
+  border:1px solid var(--rule); border-radius:12px; overflow:hidden; background:var(--paper-2);
+  box-shadow:var(--shadow-sm);
+}
+.hero-meta div{
+  flex:1 1 158px; padding:15px 20px; border-inline-start:1px solid var(--rule);
+}
+.hero-meta div:first-child{border-inline-start:none;}
+.hero-meta dt{font-family:var(--mono); font-size:10px; letter-spacing:.13em; color:var(--ink-3); text-transform:uppercase; margin-bottom:5px;}
+.hero-meta dd{margin:0; font-size:14.5px; font-weight:600; font-family:var(--display);}
+
+/* ============ section heads ============ */
+.sec-head{margin-bottom:44px; position:relative;}
+.sec-num{
+  font-family:var(--mono); font-size:12px; font-weight:600; color:var(--brand);
+  letter-spacing:.16em; display:block; margin-bottom:14px;
+}
+.sec-head h2{font-size:clamp(27px,3.9vw,40px); font-weight:700; letter-spacing:-.01em; line-height:1.28; max-width:22ch;}
+.sec-head .sub{margin-top:15px; font-size:17px; color:var(--ink-2); max-width:66ch; font-weight:300; line-height:1.8;}
+
+h3.blockhead{
+  font-size:21px; font-weight:600; margin:52px 0 18px;
+  padding-bottom:11px; border-bottom:1.5px solid var(--ink); display:inline-block;
+}
+h4.minihead{font-size:16.5px; font-weight:600; margin:32px 0 12px; color:var(--ink);}
+
+/* ============ verdict chips ============ */
+.chip{
+  display:inline-flex; align-items:center; gap:5px; font-family:var(--body);
+  font-size:11.5px; font-weight:600; padding:3px 10px; border-radius:5px;
+  white-space:nowrap; line-height:1.7; border:1px solid;
+}
+.chip.go{background:var(--go-soft); color:var(--go); border-color:#BFD8C7;}
+.chip.hold{background:var(--hold-soft); color:var(--hold); border-color:#E5D2A6;}
+.chip.no{background:var(--no-soft); color:var(--no); border-color:#E5BFB9;}
+.chip.neutral{background:var(--paper-3); color:var(--ink-3); border-color:var(--rule-2);}
+.chip.brand{background:var(--brand-soft); color:var(--brand-deep); border-color:#CFC9F5;}
+
+/* confidence marks */
+.cf{font-family:var(--mono); font-size:9.5px; font-weight:600; letter-spacing:.07em; padding:1.5px 6px; border-radius:4px; vertical-align:middle; margin-inline-start:5px;}
+.cf.v{background:var(--go-soft); color:var(--go);}
+.cf.e{background:var(--paper-3); color:var(--ink-3);}
+
+/* ============ callouts ============ */
+.callout{
+  margin:30px 0; padding:24px 26px; border-radius:12px; position:relative;
+  border:1px solid var(--rule); background:var(--paper-2); box-shadow:var(--shadow-sm);
+}
+.callout .ct{
+  font-family:var(--mono); font-size:10.5px; font-weight:600; letter-spacing:.15em;
+  text-transform:uppercase; margin-bottom:11px; display:flex; align-items:center; gap:8px;
+}
+.callout p{font-size:16px;}
+.callout.principle{border-color:#CFC9F5; background:linear-gradient(180deg,#F4F2FD,#FBFAFE);}
+.callout.principle .ct{color:var(--brand);}
+.callout.warn{border-color:#E5D2A6; background:linear-gradient(180deg,#FDF7E8,#FFFDF7);}
+.callout.warn .ct{color:var(--hold);}
+.callout.danger{border-color:#E5BFB9; background:linear-gradient(180deg,#FBEDEA,#FFFCFB);}
+.callout.danger .ct{color:var(--no);}
+.callout.find{border-color:#BFD8C7; background:linear-gradient(180deg,#EBF3EE,#FBFDFB);}
+.callout.find .ct{color:var(--go);}
+.callout .big{font-family:var(--display); font-size:19.5px; font-weight:600; line-height:1.65; color:var(--ink);}
+
+/* legal citation */
+.legal{
+  margin:26px 0; padding:20px 24px; background:var(--paper-2);
+  border:1px solid var(--rule); border-inline-start:3px solid var(--brand); border-radius:0 10px 10px 0;
+}
+.legal .art{font-family:var(--mono); font-size:11px; font-weight:600; color:var(--brand); letter-spacing:.08em; margin-bottom:7px;}
+.legal q{font-size:16.5px; font-style:normal; color:var(--ink); font-weight:500; display:block; line-height:1.8;}
+.legal .impl{margin-top:12px; padding-top:12px; border-top:1px dashed var(--rule-2); font-size:14.5px; color:var(--ink-2);}
+
+/* ============ tables ============ */
+.tscroll{overflow-x:auto; margin:26px 0; border:1px solid var(--rule); border-radius:12px; background:var(--paper-2); box-shadow:var(--shadow-sm);}
+table{width:100%; border-collapse:collapse; min-width:660px;}
+thead th{
+  font-family:var(--mono); font-size:10.5px; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--ink-3); text-align:right; padding:13px 16px; background:var(--paper-3);
+  border-bottom:1.5px solid var(--rule-2); white-space:nowrap;
+}
+tbody td{padding:14px 16px; font-size:14.5px; border-bottom:1px solid var(--rule); vertical-align:top; line-height:1.7;}
+tbody tr:last-child td{border-bottom:none;}
+tbody tr:hover{background:rgba(92,76,227,.028);}
+tbody td:first-child{font-weight:600; color:var(--ink);}
+td .n{color:var(--ink-2); font-weight:400; font-size:13.5px; display:block; margin-top:3px;}
+.rate{font-family:var(--mono); font-size:13px; font-weight:600;}
+.rate.a{color:var(--go);} .rate.b{color:var(--hold);} .rate.c{color:var(--no);}
+tr.dim td{opacity:.6;}
+tr.star td{background:linear-gradient(90deg, rgba(92,76,227,.07), transparent);}
+
+/* ============ tech cards ============ */
+.grid{display:grid; gap:16px; margin:28px 0;}
+.g2{grid-template-columns:repeat(auto-fit,minmax(292px,1fr));}
+.g3{grid-template-columns:repeat(auto-fit,minmax(232px,1fr));}
+
+.tcard{
+  border:1px solid var(--rule); border-radius:13px; padding:22px 23px; background:var(--paper-2);
+  box-shadow:var(--shadow-sm); transition:.22s cubic-bezier(.3,.8,.4,1); position:relative; overflow:hidden;
+}
+.tcard:hover{transform:translateY(-3px); box-shadow:var(--shadow-md); border-color:var(--rule-2);}
+.tcard .top{display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:13px;}
+.tcard h4{font-family:var(--display); font-size:17.5px; font-weight:600; margin:0; line-height:1.45;}
+.tcard .spec{font-family:var(--mono); font-size:10.5px; color:var(--ink-3); letter-spacing:.05em; margin-bottom:13px; direction:ltr; text-align:right;}
+.tcard p{font-size:14.5px; color:var(--ink-2); line-height:1.78; margin-bottom:.85em;}
+.tcard .pro,.tcard .con{
+  font-size:13.5px; padding-inline-start:19px; position:relative; margin-bottom:6px; color:var(--ink-2); line-height:1.7;
+}
+.tcard .pro::before{content:'+'; position:absolute; right:0; color:var(--go); font-weight:700; font-family:var(--mono);}
+.tcard .con::before{content:'−'; position:absolute; right:0; color:var(--no); font-weight:700; font-family:var(--mono);}
+.tcard.rejected{background:repeating-linear-gradient(-45deg, #FCF7F6, #FCF7F6 11px, #FAF2F0 11px, #FAF2F0 22px); border-color:#E5BFB9;}
+.tcard.starred{border-color:#CFC9F5; box-shadow:0 0 0 3px rgba(92,76,227,.07), var(--shadow-sm);}
+.tcard.starred::after{
+  content:'مرشّح قوي'; position:absolute; top:13px; left:-31px; transform:rotate(-45deg);
+  background:var(--brand); color:#fff; font-size:9.5px; font-weight:700; padding:3px 34px; letter-spacing:.05em;
+}
+
+/* ============ layer stack ============ */
+.stack{margin:32px 0; display:flex; flex-direction:column; gap:11px;}
+.layer{
+  display:flex; align-items:stretch; gap:0; border:1px solid var(--rule); border-radius:12px;
+  overflow:hidden; background:var(--paper-2); box-shadow:var(--shadow-sm);
+}
+.layer .lnum{
+  flex-shrink:0; width:66px; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  background:var(--brand); color:#fff; font-family:var(--display); font-weight:700; font-size:25px; gap:1px;
+}
+.layer .lnum small{font-family:var(--mono); font-size:8.5px; font-weight:500; opacity:.72; letter-spacing:.1em;}
+.layer .lbody{padding:18px 22px; flex:1;}
+.layer .lbody h4{font-family:var(--display); font-size:18px; font-weight:600; margin:0 0 7px;}
+.layer .lbody p{font-size:14.5px; color:var(--ink-2); margin:0; line-height:1.78;}
+.layer.safety .lnum{background:var(--go);}
+.layer.safety{border-color:#BFD8C7;}
+
+/* ============ hop diagram ============ */
+.hops{display:grid; gap:20px; margin:32px 0; grid-template-columns:repeat(auto-fit,minmax(310px,1fr));}
+.hopbox{border:1px solid var(--rule); border-radius:13px; padding:22px; background:var(--paper-2); box-shadow:var(--shadow-sm);}
+.hopbox.bad{border-color:#E5BFB9;}
+.hopbox.good{border-color:#BFD8C7;}
+.hopbox .ht{display:flex; align-items:center; justify-content:space-between; margin-bottom:17px; gap:10px; flex-wrap:wrap;}
+.hopbox .ht h4{font-family:var(--display); font-size:17px; font-weight:600; margin:0;}
+.hoplist{display:flex; flex-direction:column; gap:5px;}
+.hop{
+  display:flex; align-items:center; gap:10px; font-size:13.5px; padding:7px 12px;
+  border-radius:7px; background:var(--paper); border:1px solid var(--rule); color:var(--ink-2);
+}
+.hop .hn{font-family:var(--mono); font-size:10px; font-weight:600; width:15px; flex-shrink:0; color:var(--ink-3);}
+.hop.risk{border-color:#E8CBC5; background:#FCF4F2; color:var(--no);}
+.hop.risk .hn{color:var(--no);}
+.hopfoot{margin-top:15px; padding-top:14px; border-top:1px dashed var(--rule-2); font-size:13.5px; color:var(--ink-2); line-height:1.7;}
+
+/* ============ roadmap ============ */
+.phases{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(258px,1fr)); margin:30px 0;}
+.phase{border:1px solid var(--rule); border-radius:13px; background:var(--paper-2); overflow:hidden; box-shadow:var(--shadow-sm); display:flex; flex-direction:column;}
+.phase .ph{padding:15px 20px; border-bottom:1px solid var(--rule); background:var(--paper-3);}
+.phase .ph .pn{font-family:var(--mono); font-size:10px; letter-spacing:.15em; color:var(--brand); font-weight:600; margin-bottom:4px;}
+.phase .ph h4{font-family:var(--display); font-size:18px; font-weight:600; margin:0;}
+.phase .pb{padding:17px 20px; flex:1;}
+.phase ul{margin:0; padding-inline-start:17px; font-size:14px; color:var(--ink-2); line-height:1.9;}
+.phase ul li::marker{color:var(--brand);}
+.phase .pf{padding:12px 20px; border-top:1px dashed var(--rule-2); font-family:var(--mono); font-size:11px; color:var(--ink-3); letter-spacing:.04em;}
+.phase.now{border-color:#CFC9F5;}
+.phase.now .ph{background:var(--brand-soft);}
+
+/* ============ steps ============ */
+.steps{display:flex; flex-direction:column; gap:11px; margin:28px 0; counter-reset:st;}
+.step{
+  display:flex; gap:17px; align-items:flex-start; padding:18px 21px; background:var(--paper-2);
+  border:1px solid var(--rule); border-radius:12px; box-shadow:var(--shadow-sm); transition:.2s;
+}
+.step:hover{border-color:var(--rule-2); transform:translateX(-3px);}
+.step::before{
+  counter-increment:st; content:counter(st);
+  font-family:var(--mono); font-size:13px; font-weight:600; color:var(--brand);
+  width:29px; height:29px; flex-shrink:0; border-radius:50%; background:var(--brand-soft);
+  display:flex; align-items:center; justify-content:center; margin-top:1px;
+}
+.step .sb{flex:1;}
+.step .sb b{display:block; font-size:16px; font-weight:600; margin-bottom:4px; font-family:var(--display);}
+.step .sb span{font-size:14px; color:var(--ink-2); line-height:1.7;}
+.step .cost{font-family:var(--mono); font-size:11px; color:var(--ink-3); white-space:nowrap; padding-top:4px; letter-spacing:.03em;}
+
+/* ============ misc ============ */
+.kv{display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:1px; background:var(--rule); border:1px solid var(--rule); border-radius:12px; overflow:hidden; margin:26px 0;}
+.kv div{background:var(--paper-2); padding:17px 19px;}
+.kv dt{font-family:var(--mono); font-size:10px; letter-spacing:.11em; color:var(--ink-3); text-transform:uppercase; margin-bottom:6px;}
+.kv dd{margin:0; font-family:var(--display); font-size:24px; font-weight:700; color:var(--brand); line-height:1.2;}
+.kv dd small{display:block; font-family:var(--body); font-size:12.5px; font-weight:400; color:var(--ink-2); margin-top:5px; line-height:1.6;}
+
+ul.clean{margin:16px 0; padding-inline-start:20px;}
+ul.clean li{margin-bottom:9px; color:var(--ink-2); line-height:1.8;}
+ul.clean li::marker{color:var(--brand);}
+ul.clean li b{color:var(--ink);}
+
+.divider{height:1px; background:linear-gradient(to left, transparent, var(--rule-2), transparent); margin:52px 0;}
+
+footer{
+  border-top:1px solid var(--rule); padding:46px 0 60px; margin-top:34px;
+  font-size:13.5px; color:var(--ink-3);
+}
+footer .fx{display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap; align-items:flex-end;}
+footer b{font-family:var(--display); color:var(--ink-2); font-size:15px; display:block; margin-bottom:5px;}
+.srcs{margin-top:26px; font-size:12.5px; line-height:2.1; column-count:2; column-gap:36px;}
+.srcs a{color:var(--ink-2); text-decoration:none; border-bottom:1px solid var(--rule-2);}
+.srcs a:hover{color:var(--brand); border-color:var(--brand);}
+
+/* ============ reveal ============ */
+.rv{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s cubic-bezier(.2,.7,.3,1);}
+.rv.in{opacity:1; transform:none;}
+.hero .eyebrow,.hero h1,.hero-lede,.hero-meta{animation:up .8s cubic-bezier(.2,.7,.3,1) backwards;}
+.hero h1{animation-delay:.07s;} .hero-lede{animation-delay:.15s;} .hero-meta{animation-delay:.23s;}
+@keyframes up{from{opacity:0; transform:translateY(22px);} to{opacity:1; transform:none;}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important;} .rv{opacity:1; transform:none;}}
+
+/* ============ responsive ============ */
+@media (max-width:760px){
+  body{font-size:15.5px;}
+  .wrap{padding:0 20px;}
+  .topbar-in{padding:0 20px; height:52px;}
+  .tb-nav{display:none;}
+  section{padding:54px 0;}
+  .hero{padding:56px 0 46px;}
+  .layer{flex-direction:column;}
+  .layer .lnum{width:100%; flex-direction:row; gap:9px; padding:9px; font-size:19px;}
+  .srcs{column-count:1;}
+}
+
+/* ============ print ============ */
+@media print{
+  body{background:#fff; font-size:11pt;}
+  body::before,.topbar{display:none;}
+  section{padding:22px 0; page-break-inside:avoid;}
+  .tcard,.callout,.legal,.phase,.step,.hopbox{box-shadow:none; break-inside:avoid;}
+  .rv{opacity:1; transform:none;}
+  a{color:var(--ink); text-decoration:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-in">
+    <div class="tb-mark"><span class="dot"></span><span>مسلك</span></div>
+    <nav class="tb-nav">
+      <a href="#summary">الخلاصة</a>
+      <a href="#law">المستجد النظامي</a>
+      <a href="#boarding">تحضير الطالب</a>
+      <a href="#alight">النزول</a>
+      <a href="#safety">السلامة</a>
+      <a href="#arrival">إشعار الوصول</a>
+      <a href="#girls">الطالبات</a>
+      <a href="#roadmap">التنفيذ</a>
+      <a href="#next">الخطوات</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- ═══════════ HERO ═══════════ -->
+<header class="hero">
+  <div class="eyebrow">ملف قرار · للنقاش في اجتماع الغد</div>
+  <h1>تحضير الطالب، و<span class="accent">إشعار الوصول</span> — أفضل الممارسات والحلول القابلة للتطبيق</h1>
+  <p class="hero-lede">
+    مسح لما تفعله شركات النقل المدرسي عالميًا في مسألتين: التحقق من صعود الطالب ونزوله،
+    وإبلاغ الأسرة بوصول الحافلة دون نزول السائق أو استخدام البوري. مع تقييم صريح لكل تقنية مطروحة
+    — من رمز QR إلى بصمة الوجه — في ضوء النظام السعودي وخصوصية الطالبات وواقع التشغيل.
+  </p>
+  <dl class="hero-meta">
+    <div><dt>الحالة</dt><dd>مسوّدة للنقاش</dd></div>
+    <div><dt>النطاق</dt><dd>مسألتان</dd></div>
+    <div><dt>التقنيات المقيَّمة</dt><dd>١١ خيارًا</dd></div>
+    <div><dt>مستوى التحقق</dt><dd>مصادر موثّقة</dd></div>
+  </dl>
+</header>
+
+<!-- ═══════════ SUMMARY ═══════════ -->
+<section id="summary">
+  <div class="sec-head">
+    <span class="sec-num">٠١ — الخلاصة</span>
+    <h2>ستة قرارات تلخّص الملف</h2>
+    <p class="sub">إن لم يكن أمامك وقت لقراءة الباقي، فهذه هي النتائج. كل واحدة مشروحة بالتفصيل في موضعها.</p>
+  </div>
+
+  <div class="grid g2">
+    <div class="tcard">
+      <div class="top"><h4>١ — التعرف على الوجه والبصمة: مرفوضان</h4><span class="chip no">مرفوض</span></div>
+      <p>ليس لسبب واحد بل لأربعة مجتمعة: بيانات حيوية حسّاسة لقاصرين تحت نظام حماية البيانات، وخصوصية الطالبات، وغياب أي إلزام نظامي بالكاميرات يمنح غطاءً، ومخاطرة سمعة غير محسوبة.</p>
+    </div>
+    <div class="tcard">
+      <div class="top"><h4>٢ — القراءة بلا لمس غير موثوقة</h4><span class="chip no">غير صالح</span></div>
+      <p>UHF وBLE يَعِدان بالمرور دون توقّف، لكن باب الحافلة أسوأ بيئة ممكنة لهما: صندوق معدني عاكس، وأجساد تمتص الإشارة، وحدود غير واضحة بين «داخل» و«على الرصيف».</p>
+    </div>
+    <div class="tcard starred">
+      <div class="top"><h4>٣ — بطاقة NFC كمسار سريع</h4><span class="chip go">موصى به</span></div>
+      <p>معيار الصناعة الفعلي. تُقرأ بجوال المرافق نفسه بلا عتاد إضافي، وتحمل رقمًا مجهولًا لا بيانات شخصية — فالبطاقة الضائعة قطعة بلاستيك بلا معنى.</p>
+    </div>
+    <div class="tcard starred">
+      <div class="top"><h4>٤ — قائمة المحطة كشبكة أمان</h4><span class="chip go">موصى به</span></div>
+      <p>من نسي بطاقته: نقرة واحدة على اسمه من قائمة تعرض <b>طلاب هذه المحطة فقط</b>. بلا سبب مطلوب وبلا لوم. هذا ما تفعله مقاطعات تدير تسعين ألف طالب.</p>
+    </div>
+    <div class="tcard">
+      <div class="top"><h4>٥ — النزول يُستنتج لا يُمسح</h4><span class="chip hold">بتحفّظ</span></div>
+      <p>الطالب مسجَّل على محطة؛ التوقف عندها يعني نزوله. يؤكَّد العدد فقط، ويُسجَّل الاستثناء وحده. يوفّر ثواني ثمينة لكل طالب مرتين يوميًا.</p>
+    </div>
+    <div class="tcard">
+      <div class="top"><h4>٦ — إشعار الوصول: الفرصة فيمن لا يصله</h4><span class="chip brand">إعادة تأطير</span></div>
+      <p>الإشعار عبر التطبيق مبنيّ ومتاح حكوميًا. لكن ثلث الأسر لا تثبّت التطبيق، وكثير من الطلاب بلا جوال — <b>وهؤلاء بالضبط سبب استمرار البوري</b>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ LAW ═══════════ -->
+<section id="law">
+  <div class="sec-head">
+    <span class="sec-num">٠٢ — المستجد النظامي</span>
+    <h2>لائحة جديدة تغيّر طبيعة المنتج</h2>
+    <p class="sub">
+      صدرت اللائحة التنفيذية لنشاط النقل التعليمي عن الهيئة العامة للنقل، وهي نافذة الآن.
+      ثلاث مواد منها تمسّ صميم ما نناقشه اليوم.
+    </p>
+  </div>
+
+  <div class="legal">
+    <div class="art">المادة ٢٦ (٢١) — التزام على السائق</div>
+    <q>التأكد من خلو الحافلة من جميع الطلاب / الطالبات بعد انتهاء الرحلة.</q>
+    <div class="impl">
+      <b>الأثر:</b> إلزام السائق بمسح مؤخرة الحافلة لم يعد «ميزة سلامة اختيارية» — بل
+      <b>دليل امتثال قابل للتدقيق</b>. وتنفيذه برمجي بحت تقريبًا.
+    </div>
+  </div>
+
+  <div class="legal">
+    <div class="art">المادة ٣٠ (٤) — التزام على المشغّل</div>
+    <q>الربط بمنصة الهيئة الإلكترونية وتزويدها بالبيانات.</q>
+    <div class="impl">
+      <b>الأثر:</b> طبقة تصدير البيانات ليست تحسينًا لاحقًا — بل متطلب معماري من اليوم الأول.
+    </div>
+  </div>
+
+  <div class="legal">
+    <div class="art">المادة ٣٠ (١١) و ٣٢ — المرافق</div>
+    <q>تأمين مرافق في الحافلة التي تنقل طلاب وطالبات مدارس المرحلة الابتدائية … لا يقل عمره عن ١٨ عامًا، وسجله الجنائي خالٍ من السوابق، ومهامه مساعدة الطلاب وضمان سلامتهم أثناء الصعود والنزول وأثناء الرحلة.</q>
+    <div class="impl">
+      <b>الأثر — وهو الأهم:</b> التحضير ليس وظيفة السائق نظامًا، بل وظيفة <b>المرافق</b>.
+      أي تصميم لا يعرف هذا الدور يصمّم لواقع غير موجود.
+    </div>
+  </div>
+
+  <div class="callout find">
+    <div class="ct">◆ وما لا تفرضه اللائحة — وهذا مهم بالقدر نفسه</div>
+    <p>
+      لا إلزام بآلية حضور إلكترونية بعينها، ولا تتبع GPS منصوصًا عليه صراحة،
+      <b>ولا ذكر للكاميرات إطلاقًا</b>. أي أننا أحرار في اختيار التقنية —
+      ولا يوجد غطاء تنظيمي يبرّر الحلول البصرية لمن أراد الدفاع عنها.
+    </p>
+  </div>
+
+  <div class="callout principle">
+    <div class="ct">◆ الاستنتاج الاستراتيجي</div>
+    <p class="big">
+      مسلك ليس «تطبيق تتبع» — بل <b>أداة إثبات امتثال</b>.
+    </p>
+    <p style="margin-top:12px;">
+      الفرق في البيع هائل: التتبع ميزة لطيفة يُساوَم على سعرها،
+      والامتثال التزام نظامي لا خيار فيه. كل مدرسة أهلية وكل مشغّل خاص أمام التزام جديد لا يملك أداة لإثباته.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════ BOARDING ═══════════ -->
+<section id="boarding">
+  <div class="sec-head">
+    <span class="sec-num">٠٣ — المسألة الأولى</span>
+    <h2>تحضير الطالب عند الصعود</h2>
+    <p class="sub">
+      الوضع الحالي في البروتوتايب: السائق يضغط ✓ أو ✗ لكل طالب من قائمة تعرض كل طلاب المسار.
+      السؤال: بأي تقنية نستبدل هذا — وهل نستبدله أصلًا؟
+    </p>
+  </div>
+
+  <h3 class="blockhead">المعيار الذي يحكم كل شيء</h3>
+  <p>
+    قبل مقارنة التقنيات، يجب الاتفاق على معيار الحكم. والمعيار ليس الدقة — بل <b>زمن المحطة المضاف</b>.
+  </p>
+
+  <div class="callout danger">
+    <div class="ct">▲ نمط الفشل الأخطر</div>
+    <p class="big">أي حل يضيف أكثر من ٣٠ ثانية لكل محطة سيتوقف السائق عن استخدامه.</p>
+    <p style="margin-top:12px;">
+      وحين يتوقف عن استخدامه، سيملأ البيانات لاحقًا بشكل تقريبي أو وهمي.
+      <b>حل مُتجاهَل دقته صفر مهما بلغت دقته الورقية.</b>
+      ولهذا رتّبت «الدقة» في المرتبة السابعة من معايير التقييم — لا الأولى.
+    </p>
+  </div>
+
+  <p>
+    لتقدير الحجم: مسار فيه ١٧ طالبًا. كل ثانية تُضاف لكل طالب تعني نصف دقيقة يوميًا،
+    وساعتين ونصفًا في الفصل الدراسي — لحافلة واحدة.
+  </p>
+
+  <h3 class="blockhead">مصفوفة الخيارات الكاملة</h3>
+  <p>كل التقنيات المطروحة، مقيَّمة على المعايير الستة التي تهم فعلًا.</p>
+
+  <div class="tscroll">
+  <table>
+    <thead>
+      <tr>
+        <th>الحل</th><th>زمن المحطة</th><th>مقاومة النسيان</th><th>الجنسان</th>
+        <th>النظام</th><th>التكلفة</th><th>الحكم</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>يدوي — الوضع الحالي<span class="n">قائمة بكل طلاب المسار</span></td>
+        <td><span class="rate b">متوسط</span></td><td><span class="rate a">لا ينطبق</span></td>
+        <td><span class="rate a">✓</span></td><td><span class="rate a">✓</span></td><td><span class="rate a">صفر</span></td>
+        <td><span class="chip neutral">خط الأساس</span></td>
+      </tr>
+      <tr class="star">
+        <td>بطاقة NFC + جوال المرافق<span class="n">MIFARE DESFire · لمس مقصود</span></td>
+        <td><span class="rate a">ممتاز</span></td><td><span class="rate c">ضعيف</span></td>
+        <td><span class="rate a">✓</span></td><td><span class="rate a">✓</span></td><td><span class="rate a">منخفض</span></td>
+        <td><span class="chip go">موصى به</span></td>
+      </tr>
+      <tr>
+        <td>بطاقة NFC + قارئ ثابت<span class="n">قارئ مثبّت عند الباب</span></td>
+        <td><span class="rate a">ممتاز</span></td><td><span class="rate c">ضعيف</span></td>
+        <td><span class="rate a">✓</span></td><td><span class="rate a">✓</span></td><td><span class="rate b">متوسط</span></td>
+        <td><span class="chip hold">مرحلة لاحقة</span></td>
+      </tr>
+      <tr class="star">
+        <td>قائمة أسماء على الجهاز<span class="n">طلاب المحطة الحالية فقط</span></td>
+        <td><span class="rate b">جيد</span></td><td><span class="rate a">ممتاز</span></td>
+        <td><span class="rate a">✓</span></td><td><span class="rate a">✓</span></td><td><span class="rate a">صفر</span></td>
+        <td><span class="chip go">موصى به</span></td>
+      </tr>
+      <tr>
+        <td>رمز QR مطبوع<span class="n">بطاقة أو ملصق على الحقيبة</span></td>
+        <td><span class="rate c">بطيء</span></td><td><span class="rate c">ضعيف</span></td>
+        <td><span class="rate a">✓</span></td><td><span class="rate a">✓</span></td><td><span class="rate a">شبه صفر</span></td>
+        <td><span class="chip hold">خطة بديلة</span></td>
+      </tr>
+      <tr>
+        <td>QR على شاشة الجوال<span class="n">رمز متغيّر في تطبيق الطالب</span></td>
+        <td><span class="rate c">بطيء</span></td><td><span class="rate b">متوسط</span></td>
+        <td><span class="rate a">✓</span></td><td><span class="rate a">✓</span></td><td><span class="rate a">صفر</span></td>
+        <td><span class="chip neutral">ثانوي</span></td>
+      </tr>
+      <tr class="dim">
+        <td>UHF RFID بلا لمس<span class="n">٨٦٠–٩٦٠ ميجاهرتز · بوابة</span></td>
+        <td><span class="rate a">ممتاز</span></td><td><span class="rate c">ضعيف</span></td>
+        <td><span class="rate a">✓</span></td><td><span class="rate a">✓</span></td><td><span class="rate c">مرتفع</span></td>
+        <td><span class="chip no">غير موثوق</span></td>
+      </tr>
+      <tr class="dim">
+        <td>وسم BLE نشط<span class="n">بطارية · بوابة في الحافلة</span></td>
+        <td><span class="rate a">ممتاز</span></td><td><span class="rate c">ضعيف</span></td>
+        <td><span class="rate a">✓</span></td><td><span class="rate a">✓</span></td><td><span class="rate c">مرتفع</span></td>
+        <td><span class="chip no">غير موثوق</span></td>
+      </tr>
+      <tr class="dim">
+        <td>UWB<span class="n">دقة سنتيمترية · يعرف الاتجاه</span></td>
+        <td><span class="rate a">ممتاز</span></td><td><span class="rate c">ضعيف</span></td>
+        <td><span class="rate a">✓</span></td><td><span class="rate a">✓</span></td><td><span class="rate c">مرتفع جدًا</span></td>
+        <td><span class="chip neutral">سابق لأوانه</span></td>
+      </tr>
+      <tr class="dim">
+        <td>التعرف على الوجه<span class="n">كاميرا عند الباب</span></td>
+        <td><span class="rate b">متوسط</span></td><td><span class="rate a">ممتاز</span></td>
+        <td><span class="rate c">✕</span></td><td><span class="rate c">✕</span></td><td><span class="rate c">مرتفع</span></td>
+        <td><span class="chip no">مرفوض</span></td>
+      </tr>
+      <tr class="dim">
+        <td>البصمة / راحة اليد<span class="n">قارئ حيوي</span></td>
+        <td><span class="rate c">بطيء</span></td><td><span class="rate a">ممتاز</span></td>
+        <td><span class="rate b">إشكالي</span></td><td><span class="rate c">✕</span></td><td><span class="rate c">مرتفع</span></td>
+        <td><span class="chip no">مرفوض</span></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 class="blockhead">التقنيات المرشّحة — تفصيلًا</h3>
+
+  <div class="grid g2">
+    <div class="tcard starred">
+      <div class="top"><h4>بطاقة NFC</h4><span class="chip go">الأساس</span></div>
+      <div class="spec">ISO 14443 · 13.56 MHz · MIFARE DESFire</div>
+      <p>معيار الصناعة الفعلي عالميًا. مدى القراءة من ٥ إلى ١٠ سنتيمترات — أي أنه <b>يتطلب لمسًا مقصودًا، وهذه ميزة لا عيب</b>: لا التباس بين من صعد ومن يقف على الرصيف.</p>
+      <div class="pro">تشفير AES حقيقي — غير قابل للاستنساخ عمليًا</div>
+      <div class="pro">أي جوال حديث يقرأه — <b>جوال المرافق هو القارئ</b>، بلا عتاد إضافي</div>
+      <div class="pro">أقل من ثانية لكل طالب</div>
+      <div class="pro">يعمل دون اتصال بالكامل</div>
+      <div class="con">شيء محمول ⇒ سيُنسى وسيُضيَّع</div>
+    </div>
+
+    <div class="tcard starred">
+      <div class="top"><h4>قائمة الأسماء على الجهاز</h4><span class="chip go">شبكة الأمان</span></div>
+      <div class="spec">جهاز لوحي أو جوال · قائمة قصيرة</div>
+      <p>الخيار الذي طُرح في صيغة «جهاز لوحي عند المدخل يختار الطالب اسمه». له خاصية فريدة لا يملكها غيره: <b>لا شيء يُحمل، فلا شيء يُنسى.</b></p>
+      <div class="pro">صفر تكلفة عتاد محمول وصفر استبدال</div>
+      <div class="pro">محايد تمامًا بين الجنسين</div>
+      <div class="con">بطيء إن عُرضت كل الأسماء — <b>والحل: اعرض طلاب المحطة الحالية فقط (٢–٤)</b></div>
+      <div class="con">قابل للتلاعب نظريًا، لكن نموذج التهديد ضعيف: ما دافع الطفل لتحضير زميله؟</div>
+      <p style="margin-top:14px; padding-top:13px; border-top:1px dashed var(--rule-2); font-size:14px;">
+        <b>ملاحظة على الصور:</b> إضافة صورة الطالب تجعل الاختيار فوريًا حتى لغير القارئ في الصفوف الأولى —
+        <b>لكنها غير مقبولة في حافلات الطالبات</b>. البديل: لون + رمز + الاسم الأول.
+      </p>
+    </div>
+
+    <div class="tcard">
+      <div class="top"><h4>رمز QR</h4><span class="chip hold">بديل</span></div>
+      <div class="spec">مطبوع على بطاقة أو ملصق · كاميرا الجوال</div>
+      <p>أرخص خيار على الإطلاق: ورقة مطبوعة وكاميرا موجودة أصلًا. لكن ثمنه يُدفع في الزمن لا في المال.</p>
+      <div class="pro">صفر تكلفة عتاد</div>
+      <div class="con"><b>يحتاج تصويبًا وإضاءة.</b> في الفجر، مع طفل في السابعة، ٣ إلى ٨ ثوانٍ لكل مسح</div>
+      <div class="con">١٧ طالبًا × ٥ ثوانٍ ≈ دقيقة ونصف تُضاف لكل محطة</div>
+      <div class="con">يتلف بالانثناء والبلل</div>
+    </div>
+
+    <div class="tcard rejected">
+      <div class="top"><h4>UHF RFID — القراءة بلا لمس</h4><span class="chip no">مرفوض</span></div>
+      <div class="spec">EPC Gen2 · 860–960 MHz · مدى ١–٦ م</div>
+      <p>الحل «الحلم»: يمشي الطالب عبر الباب فيُقرأ تلقائيًا. <b>وهو أكبر فخ في هذا المجال.</b></p>
+      <div class="con"><b>الإفراط في القراءة:</b> يلتقط من على الرصيف ومن يجلس في المقاعد الأمامية</div>
+      <div class="con"><b>الحافلة صندوق معدني</b> — الانعكاسات تجعل ضبط المدى شبه مستحيل</div>
+      <div class="con"><b>جسم الإنسان يمتص الموجة</b> — بطاقة في جيب خلفي قد لا تُقرأ إطلاقًا</div>
+      <div class="con">لا يعرف الاتجاه — لا يميّز الداخل من الخارج</div>
+    </div>
+
+    <div class="tcard rejected">
+      <div class="top"><h4>وسم BLE</h4><span class="chip no">مرفوض</span></div>
+      <div class="spec">بلوتوث منخفض الطاقة · بطارية ٦–٢٤ شهرًا</div>
+      <p>أفضل سلوكًا من UHF، لكن مشكلته الجوهرية قاتلة بطريقة صامتة.</p>
+      <div class="con"><b>قوة الإشارة مقياس رديء للمسافة</b> — «داخل الحافلة» و«واقف بجانبها» متطابقان تقريبًا</div>
+      <div class="con">لا يعرف الاتجاه</div>
+      <div class="con"><b>البطارية تموت بصمت</b> — والنظام يظن أن الطالب غائب. أسوأ من ضياع البطاقة</div>
+    </div>
+
+    <div class="tcard rejected">
+      <div class="top"><h4>التعرف على الوجه</h4><span class="chip no">مرفوض قطعًا</span></div>
+      <div class="spec">كاميرا + نموذج تعرّف</div>
+      <p>مرفوض من أربع جهات مستقلة، وأي واحدة منها تكفي وحدها.</p>
+      <div class="con"><b>نظاميًا:</b> بيانات حيوية = بيانات حسّاسة، لقاصرين، مع وجود بديل أقل تدخّلًا مثبت عالميًا ⇒ يستحيل تبرير التناسب</div>
+      <div class="con"><b>تنظيميًا:</b> اللائحة لا تفرض كاميرات — فلا غطاء</div>
+      <div class="con"><b>ثقافيًا:</b> غير قابل للتطبيق مع الطالبات</div>
+      <div class="con"><b>تشغيليًا:</b> إضاءة الفجر الخلفية، حركة، أطفال تتغيّر ملامحهم سريعًا</div>
+      <p style="margin-top:13px; font-size:14px;"><b>والإمارات — القادرة عليه تمامًا — اختارت RFID.</b> سابقة إقليمية تستحق الاستشهاد.</p>
+    </div>
+  </div>
+
+  <h3 class="blockhead">التوتر الذي لا يُحلّ باختيار تقنية</h3>
+  <p>
+    انظر إلى عمودَي «زمن المحطة» و«مقاومة النسيان» في المصفوفة. ستجد نمطًا لا فكاك منه:
+  </p>
+  <ul class="clean">
+    <li>كل حل <b>يقاوم النسيان</b> — الوجه، البصمة، قائمة الأسماء — إما مرفوض أو بطيء.</li>
+    <li>كل حل <b>سريع</b> — NFC، UHF، BLE — يعتمد شيئًا محمولًا سيُنسى وسيُفقد.</li>
+  </ul>
+
+  <div class="callout principle">
+    <div class="ct">◆ المبدأ</div>
+    <p class="big">التوتر لا يُحلّ باختيار أفضل تقنية — بل بالتخلي عن فكرة التقنية الواحدة.</p>
+    <p style="margin-top:12px;">
+      <b>مسار سريع يخدم تسعين بالمئة، وشبكة أمان تلتقط الباقي في ثوانٍ.</b>
+      والخطأ الشائع الذي يقتل هذه الأنظمة هو جعل المسار البديل <b>مؤلمًا</b>:
+      نموذج طويل، سبب إلزامي، تنبيه للإدارة. النتيجة الحتمية أن يتوقف السائق عن استخدام النظام كله.
+    </p>
+  </div>
+
+  <div class="callout find">
+    <div class="ct">◆ وهذا ليس اجتهادًا نظريًا</div>
+    <p>
+      مقاطعات أمريكية تدير أكثر من تسعين ألف طالب تنص سياساتها حرفيًا على:
+      «إذا نسي الطالب بطاقته أو فقدها، يستطيع السائق تسجيله يدويًا عبر جهاز لوحي —
+      <b>ولن يُحرم أي طالب مؤهَّل من خدمة النقل</b> بسبب فقد البطاقة.»
+      وهي وصلت إلى البنية نفسها: بطاقة كمسار سريع، وقائمة يدوية بلا عقاب كشبكة أمان.
+    </p>
+  </div>
+
+  <h3 class="blockhead">البنية الموصى بها</h3>
+
+  <div class="stack">
+    <div class="layer">
+      <div class="lnum"><small>LAYER</small>١</div>
+      <div class="lbody">
+        <h4>المسار السريع — بطاقة NFC تُقرأ بجوال المرافق</h4>
+        <p>
+          البطاقة تحمل <b>رقمًا مجهولًا فقط</b>، والربط بالطالب يحدث على الخادم — فالبطاقة الضائعة لا تكشف شيئًا.
+          والأذكى من تعليقها في الرقبة: <b>ملصق داخل الحقيبة</b>، أو دمج الوسم في البطاقة المدرسية القائمة.
+          لا شيء جديد يُحمل، فلا شيء جديد يُنسى.
+        </p>
+      </div>
+    </div>
+    <div class="layer">
+      <div class="lnum"><small>LAYER</small>٢</div>
+      <div class="lbody">
+        <h4>شبكة الأمان — قائمة طلاب المحطة الحالية</h4>
+        <p>
+          عند كل محطة يعرض التطبيق <b>طلاب هذه المحطة فقط</b> بأزرار كبيرة. من نسي بطاقته: نقرة واحدة.
+          بلا سبب مطلوب وبلا تحذير — مجرد تسجيل هادئ بأن المصدر كان يدويًا.
+          والمعالجة تكون في <b>تقرير أسبوعي للمدرسة</b>، لا في وجه السائق أثناء المسار.
+        </p>
+      </div>
+    </div>
+    <div class="layer">
+      <div class="lnum"><small>LAYER</small>٣</div>
+      <div class="lbody">
+        <h4>النزول — استنتاج لا تحضير</h4>
+        <p>
+          التوقف عند محطة الطالب المسجّلة يعني نزوله. يؤكَّد العدد فقط، ويُسجَّل الاستثناء وحده.
+          <span class="chip hold">راجع التحفّظ في القسم التالي</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout warn">
+    <div class="ct">▲ سؤال يستحق النقاش في الاجتماع</div>
+    <p>
+      إن أثبت اختبار بسيط أن اختيار الاسم من قائمة قصيرة سريع بما يكفي،
+      <b>فقد لا نحتاج بطاقات إطلاقًا</b> — ونوفّر تكلفة العتاد والاستبدال والدعم بالكامل.
+      الطبقة الثانية قد تكون هي المنتج، لا شبكة الأمان.
+      <b>لنختبر هذا قبل شراء أي بطاقة.</b>
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════ ALIGHTING ═══════════ -->
+<section id="alight">
+  <div class="sec-head">
+    <span class="sec-num">٠٤ — المسألة الأولى (تتمة)</span>
+    <h2>التحضير عند النزول</h2>
+    <p class="sub">الجزء الذي يُهمَل عادة، ويستحق موقفًا صريحًا — بما في ذلك تصحيح لافتراض بدأتُ به.</p>
+  </div>
+
+  <div class="callout warn">
+    <div class="ct">▲ تصحيح ذاتي</div>
+    <p>
+      في المسوّدة الأولى كتبتُ أن «الالتزام بالمسح عند النزول ينهار دائمًا» ووصفتها بحقيقة صناعية.
+      <b>التحقق لم يؤكد ذلك، بل وجد ما يناقضه.</b> Zonar تمسح عند الصعود والنزول،
+      ومقاطعة Katy بأكثر من تسعين ألف طالب تمسح دخولًا وخروجًا، والإمارات كذلك.
+      كان استنتاجًا سلوكيًا معقولًا لكنه غير مسنود، وعرضتُه بثقة لا يستحقها.
+    </p>
+  </div>
+
+  <h4 class="minihead">لماذا ما زلت أرجّح الاستنتاج رغم ذلك</h4>
+  <p>الحجة لم تعد «الصناعة تفعل ذلك» — بل ثلاث نقاط أقوى:</p>
+  <ul class="clean">
+    <li><b>قيمة البيانات غير متماثلة.</b> «لم يصعد» حدث خطير يستدعي اتصالًا فوريًا. «نزل عند محطته» هو الحالة المتوقَّعة — قيمة تسجيلها يدويًا منخفضة، وتكلفتها مرتفعة.</li>
+    <li><b>زمن المحطة هو المعيار القاتل.</b> مسح النزول يضاعف الاحتكاك مقابل عائد معلوماتي أقل.</li>
+    <li><b>الاستثناء وحده هو المهم:</b> نزل في محطة خاطئة، أو لم ينزل. وكلاهما يُكشف بالاستنتاج مع تنبيه عدم التطابق.</li>
+  </ul>
+
+  <div class="callout danger">
+    <div class="ct">▲ لكن انتبه — وهذا قرار للاجتماع</div>
+    <p>
+      إن أرادت المدرسة ميزة <b>«تنبيه ولي الأمر عند نزول الطالب في محطة خاطئة»</b> — وهي ميزة تبيع جيدًا —
+      فالاستنتاج <b>لا يكفي</b> ويلزم مسح خروج حقيقي.
+      <b>السؤال للمدارس: أيهما تريدون — سرعة المحطة أم دقة تنبيه المحطة الخاطئة؟</b>
+      لا يمكن الحصول على الاثنين معًا بالكامل.
+    </p>
+  </div>
+
+  <div class="kv">
+    <div><dt>تأكيد العدد</dt><dd>١<small>فعل واحد بدل ثلاثة — «نزل ٣؟ نعم»</small></dd></div>
+    <div><dt>ما يُسجَّل يدويًا</dt><dd>الاستثناء<small>محطة خاطئة، أو لم ينزل</small></dd></div>
+    <div><dt>تنبيه آلي</dt><dd>عدم التطابق<small>صعد ١٧ ونزل ١٦ ⇒ إنذار فوري</small></dd></div>
+  </div>
+</section>
+
+<!-- ═══════════ SAFETY ═══════════ -->
+<section id="safety">
+  <div class="sec-head">
+    <span class="sec-num">٠٥ — طبقة مستقلة</span>
+    <h2>ألّا يبقى طفل في الحافلة</h2>
+    <p class="sub">
+      هذه ليست ميزة من ميزات التحضير — بل شبكة أمان منفصلة تمامًا.
+      وهي الآن <b>إلزام نظامي</b> بنص المادة ٢٦ (٢١).
+    </p>
+  </div>
+
+  <div class="callout principle">
+    <div class="ct">◆ لماذا يجب أن تكون مستقلة</div>
+    <p>
+      لاحظ الفرق الجوهري: التحضير يجيب «<b>من كان يُفترض أن ينزل؟</b>»،
+      وهذه الطبقة تجيب «<b>هل بقي أحد فعلًا؟</b>».
+    </p>
+    <p style="margin-top:12px;">
+      لو بنينا الثانية على الأولى، فإن أي خطأ في التحضير — بطاقة لم تُقرأ، طالب لم يُسجَّل، شبكة انقطعت —
+      <b>يتحوّل إلى خطأ في السلامة</b>. المصدر الموثوق الوحيد لسؤال «هل بقي أحد؟» هو الفحص الفيزيائي:
+      بعين السائق، أو بموجة الرادار. <b>لا تدع بيانات التحضير تقترب من هذا القرار.</b>
+    </p>
+  </div>
+
+  <div class="grid g2">
+    <div class="tcard starred">
+      <div class="top"><h4>إلزام مسح المؤخرة</h4><span class="chip go">المرحلة الأولى</span></div>
+      <div class="spec">وسم NFC في آخر الحافلة · برمجي بحت</div>
+      <p>
+        لا يستطيع السائق إنهاء الرحلة في التطبيق حتى يمسح وسمًا مثبّتًا في مؤخرة الحافلة.
+        فيُجبر <b>جسديًا</b> على المرور بكل المقاعد.
+      </p>
+      <p style="margin-top:12px; padding-top:12px; border-top:1px dashed var(--rule-2);">
+        <b>النموذج المرجعي عالميًا</b> — نظام Child Check-Mate: عند إطفاء المحرك يبدأ عدّاد ٣٠ ثانية،
+        فإن لم يُضغط زر المؤخرة انطلق البوق وأضواء الجانب بعد دقيقة.
+        <b>وعبقريته أنه لا يطلب من السائق أن يتذكّر الفحص — بل يجعل الفحص الطريق الوحيد لإسكات الإنذار.</b>
+      </p>
+      <div class="pro">تكلفتها برمجية تقريبًا — أعلى قيمة مقابل تكلفة في الملف كله</div>
+      <div class="pro"><b>سجل مؤرّخ ومختوم جغرافيًا = دليل امتثال للمادة ٢٦ (٢١)</b></div>
+    </div>
+
+    <div class="tcard starred">
+      <div class="top"><h4>رادار موجي مليمتري</h4><span class="chip go">مرحلة لاحقة</span></div>
+      <div class="spec">mmWave 60 GHz · Child Presence Detection</div>
+      <p>
+        يكشف <b>العلامات الحيوية</b> — تنفّس طفل نائم خلف ظهر مقعد. <b>ولا يلتقط صورة إطلاقًا.</b>
+      </p>
+      <p style="margin-top:12px; padding-top:12px; border-top:1px dashed var(--rule-2);">
+        تقنية ناضجة وليست تجريبية: ضمن متطلبات <b>Euro NCAP منذ ٢٠٢٣</b> للسيارات.
+        دقة أقل من ٥ سنتيمترات باستهلاك أقل من نصف واط. يعمل في كل ظروف الإضاءة،
+        <b>ويخترق المواد فيكشف من خلف المقاعد دون خط رؤية</b>. وتوصفه وثائقه صراحة بأنه «خصوصية بالتصميم».
+      </p>
+      <div class="pro"><b>محايد تمامًا بين الجنسين — صالح لحافلات الطالبات لأنه لا يصوّر</b></div>
+      <div class="con">تكلفة عتاد لكل حافلة — لذا مرحلة ثالثة لا أولى</div>
+    </div>
+  </div>
+
+  <div class="callout find">
+    <div class="ct">◆ نقطة تستحق الإبراز في الاجتماع</div>
+    <p>
+      كنا أمام معضلة: كيف نضمن ألّا يبقى طفل في الحافلة دون كاميرا؟
+      <b>الرادار يحلّها كاملة.</b> يكشف وجود إنسان حي بدقة أعلى من الكاميرا،
+      في الظلام التام، ومن خلف الأجسام — <b>ولا يُنتج صورة يمكن تسريبها أو الاعتراض عليها أصلًا.</b>
+      هذا حلٌّ لا يتطلب مقايضة بين السلامة والخصوصية.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════ ARRIVAL ═══════════ -->
+<section id="arrival">
+  <div class="sec-head">
+    <span class="sec-num">٠٦ — المسألة الثانية</span>
+    <h2>إشعار الأسرة بوصول الحافلة</h2>
+    <p class="sub">
+      الهدف المعلن: ألّا يضطر السائق للنزول ورن الجرس، أو الاتصال بجوال الطالب، أو استخدام البوري.
+    </p>
+  </div>
+
+  <h3 class="blockhead">أولًا — إعادة تعريف المشكلة</h3>
+  <p>
+    إن وصل الإشعار لحظة وقوف الحافلة، فقد <b>خسرنا أصلًا</b>: الحافلة تنتظر، والطفل يلبس حذاءه، والدقيقتان ضاعتا.
+  </p>
+
+  <div class="callout principle">
+    <div class="ct">◆ إعادة الصياغة</div>
+    <p class="big">
+      لا نسأل «كيف نُخبرهم أن الباص وصل؟» — بل <b>«كيف نضمن أن الطالب جاهز قبل أن يصل؟»</b>
+    </p>
+    <p style="margin-top:12px;">
+      وهذا يفتح حلًا لا يخطر على البال بالصياغة الأولى:
+      <b>أفضل إشعار وصول هو ألّا تحتاج الحافلة للتوقف عند ذلك البيت أصلًا</b> —
+      لأن ولي الأمر أبلغ مسبقًا أن ابنه لن يركب اليوم.
+    </p>
+  </div>
+
+  <h3 class="blockhead">ثانيًا — أين تكمن الفرصة فعلًا</h3>
+  <p>
+    الإشعار عبر التطبيق مسألة محلولة ومطبَّقة على نطاق واسع، بما في ذلك محليًا.
+    فالسائق لا يستخدم البوري لأن الإشعار غير موجود — بل لأنه <b>لا يصل إلى بعض الأسر</b>.
+  </p>
+
+  <div class="tscroll">
+  <table>
+    <thead><tr><th>الشريحة</th><th>لماذا يفشل إشعار التطبيق معها</th><th>ما الذي يخدمها</th></tr></thead>
+    <tbody>
+      <tr><td>لم يثبّتوا التطبيق<span class="n">٣٠–٤٠٪ في المعتاد</span></td><td>لا توجد قناة أصلًا</td><td>واتساب · رسالة نصية</td></tr>
+      <tr><td>طلاب بلا جوال</td><td>المستفيد نفسه غير موصول</td><td>جهاز منزلي · نغمة خارجية</td></tr>
+      <tr><td>الجوال صامت فجرًا</td><td>الإشعار وصل ولم يُسمع</td><td>جهاز منزلي · اتصال صوتي</td></tr>
+      <tr><td>غير متمكّن تقنيًا</td><td>التطبيق حاجز لا جسر</td><td>واتساب · جهاز منزلي</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="callout find">
+    <div class="ct">◆ إعادة تأطير العرض</div>
+    <p class="big">
+      لا نقول «نبني إشعار وصول». نقول: <b>«نغطّي الأربعين بالمئة الذين لا يصلهم إشعار التطبيق — وهم بالضبط سبب استمرار البوري.»</b>
+    </p>
+  </div>
+
+  <h3 class="blockhead">ثالثًا — مصفوفة القنوات</h3>
+
+  <div class="tscroll">
+  <table>
+    <thead><tr><th>القناة</th><th>الوصول</th><th>تكلفة متكررة</th><th>يخترق الصمت</th><th>التعقيد</th><th>الحكم</th></tr></thead>
+    <tbody>
+      <tr><td>إشعار التطبيق<span class="n">Push notification</span></td><td><span class="rate c">٦٠–٧٠٪</span></td><td><span class="rate a">صفر</span></td><td><span class="rate c">لا</span></td><td><span class="rate a">منخفض</span></td><td><span class="chip go">الأساس</span></td></tr>
+      <tr class="star"><td>واتساب<span class="n">WhatsApp Business API</span></td><td><span class="rate a">شبه شامل</span></td><td><span class="rate b">لكل رسالة</span></td><td><span class="rate b">جزئيًا</span></td><td><span class="rate b">متوسط</span></td><td><span class="chip go">حاسم محليًا</span></td></tr>
+      <tr><td>رسالة نصية<span class="n">SMS</span></td><td><span class="rate a">١٠٠٪</span></td><td><span class="rate c">لكل رسالة</span></td><td><span class="rate b">جزئيًا</span></td><td><span class="rate a">منخفض</span></td><td><span class="chip hold">خطة أخيرة</span></td></tr>
+      <tr><td>اتصال صوتي آلي</td><td><span class="rate a">١٠٠٪</span></td><td><span class="rate c">مرتفع</span></td><td><span class="rate a">نعم</span></td><td><span class="rate b">متوسط</span></td><td><span class="chip neutral">للطوارئ</span></td></tr>
+      <tr class="star"><td>نغمة خارجية من الحافلة</td><td><span class="rate a">١٠٠٪</span></td><td><span class="rate a">صفر</span></td><td><span class="rate a">نعم</span></td><td><span class="rate a">منخفض جدًا</span></td><td><span class="chip go">مهمَل ورخيص</span></td></tr>
+      <tr class="star"><td>جهاز راديوي منزلي<span class="n">LoRa / 433 MHz</span></td><td><span class="rate a">تام لمن ركّبه</span></td><td><span class="rate a">صفر</span></td><td><span class="rate a">نعم</span></td><td><span class="rate c">مرتفع</span></td><td><span class="chip hold">مشروط</span></td></tr>
+      <tr class="dim"><td>Zigbee + هاب منزلي</td><td><span class="rate c">منخفض جدًا</span></td><td><span class="rate a">صفر</span></td><td><span class="rate a">نعم</span></td><td><span class="rate c">مرتفع</span></td><td><span class="chip no">معمارية خاطئة</span></td></tr>
+      <tr class="dim"><td>مكبّر صوت ذكي<span class="n">Alexa · Google Home</span></td><td><span class="rate c">منخفض</span></td><td><span class="rate a">صفر</span></td><td><span class="rate a">نعم</span></td><td><span class="rate b">متوسط</span></td><td><span class="chip neutral">تكامل اختياري</span></td></tr>
+      <tr class="dim"><td>بوري السيارة — الوضع الحالي</td><td><span class="rate a">١٠٠٪</span></td><td><span class="rate a">صفر</span></td><td><span class="rate a">نعم</span></td><td><span class="rate a">صفر</span></td><td><span class="chip no">يزعج الحي</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 class="blockhead">رابعًا — لماذا Zigbee ليس الحل رغم وجاهة السؤال</h3>
+  <p>
+    طُرح Zigbee تحديدًا، والإجابة الصادقة أن <b>المعمارية خاطئة للمسألة</b> — لا أن الفكرة سيئة.
+    Zigbee بروتوكول <b>شبكة منزلية محلية</b>. لجعله يستجيب لحدث في السحابة نحتاج سلسلة كاملة:
+  </p>
+
+  <div class="hops">
+    <div class="hopbox bad">
+      <div class="ht"><h4>عبر Zigbee</h4><span class="chip no">٧ حلقات</span></div>
+      <div class="hoplist">
+        <div class="hop"><span class="hn">١</span> الحافلة</div>
+        <div class="hop"><span class="hn">٢</span> إنترنت خلوي</div>
+        <div class="hop"><span class="hn">٣</span> السحابة</div>
+        <div class="hop risk"><span class="hn">٤</span> إنترنت المنزل</div>
+        <div class="hop risk"><span class="hn">٥</span> الموجّه</div>
+        <div class="hop risk"><span class="hn">٦</span> هاب Zigbee</div>
+        <div class="hop risk"><span class="hn">٧</span> الجهاز + تطبيق المصنّع</div>
+      </div>
+      <div class="hopfoot">
+        <b>أربع حلقات خارج سيطرتنا تمامًا.</b> انقطع النت ⇒ لا إشعار، وبصمت.
+        وكل هذا للوصول إلى النتيجة نفسها التي يصل إليها إشعار الجوال بحلقتين —
+        مقابل ميزة واحدة فقط: اختراق الصمت.
+      </div>
+    </div>
+    <div class="hopbox good">
+      <div class="ht"><h4>عبر جهاز راديوي مباشر</h4><span class="chip go">حلقة واحدة</span></div>
+      <div class="hoplist">
+        <div class="hop"><span class="hn">١</span> مُرسِل في الحافلة ← مستقبِل في المنزل</div>
+      </div>
+      <div class="hopfoot" style="margin-top:60px;">
+        <b>بلا إنترنت. بلا هاب. بلا تطبيق. بلا حساب.</b>
+        عندما تدخل الحافلة نطاق بضع مئات من الأمتار، تبثّ رمزًا مشفّرًا؛
+        وكل مستقبِل يستجيب <b>لرمزه وحده</b> فيصدر نغمة ويضيء.
+      </div>
+    </div>
+  </div>
+
+  <p><b>متى يصلح Zigbee إذًا؟</b> فقط كتكامل مفتوح (Webhook) لمن يملك منظومة منزلية ذكية ويريد ربطها بنفسه — ميزة للمهتمين بالتقنية، لا منتجًا ندعمه ونتحمّل دعمه الفني.</p>
+
+  <h3 class="blockhead">خامسًا — الجهاز الراديوي المنزلي</h3>
+
+  <div class="grid g2">
+    <div class="tcard starred">
+      <div class="top"><h4>لماذا هو مناسب استثنائيًا هنا</h4><span class="chip hold">مشروط</span></div>
+      <div class="pro"><b>لا يحتاج إنترنتًا منزليًا</b> — يعمل في كل بيت بلا استثناء</div>
+      <div class="pro"><b>لا يحتاج جوالًا</b> — يحل مشكلة الطالب الذي لا يملك جهازًا</div>
+      <div class="pro">لا يحتاج تطبيقًا — يتجاوز حاجز التبنّي كليًا</div>
+      <div class="pro"><b>صفر تكلفة تشغيلية</b> — لا رسوم رسائل، وهذا فرق تراكمي ضخم عبر السنوات</div>
+      <div class="pro">يخترق الصمت بنغمة وضوء</div>
+      <div class="pro">تركيب بخطوة واحدة: أدخله المقبس</div>
+    </div>
+    <div class="tcard">
+      <div class="top"><h4>المخاطر التي تحسم المصير</h4><span class="chip no">قبل أي التزام</span></div>
+      <div class="con"><b>الترخيص الطيفي:</b> يجب مراجعة ملحق أجهزة المدى القصير في لوائح الطيف الصادرة عن هيئة الاتصالات والفضاء والتقنية — أي نطاق مسموح وبأي قدرة. <b>لم نحسمه بعد، وهو شرط سابق لكل شيء.</b></div>
+      <div class="con"><b>المدى الواقعي:</b> الأرقام الدعائية تُقاس في خط بصر مفتوح. في حي بجدران خرسانية توقّع ٢٠٠–٤٠٠ متر لا ثلاثة كيلومترات</div>
+      <div class="con">لا تأكيد استلام — لا نعرف إن رنّ الجهاز فعلًا</div>
+      <div class="con">تكلفة عتاد لكل منزل</div>
+      <p style="margin-top:14px; padding-top:13px; border-top:1px dashed var(--rule-2); font-size:14.5px;">
+        <b>لكن لاحظ:</b> ٣٠٠ متر تساوي دقيقة إلى دقيقة ونصف من زمن القيادة —
+        <b>وهي بالضبط المهلة المطلوبة.</b> المدى «المخيّب» قد يكون كافيًا تمامًا.
+      </p>
+    </div>
+  </div>
+
+  <div class="callout warn">
+    <div class="ct">▲ خطوة عملية بمئتي ريال</div>
+    <p>
+      <b>لا نصمّم شيئًا الآن.</b> نشتري جرس باب لاسلكيًا بعيد المدى جاهزًا — وهو نفس المعمارية تمامًا —
+      ونختبره في حي سعودي حقيقي: كم مترًا فعليًا عبر جدارين خرسانيين؟
+      <b>اختبار بثمن وجبة عشاء يحسم مسارًا استثماريًا كاملًا.</b>
+    </p>
+  </div>
+
+  <h3 class="blockhead">سادسًا — الحل المهمَل الذي قد يسبقها جميعًا</h3>
+
+  <div class="callout find">
+    <div class="ct">◆ لاحظ صياغة المشكلة الأصلية</div>
+    <p>
+      «حتى لا يضطر السائق للنزول ورن الجرس، أو الاتصال، أو <b>استعمال بوري السيارة</b>».
+      إذًا <b>الإزعاج هو المشكلة، لا انعدام الإشارة</b>. البوق يصل بنجاح تام — عيبه الوحيد أنه يوقظ الحي.
+    </p>
+    <p style="margin-top:12px;">
+      <b>الحل: مكبّر صوت خارجي صغير موجّه، يصدر نغمة قصيرة مهذّبة من ثانيتين بدل البوق.</b>
+    </p>
+  </div>
+
+  <div class="kv">
+    <div><dt>التكلفة</dt><dd>مئات الريالات<small>للحافلة الواحدة — لا شيء مقارنة بجهاز لكل منزل</small></dd></div>
+    <div><dt>التعقيد البرمجي</dt><dd>صفر<small>لا تكامل ولا سحابة ولا تطبيق</small></dd></div>
+    <div><dt>الوصول</dt><dd>١٠٠٪<small>لا يحتاج شيئًا من الأسرة</small></dd></div>
+    <div><dt>زمن التنفيذ</dt><dd>أسابيع<small>لا أشهر</small></dd></div>
+  </div>
+
+  <div class="callout danger">
+    <div class="ct">▲ تحذير من الانبهار التقني</div>
+    <p class="big">
+      قد يحلّ هذا ثمانين بالمئة من المشكلة المصرّح بها، بأقل من خمسة بالمئة من التكلفة.
+    </p>
+    <p style="margin-top:12px;">
+      الخطر الحقيقي في هذا الملف أن ننبهر بأناقة LoRa فنتجاهل مكبّر صوت بمئتي ريال.
+      <b>نجرّبه على حافلة واحدة ونسأل خمسة من أولياء الأمور. هذا كل ما يلزم.</b>
+    </p>
+  </div>
+
+  <h3 class="blockhead">سابعًا — الاتجاه المعاكس: الأسرة تبلّغ الحافلة</h3>
+  <p>
+    أعلى الميزات عائدًا في هذا الملف كله — <b>وكلها برمجية بحتة، بلا أي عتاد</b>،
+    وتدخل ضمن نطاق تطبيق ولي الأمر القائم.
+  </p>
+
+  <div class="grid g3">
+    <div class="tcard starred">
+      <div class="top"><h4>«لن يركب اليوم»</h4></div>
+      <p>الحافلة <b>تتخطى المحطة كليًا</b>: صفر انتظار، صفر إزعاج، ومسار أقصر للجميع.</p>
+      <p style="font-size:13.5px; color:var(--ink-3);">مطبَّقة عالميًا باسم Cancel-a-Ride.</p>
+    </div>
+    <div class="tcard">
+      <div class="top"><h4>«جاهز — عند الباب»</h4></div>
+      <p>يرى السائق علامة خضراء قبل وصوله، فلا يحتاج تنبيهًا ولا انتظارًا.</p>
+    </div>
+    <div class="tcard">
+      <div class="top"><h4>«تأخرنا دقيقتين»</h4></div>
+      <p>يمنع مغادرة ظالمة، ويمنع مكالمة، ويحفظ للسائق قراره.</p>
+    </div>
+  </div>
+
+  <div class="callout principle">
+    <div class="ct">◆ التحول الذي تُحدثه هذه الثلاث</div>
+    <p class="big">
+      من «كيف نُخبرهم أننا وصلنا؟» إلى <b>«كيف نعرف مسبقًا من سيكون جاهزًا؟»</b>
+    </p>
+    <p style="margin-top:12px;">
+      وهذه مشكلة أسهل بكثير وأرخص حلًا — وقد تُلغي الحاجة للجهاز الفيزيائي في أغلب الحالات.
+    </p>
+  </div>
+
+  <h3 class="blockhead">ثامنًا — التصعيد المتدرج</h3>
+  <p>الآلية التي تحل مشكلة من لا يصله الإشعار، دون تكلفة إرسال متوازٍ لكل القنوات:</p>
+  <div class="steps">
+    <div class="step"><div class="sb"><b>إشعار التطبيق</b><span>يُرسل أولًا — مجاني وغني بالمحتوى</span></div><div class="cost">فوري</div></div>
+    <div class="step"><div class="sb"><b>لم يُفتح خلال ٩٠ ثانية ⇒ واتساب</b><span>الانتشار شبه شامل، ولا يحتاج تثبيت شيء جديد</span></div><div class="cost">+٩٠ ث</div></div>
+    <div class="step"><div class="sb"><b>لم يُقرأ خلال ٦٠ ثانية ⇒ رسالة نصية</b><span>تصل لأي جهاز، وتُستخدم للحالات المتبقية فقط</span></div><div class="cost">+١٥٠ ث</div></div>
+  </div>
+  <p style="font-size:15px; color:var(--ink-2);">
+    <b>والفائدة المزدوجة:</b> نصل للجميع، وندفع تكلفة الرسائل لأقلية فقط بدل إرسالها للجميع دائمًا.
+  </p>
+</section>
+
+<!-- ═══════════ GIRLS ═══════════ -->
+<section id="girls">
+  <div class="sec-head">
+    <span class="sec-num">٠٧ — قيد صلب</span>
+    <h2>الحلول الصالحة للجنسين</h2>
+    <p class="sub">هذا ليس بندًا فرعيًا — بل قيد يحكم الاختيار التقني من البداية.</p>
+  </div>
+
+  <div class="callout principle">
+    <div class="ct">◆ المبدأ التصميمي</div>
+    <p class="big">صمّم النظام متطابقًا بين الجنسين <b>بالبناء، لا بالإعداد</b>.</p>
+    <p style="margin-top:14px;">
+      بمعنى: <b>لا نبني وضع «بنين» ووضع «بنات»</b>. نبني نظامًا واحدًا لا يلتقط صورًا لأحد أصلًا. والأسباب أربعة:
+    </p>
+  </div>
+
+  <ul class="clean">
+    <li><b>نظامان يعنيان ضعف الصيانة وضعف مساحة الخطأ.</b></li>
+    <li><b>أي مفتاح إعداد يمكن أن يُضبط خطأً</b> — ومفتاح واحد بالخطأ يعني حادثة خصوصية.</li>
+    <li><b>نظام «بلا صور للجميع» لا يحتاج دفاعًا ولا مبرّرًا</b> — لا أمام الأهل ولا أمام المنظّم. وهذا وحده يستحق الاختيار.</li>
+    <li><b>البنون يستحقون الخصوصية أيضًا.</b> لا يوجد سبب وجيه لجعلهم أقل حماية.</li>
+  </ul>
+
+  <p>واللائحة تدعم هذا الاتجاه: <b>لا إلزام بالكاميرات إطلاقًا</b> — فلا ضغط تنظيمي مضاد.</p>
+
+  <div class="tscroll">
+  <table>
+    <thead><tr><th>التقنية</th><th>الصلاحية للجنسين</th><th>الملاحظة</th></tr></thead>
+    <tbody>
+      <tr><td>بطاقة NFC برقم مجهول</td><td><span class="chip go">محايدة تمامًا</span></td><td>لا تحمل اسمًا ولا صورة ولا أي بيان شخصي</td></tr>
+      <tr><td>رمز QR</td><td><span class="chip go">محايد</span></td><td>—</td></tr>
+      <tr><td>قائمة أسماء نصية</td><td><span class="chip go">محايد</span></td><td>—</td></tr>
+      <tr class="star"><td>رادار mmWave</td><td><span class="chip go">محايد تمامًا</span></td><td><b>لا يلتقط صورة إطلاقًا — يحل السلامة دون مقايضة بالخصوصية</b></td></tr>
+      <tr><td>قائمة بصور الطلاب</td><td><span class="chip hold">للبنين فقط</span></td><td>البديل للطالبات: لون + رمز + الاسم الأول</td></tr>
+      <tr class="dim"><td>كاميرا داخلية</td><td><span class="chip no">إشكالي</span></td><td><b>لا نفترض القبول — نسأل المدارس مباشرة</b></td></tr>
+      <tr class="dim"><td>التعرف على الوجه</td><td><span class="chip no">مرفوض</span></td><td>—</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ═══════════ ROADMAP ═══════════ -->
+<section id="roadmap">
+  <div class="sec-head">
+    <span class="sec-num">٠٨ — التنفيذ</span>
+    <h2>ثلاث مراحل، والأولى بلا عتاد</h2>
+    <p class="sub">
+      لاحظ أن المرحلة الأولى تحلّ الجزء الأكبر من المسألتين <b>دون شراء قطعة واحدة</b>.
+      نبدأ منها ونقيس قبل إنفاق ريال على عتاد.
+    </p>
+  </div>
+
+  <div class="phases">
+    <div class="phase now">
+      <div class="ph"><div class="pn">PHASE 01 · برمجي بحت</div><h4>الأساس</h4></div>
+      <div class="pb">
+        <ul>
+          <li><b>دور «مرافق» منفصل</b> بواجهة وصلاحيات</li>
+          <li>قائمة طلاب المحطة الحالية بأزرار كبيرة</li>
+          <li>استنتاج النزول + تأكيد العدد</li>
+          <li><b>إلزام مسح المؤخرة</b> — امتثال م ٢٦(٢١)</li>
+          <li>تنبيه عدم التطابق</li>
+          <li>العمل الكامل دون اتصال</li>
+          <li><b>طبقة تصدير لمنصة الهيئة</b> — م ٣٠(٤)</li>
+          <li>«لن يركب اليوم» و«جاهز»</li>
+          <li>التصعيد المتدرج للإشعارات</li>
+        </ul>
+      </div>
+      <div class="pf">العتاد المطلوب: لا شيء</div>
+    </div>
+
+    <div class="phase">
+      <div class="ph"><div class="pn">PHASE 02 · عتاد خفيف</div><h4>التسريع</h4></div>
+      <div class="pb">
+        <ul>
+          <li>بطاقات NFC بترميز DESFire</li>
+          <li>القراءة بجوال المرافق</li>
+          <li>الوسم في الحقيبة أو البطاقة المدرسية</li>
+          <li>تقرير الطلاب متكرري النسيان</li>
+          <li><b>نغمة خارجية بدل البوق</b> — تجربة على حافلة واحدة</li>
+        </ul>
+      </div>
+      <div class="pf">العتاد: بطاقات + مكبّر صوت</div>
+    </div>
+
+    <div class="phase">
+      <div class="ph"><div class="pn">PHASE 03 · مشروط</div><h4>التعزيز</h4></div>
+      <div class="pb">
+        <ul>
+          <li><b>رادار mmWave</b> لكشف بقاء طفل</li>
+          <li>قارئ NFC ثابت عند الباب — إن ثبتت الحاجة</li>
+          <li><b>الجهاز الراديوي المنزلي</b> — بعد حسم الترخيص وإثبات المدى ميدانيًا</li>
+          <li>Webhook مفتوح لمن يملك منظومة منزلية ذكية</li>
+        </ul>
+      </div>
+      <div class="pf">مشروط بنتائج المرحلتين السابقتين</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ NEXT ═══════════ -->
+<section id="next">
+  <div class="sec-head">
+    <span class="sec-num">٠٩ — الخطوات التالية</span>
+    <h2>خمسة اختبارات رخيصة تحسم أكبر القرارات</h2>
+    <p class="sub">مرتّبة بحسب نسبة ما تحسمه إلى ما تكلّفه.</p>
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="sb"><b>اختبار ورقي مع أطفال ابتدائي</b><span>كم يستغرق طفل في الصف الأول ليجد اسمه بين أربعة أسماء بأزرار كبيرة؟ <b>إن كان سريعًا، فقد لا نحتاج بطاقات إطلاقًا</b> — ونوفّر العتاد والاستبدال والدعم بالكامل.</span></div>
+      <div class="cost">ورقة</div>
+    </div>
+    <div class="step">
+      <div class="sb"><b>اختبار جرس لاسلكي في حي سعودي</b><span>كم مترًا فعليًا عبر جدارين خرسانيين؟ يحسم جدوى مسار الجهاز المنزلي بالكامل.</span></div>
+      <div class="cost">٢٠٠ ريال</div>
+    </div>
+    <div class="step">
+      <div class="sb"><b>تجربة نغمة خارجية على حافلة واحدة</b><span>واسأل خمسة من أولياء الأمور. قد تحل المشكلة المصرّح بها كاملة.</span></div>
+      <div class="cost">أسبوع</div>
+    </div>
+    <div class="step">
+      <div class="sb"><b>مراجعة ملحق أجهزة المدى القصير</b><span>من لوائح الطيف الترددي لدى هيئة الاتصالات والفضاء والتقنية — النطاقات المسموحة وحدود القدرة. شرط سابق لأي استثمار في الحل الراديوي.</span></div>
+      <div class="cost">ساعة</div>
+    </div>
+    <div class="step">
+      <div class="sb"><b>سؤال ثلاث مدارس أهلية</b><span>هل الامتثال للائحة الجديدة نقطة ألم حقيقية عندكم؟ وأيهما تريدون: سرعة المحطة أم تنبيه المحطة الخاطئة؟</span></div>
+      <div class="cost">مكالمات</div>
+    </div>
+  </div>
+
+  <div class="callout warn">
+    <div class="ct">▲ ملاحظة على الترتيب</div>
+    <p>
+      الأسئلة التشغيلية والتجارية تسبق التقنية عمدًا.
+      <b>اختيار NFC أو mmWave أو LoRa لا يهمّ كثيرًا إن لم نتحقق أولًا من أن المشكلة التي نحلّها هي المشكلة التي تؤلم العميل فعلًا.</b>
+    </p>
+  </div>
+
+  <div class="divider"></div>
+
+  <h3 class="blockhead" style="margin-top:0;">مسائل مفتوحة للنقاش في الاجتماع</h3>
+  <ul class="clean">
+    <li>هل نستهدف السوق الأهلي أم الحكومي؟ <b>يغيّر المنتج بالكامل.</b></li>
+    <li>سرعة المحطة أم تنبيه النزول في محطة خاطئة — أيهما يبيع أكثر؟</li>
+    <li>من يحمل الجهاز في حافلات الطالبات: السائق أم المرافقة؟</li>
+    <li>هل تقبل المدارس تحمّل تكلفة استبدال البطاقات المفقودة؟</li>
+    <li>هل نبني دور «المرافق» في هذه الدورة أم نؤجّله؟ <b>اللائحة تفترض وجوده.</b></li>
+  </ul>
+</section>
+
+<footer>
+  <div class="fx">
+    <div>
+      <b>مسلك — منصة النقل المدرسي</b>
+      ملف قرار للنقاش · جمعية الإحسان — القسم التقني
+    </div>
+    <div style="font-family:var(--mono); font-size:11px; letter-spacing:.06em; color:var(--ink-3);">
+      DRAFT · FOR DISCUSSION
+    </div>
+  </div>
+
+  <div style="margin-top:34px; padding-top:22px; border-top:1px solid var(--rule);">
+    <b style="font-family:var(--display); font-size:14px; color:var(--ink-2); display:block; margin-bottom:12px;">مصادر مختارة</b>
+    <div class="srcs">
+      <a href="https://qanoonsa.com/p/510432/" target="_blank" rel="noopener">اللائحة التنفيذية لنشاط النقل التعليمي</a><br>
+      <a href="https://www.lexismiddleeast.com/law/SaudiArabia/AdministrativeDecision_11_6TR_2025_4_1447/ar" target="_blank" rel="noopener">قرار الهيئة العامة للنقل ١١-٦ ت ر-٢٠٢٥-٤</a><br>
+      <a href="https://www.okaz.com.sa/news/local/2215471" target="_blank" rel="noopener">إلزامية المرافق في حافلات الابتدائي — عكاظ</a><br>
+      <a href="https://sdaia.gov.sa/en/Research/Pages/DataProtection.aspx" target="_blank" rel="noopener">سدايا — حماية البيانات الشخصية</a><br>
+      <a href="https://iclg.com/practice-areas/data-protection-laws-and-regulations/saudi-arabia/" target="_blank" rel="noopener">تصنيف البيانات الحساسة تحت PDPL</a><br>
+      <a href="https://www.zonar.com/solutions/z-pass-student-tracking/" target="_blank" rel="noopener">Zonar Z Pass — تتبع ركوب الطلاب</a><br>
+      <a href="https://www.hcpss.org/schools/transportation/student-bus-cards/" target="_blank" rel="noopener">سياسة البطاقة المنسية — Howard County</a><br>
+      <a href="https://transportation.lcsd2.org/faq/" target="_blank" rel="noopener">مسح البطاقات دخولًا وخروجًا — Katy ISD</a><br>
+      <a href="https://childcheckmate.com/" target="_blank" rel="noopener">Child Check-Mate — نظام فحص الحافلة</a><br>
+      <a href="https://vayyar.com/auto/solutions/in-cabin/cpd/" target="_blank" rel="noopener">Vayyar — كشف وجود طفل برادار mmWave</a><br>
+      <a href="https://www.ti.com/lit/SSZT046" target="_blank" rel="noopener">Texas Instruments — متطلبات Euro NCAP للكشف</a><br>
+      <a href="https://iotee.ae/blog/school-bus-fleet-management-rta-compliance-uae/" target="_blank" rel="noopener">متطلبات RTA و ADEK للحافلات المدرسية</a><br>
+      <a href="https://www.tuv.com/regulations-and-standards/en/saudi-arabia-frequency-spectrum-regulations-for-radio-services-and-applications.html" target="_blank" rel="noopener">لوائح الطيف الترددي السعودية — CST</a><br>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+<script>
+// scroll reveal
+const io = new IntersectionObserver((es)=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+},{threshold:.08, rootMargin:'0px 0px -40px'});
+
+document.querySelectorAll('section > .sec-head, .tcard, .callout, .legal, .tscroll, .stack, .hops, .phases, .steps, .kv, ul.clean, h3.blockhead')
+  .forEach((el,i)=>{ el.classList.add('rv'); el.style.transitionDelay = (Math.min(i%4,3)*45)+'ms'; io.observe(el); });
+
+// nav highlight
+const links = [...document.querySelectorAll('.tb-nav a')];
+const secs  = links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+const navIO = new IntersectionObserver((es)=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      links.forEach(l=>l.classList.toggle('on', l.getAttribute('href') === '#'+e.target.id));
+    }
+  });
+},{rootMargin:'-70px 0px -65% 0px'});
+secs.forEach(s=>navIO.observe(s));
+</script>
+</body>
+</html>

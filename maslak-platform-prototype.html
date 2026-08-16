@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>منصة مسلك — الواجهة الأم</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#5C4CE3; --primary-dark:#4636bf; --primary-light:#EDEBFC;
+  --text:#16162C; --text-muted:#6B6B85;
+  --bg:#F7F7FB; --white:#FFFFFF;
+  --sky:#BEEFF5; --pink:#FFD1E3; --yellow:#FFEFB0; --lightblue:#D6DEFF;
+  --green:#22C55E; --green-light:#E7F9EE; --red:#EF4444; --red-light:#FDEAEA;
+  --radius-lg:20px; --radius-btn:999px;
+  --shadow-soft:0 8px 24px rgba(22,22,44,.06);
+  --shadow-card:0 10px 30px rgba(92,76,227,.12);
+}
+*{box-sizing:border-box; font-family:'Tajawal',sans-serif;}
+body{margin:0; background:#EDEBF7; color:var(--text); direction:rtl;}
+.proto-bar{position:sticky; top:0; z-index:80; background:#16162C; color:#fff; display:flex; align-items:center; gap:14px; padding:10px 18px; flex-wrap:wrap;}
+.proto-bar a.proto-home{color:#fff; text-decoration:none; font-weight:700; font-size:13px; background:rgba(255,255,255,.12); padding:6px 14px; border-radius:999px; display:flex; align-items:center; gap:6px;}
+.proto-bar a.proto-home:hover{background:rgba(255,255,255,.2);}
+.proto-title{font-weight:800; font-size:13px; opacity:.85; margin-inline-end:auto;}
+.proto-jump{display:flex; gap:6px; flex-wrap:wrap;}
+.proto-jump button{background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.18); color:#fff; font-size:12px; font-weight:700; padding:6px 12px; border-radius:999px; cursor:pointer; font-family:'Tajawal',sans-serif;}
+.proto-jump button:hover{background:rgba(255,255,255,.22);}
+.proto-jump button.on{background:var(--primary); border-color:var(--primary);}
+
+.browser-frame{max-width:1360px; margin:28px auto 60px; border-radius:20px; overflow:hidden; box-shadow:0 30px 70px rgba(22,22,44,.22); background:#fff;}
+.browser-topbar{background:#E5E4F0; padding:11px 16px; display:flex; align-items:center; gap:14px;}
+.traffic{display:flex; gap:7px;}
+.traffic span{width:11px; height:11px; border-radius:50%; display:block;}
+.address{flex:1; background:#fff; border-radius:8px; padding:6px 16px; font-size:12px; color:var(--text-muted); text-align:center; font-weight:700;}
+
+.app-shell{display:flex; min-height:720px;}
+.sidebar{width:250px; background:#100F22; color:#fff; padding:22px 16px; flex-shrink:0; display:flex; flex-direction:column;}
+.sidebar .brand{display:flex; align-items:center; gap:10px; margin-bottom:26px; padding:0 6px;}
+.sidebar .brand .logo{width:38px; height:38px; border-radius:12px; background:var(--primary); display:flex; align-items:center; justify-content:center;}
+.sidebar .brand .logo svg{width:20px; height:20px; stroke:#fff; fill:none; stroke-width:2;}
+.sidebar .brand b{font-size:15px; font-weight:800;}
+.sidebar .brand span{display:block; font-size:10.5px; color:#9694C0; font-weight:700;}
+.side-link{display:flex; align-items:center; gap:12px; padding:11px 14px; border-radius:12px; color:#C7C6E6; text-decoration:none; font-size:13.5px; font-weight:700; margin-bottom:4px; cursor:pointer; border:none; background:none; width:100%; text-align:right; font-family:'Tajawal',sans-serif;}
+.side-link svg{width:19px; height:19px; stroke:currentColor; fill:none; stroke-width:2; flex-shrink:0;}
+.side-link:hover{background:rgba(255,255,255,.06);}
+.side-link.active{background:var(--primary); color:#fff;}
+.sidebar .plat-card{margin-top:auto; background:rgba(255,255,255,.06); border-radius:14px; padding:12px; font-size:11.5px; color:#B9B8DD; line-height:1.8;}
+.sidebar .plat-card b{color:#fff; display:block; font-size:12.5px;}
+
+.main{flex:1; display:flex; flex-direction:column; background:var(--bg); min-width:0;}
+.topbar{display:flex; align-items:center; gap:12px; padding:16px 26px; background:#fff; border-bottom:1px solid #F0EFFB; flex-shrink:0;}
+.back-btn{width:36px; height:36px; min-width:36px; border-radius:11px; background:var(--primary-light); display:flex; align-items:center; justify-content:center; color:var(--primary); border:none; cursor:pointer; font-size:16px; font-weight:800;}
+.back-btn.hidden{visibility:hidden;}
+.topbar h1{font-size:18px; font-weight:800; margin:0;}
+.crumb{font-size:12px; color:var(--text-muted); font-weight:700; margin-top:2px;}
+.topbar .spacer{flex:1;}
+.avatar-top{width:38px; height:38px; border-radius:11px; background:var(--primary-light); color:var(--primary); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:13px;}
+.search-box{display:flex; align-items:center; gap:8px; background:var(--bg); border-radius:12px; padding:9px 14px; font-size:12.5px; color:var(--text-muted); width:230px; font-weight:700;}
+
+.content{flex:1; overflow-y:auto; padding:24px 26px 40px;}
+.screen{display:none; animation:fadeIn .25s ease;}
+.screen.active{display:block;}
+@keyframes fadeIn{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);}}
+
+.stat-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:22px;}
+.stat-card{background:#fff; border-radius:var(--radius-lg); padding:18px; box-shadow:var(--shadow-soft); border:1px solid #F0EFFB;}
+.stat-card .icon{width:38px; height:38px; border-radius:11px; display:flex; align-items:center; justify-content:center; margin-bottom:10px;}
+.stat-card .icon svg{width:19px; height:19px; stroke:var(--primary); fill:none; stroke-width:2;}
+.stat-card b{display:block; font-size:24px; font-weight:800;}
+.stat-card span{font-size:12.5px; color:var(--text-muted); font-weight:700;}
+.pill{display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:800; padding:4px 11px; border-radius:999px;}
+.pill.green{background:var(--green-light); color:#15803D;}
+.pill.red{background:var(--red-light); color:#B91C1C;}
+.pill.yellow{background:var(--yellow); color:#8a6d00;}
+.pill.purple{background:var(--primary-light); color:var(--primary);}
+
+.panel{background:#fff; border-radius:var(--radius-lg); box-shadow:var(--shadow-soft); border:1px solid #F0EFFB; overflow:hidden; margin-bottom:20px;}
+.panel-head{display:flex; align-items:center; justify-content:space-between; padding:16px 20px; border-bottom:1px solid #F4F3FB;}
+.panel-head h3{margin:0; font-size:15px; font-weight:800;}
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; background:var(--primary); color:#fff; padding:10px 18px; border-radius:var(--radius-btn); font-weight:800; font-size:13px; border:none; cursor:pointer; box-shadow:0 8px 18px rgba(92,76,227,.28); font-family:'Tajawal',sans-serif;}
+.btn.secondary{background:var(--primary-light); color:var(--primary); box-shadow:none;}
+.btn.sm{padding:7px 14px; font-size:12px;}
+.btn.ghost{background:transparent;color:var(--text-muted);box-shadow:none;}
+
+table{width:100%; border-collapse:collapse;}
+th{text-align:right; font-size:11.5px; color:var(--text-muted); font-weight:800; padding:10px 20px; background:#FAFAFD; border-bottom:1px solid #F0EFFB;}
+td{padding:13px 20px; font-size:13px; border-bottom:1px solid #F6F5FC; font-weight:700;}
+tr.clickable{cursor:pointer;}
+tr.clickable:hover{background:#FAFAFD;}
+tr:last-child td{border-bottom:none;}
+td.muted{color:var(--text-muted); font-weight:600;}
+.name-cell{display:flex; align-items:center; gap:10px;}
+.avatar{width:34px; height:34px; border-radius:10px; background:var(--primary-light); color:var(--primary); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:12px; flex-shrink:0;}
+
+.login-wrap{min-height:720px; display:flex; align-items:center; justify-content:center; background:linear-gradient(155deg,#1c1a3a,#100F22);}
+.login-card{width:380px; background:#fff; border-radius:24px; padding:34px; box-shadow:var(--shadow-card); text-align:center;}
+.login-card .logo{width:60px; height:60px; border-radius:18px; background:var(--primary); display:flex; align-items:center; justify-content:center; margin:0 auto 16px;}
+.login-card .logo svg{width:30px; height:30px; stroke:#fff; fill:none; stroke-width:2;}
+.field{margin-bottom:14px; text-align:right;}
+.field label{display:block; font-size:12px; font-weight:800; color:var(--text-muted); margin-bottom:6px;}
+.field input{width:100%; padding:12px 14px; border-radius:12px; border:1.5px solid #E7E5F5; font-size:13.5px; font-family:'Tajawal',sans-serif;}
+.field input:focus{outline:none; border-color:var(--primary);}
+
+.profile-head{display:flex; align-items:center; gap:16px; margin-bottom:20px;}
+.profile-head .avatar{width:58px; height:58px; border-radius:16px; font-size:19px;}
+.profile-head h2{margin:0 0 4px; font-size:19px; font-weight:800;}
+.profile-head .sub{font-size:12.5px; color:var(--text-muted); font-weight:700;}
+.info-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:20px;}
+.info-box{background:#fff; border-radius:16px; padding:14px; box-shadow:var(--shadow-soft); border:1px solid #F0EFFB;}
+.info-box span{display:block; font-size:11px; color:var(--text-muted); font-weight:700; margin-bottom:5px;}
+.info-box b{font-size:15px; font-weight:800;}
+
+.toggle-row{display:flex; align-items:center; justify-content:space-between; padding:14px 0; border-bottom:1px solid #F4F3FB;}
+.toggle-row:last-child{border-bottom:none;}
+.toggle-row b{font-size:13.5px; font-weight:800; display:block;}
+.toggle-row span{font-size:11.5px; color:var(--text-muted); font-weight:700;}
+.switch{width:42px; height:24px; border-radius:999px; background:#E7E5F5; position:relative; cursor:pointer;}
+.switch.on{background:var(--primary);}
+.switch::after{content:''; position:absolute; top:3px; right:3px; width:18px; height:18px; border-radius:50%; background:#fff; transition:.2s;}
+.switch.on::after{right:21px;}
+
+.alert-item{display:flex; gap:12px; background:#fff; border-radius:16px; padding:14px 16px; margin-bottom:10px; box-shadow:var(--shadow-soft); border:1px solid #F0EFFB;}
+.alert-item .dot{width:10px; height:10px; border-radius:50%; margin-top:5px; flex-shrink:0;}
+.alert-item b{display:block; font-size:13.5px; font-weight:800;}
+.alert-item span{font-size:12px; color:var(--text-muted); font-weight:700;}
+</style>
+</head>
+<body>
+
+<div class="proto-bar">
+  <a class="proto-home" href="index.html">⌂ منصة مسلك</a>
+  <span class="proto-title">بروتوتايب — منصة مسلك (الواجهة الأم · 6 شاشات)</span>
+  <div class="proto-jump" id="jumpBar"></div>
+</div>
+
+<div class="browser-frame">
+  <div class="browser-topbar">
+    <div class="traffic"><span style="background:#FF5F57"></span><span style="background:#FEBC2E"></span><span style="background:#28C840"></span></div>
+    <div class="address" id="addr">platform.maslak.sa/login</div>
+  </div>
+
+  <!-- LOGIN -->
+  <div class="screen active" id="s-login">
+    <div class="login-wrap">
+      <div class="login-card">
+        <div class="logo"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 21V9l8-5 8 5v12M9 21v-6h6v6M4 21h16"/><circle cx="12" cy="4" r="1.2" fill="#fff" stroke="none"/></svg></div>
+        <h2 style="margin:0 0 4px; font-size:19px; font-weight:800;">منصة مسلك</h2>
+        <p style="margin:0 0 22px; font-size:13px; color:var(--text-muted);">الواجهة الأم — الإشراف على جميع المدارس المسجّلة</p>
+        <div class="field"><label>البريد الإلكتروني</label><input type="text" value="ops@maslak.sa"></div>
+        <div class="field"><label>كلمة المرور</label><input type="password" value="••••••••"></div>
+        <button class="btn" style="width:100%; justify-content:center; padding:13px;" onclick="go('overview',{root:true})">تسجيل الدخول</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="app-shell" id="shell" style="display:none;">
+    <div class="sidebar">
+      <div class="brand">
+        <div class="logo"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 21V9l8-5 8 5v12M9 21v-6h6v6M4 21h16"/></svg></div>
+        <div><b>مسلك</b><span>الواجهة الأم</span></div>
+      </div>
+      <button class="side-link" data-tab="overview" onclick="go('overview',{root:true})"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="2"/><rect x="14" y="3" width="7" height="5" rx="2"/><rect x="14" y="12" width="7" height="9" rx="2"/><rect x="3" y="16" width="7" height="5" rx="2"/></svg>نظرة عامة</button>
+      <button class="side-link" data-tab="schools" onclick="go('schools',{root:true})"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 21V9l8-5 8 5v12M9 21v-6h6v6M4 21h16"/></svg>المدارس المسجّلة</button>
+      <button class="side-link" data-tab="alerts" onclick="go('alerts',{root:true})"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.29 3.86 1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0zM12 9v4m0 4h.01"/></svg>البلاغات والتنبيهات</button>
+      <button class="side-link" data-tab="settings" onclick="go('settings',{root:true})"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06A1.65 1.65 0 004.6 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06A1.65 1.65 0 009 4.6a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>الإعدادات والصلاحيات</button>
+      <div class="plat-card"><b>منصة مسلك</b>52 مدرسة مسجّلة<br>18,400 طالب على المنصة</div>
+    </div>
+
+    <div class="main">
+      <div class="topbar">
+        <button class="back-btn hidden" id="backBtn" onclick="back()">→</button>
+        <div><h1 id="pageTitle">نظرة عامة</h1><div class="crumb" id="pageCrumb">منصة مسلك</div></div>
+        <div class="spacer"></div>
+        <div class="search-box">🔍 بحث عن مدرسة...</div>
+        <div class="avatar-top">إم</div>
+      </div>
+      <div class="content">
+
+        <!-- OVERVIEW -->
+        <div class="screen" id="s-overview">
+          <div class="stat-grid">
+            <div class="stat-card"><div class="icon" style="background:var(--pink);"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 21V9l8-5 8 5v12"/></svg></div><b>52</b><span>مدرسة مسجّلة</span></div>
+            <div class="stat-card"><div class="icon" style="background:var(--sky);"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.2"/><path stroke-linecap="round" d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg></div><b>18,400</b><span>إجمالي الطلاب</span></div>
+            <div class="stat-card"><div class="icon" style="background:var(--lightblue);"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16V9a3 3 0 013-3h10a3 3 0 013 3v7"/></svg></div><b>640</b><span>حافلة نشطة</span></div>
+            <div class="stat-card"><div class="icon" style="background:var(--yellow);"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.29 3.86 1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg></div><b>3</b><span>بلاغات مفتوحة</span></div>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><h3>أحدث المدارس المسجّلة</h3><button class="btn sm secondary" onclick="go('schools',{root:true})">عرض الكل</button></div>
+            <table>
+              <tr><th>المدرسة</th><th>المدينة</th><th>الطلاب</th><th>الحالة</th></tr>
+              <tr class="clickable" onclick="openSchool('مدارس النخبة الأهلية')"><td><div class="name-cell"><div class="avatar">نخ</div>مدارس النخبة الأهلية</div></td><td class="muted">الرياض</td><td class="muted">420</td><td><span class="pill green">نشطة</span></td></tr>
+              <tr class="clickable" onclick="openSchool('مدارس الرواد العالمية')"><td><div class="name-cell"><div class="avatar">رو</div>مدارس الرواد العالمية</div></td><td class="muted">جدة</td><td class="muted">610</td><td><span class="pill green">نشطة</span></td></tr>
+              <tr class="clickable" onclick="openSchool('أكاديمية المستقبل')"><td><div class="name-cell"><div class="avatar">مس</div>أكاديمية المستقبل</div></td><td class="muted">الدمام</td><td class="muted">280</td><td><span class="pill yellow">قيد المراجعة</span></td></tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- SCHOOLS LIST -->
+        <div class="screen" id="s-schools">
+          <div class="panel">
+            <div class="panel-head"><h3>المدارس المسجّلة في مسلك (52)</h3><button class="btn sm">+ تسجيل مدرسة جديدة</button></div>
+            <table>
+              <tr><th>المدرسة</th><th>المدينة</th><th>الطلاب</th><th>الحافلات</th><th>الاشتراك</th><th>الحالة</th></tr>
+              <tr class="clickable" onclick="openSchool('مدارس النخبة الأهلية')"><td><div class="name-cell"><div class="avatar">نخ</div>مدارس النخبة الأهلية</div></td><td class="muted">الرياض</td><td class="muted">420</td><td class="muted">14</td><td class="muted">حتى 2027</td><td><span class="pill green">نشطة</span></td></tr>
+              <tr class="clickable" onclick="openSchool('مدارس الرواد العالمية')"><td><div class="name-cell"><div class="avatar">رو</div>مدارس الرواد العالمية</div></td><td class="muted">جدة</td><td class="muted">610</td><td class="muted">21</td><td class="muted">حتى 2026</td><td><span class="pill green">نشطة</span></td></tr>
+              <tr class="clickable" onclick="openSchool('أكاديمية المستقبل')"><td><div class="name-cell"><div class="avatar">مس</div>أكاديمية المستقبل</div></td><td class="muted">الدمام</td><td class="muted">280</td><td class="muted">9</td><td class="muted">تجريبي</td><td><span class="pill yellow">قيد المراجعة</span></td></tr>
+              <tr class="clickable" onclick="openSchool('مدارس الفا التعليمية')"><td><div class="name-cell"><div class="avatar">فا</div>مدارس الفا التعليمية</div></td><td class="muted">مكة</td><td class="muted">150</td><td class="muted">5</td><td class="muted">منتهي</td><td><span class="pill red">موقوفة</span></td></tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- SCHOOL DETAIL -->
+        <div class="screen" id="s-school-detail">
+          <div class="profile-head">
+            <div class="avatar" id="sdAvatar">نخ</div>
+            <div><h2 id="sdName">مدارس النخبة الأهلية</h2><div class="sub">الرياض · مسجّلة منذ يناير 2024 · <span class="pill green">نشطة</span></div></div>
+          </div>
+          <div class="info-grid">
+            <div class="info-box"><span>عدد الطلاب</span><b>420</b></div>
+            <div class="info-box"><span>عدد الحافلات</span><b>14</b></div>
+            <div class="info-box"><span>عدد السائقين</span><b>14</b></div>
+            <div class="info-box"><span>الالتزام بالمواعيد</span><b>97%</b></div>
+            <div class="info-box"><span>خطة الاشتراك</span><b>مسلك Pro</b></div>
+            <div class="info-box"><span>تجديد الاشتراك</span><b>يناير 2027</b></div>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><h3>المسؤول الإداري للمدرسة</h3></div>
+            <table>
+              <tr><th>الاسم</th><th>البريد</th><th>الجوال</th><th>الدور</th></tr>
+              <tr><td>أ. منى الحربي</td><td class="muted">admin@elite-school.sa</td><td class="muted">0555001122</td><td class="muted">مديرة النقل</td></tr>
+            </table>
+          </div>
+          <button class="btn secondary" onclick="alert('سيتم فتح منصة المدرسة في تبويب جديد (تجريبي)')">فتح منصة المدرسة</button>
+        </div>
+
+        <!-- ALERTS -->
+        <div class="screen" id="s-alerts">
+          <div class="alert-item"><div class="dot" style="background:var(--red);"></div><div><b>تأخر متكرر في مسار C2 — أكاديمية المستقبل</b><span>3 حالات تأخر خلال الأسبوع · قبل ساعتين</span></div></div>
+          <div class="alert-item"><div class="dot" style="background:var(--yellow);"></div><div><b>عقد اشتراك على وشك الانتهاء — مدارس الفا التعليمية</b><span>ينتهي خلال 5 أيام · اليوم</span></div></div>
+          <div class="alert-item"><div class="dot" style="background:var(--yellow);"></div><div><b>طلب مراجعة تسجيل جديد — أكاديمية المستقبل</b><span>بانتظار اعتماد فريق مسلك · أمس</span></div></div>
+          <div class="alert-item"><div class="dot" style="background:var(--green);"></div><div><b>تم حل بلاغ سلامة — مدارس الرواد العالمية</b><span>تم إغلاق البلاغ بنجاح · قبل يومين</span></div></div>
+        </div>
+
+        <!-- SETTINGS -->
+        <div class="screen" id="s-settings">
+          <div class="panel">
+            <div class="panel-head"><h3>صلاحيات فريق مسلك</h3><button class="btn sm">+ إضافة عضو</button></div>
+            <table>
+              <tr><th>الاسم</th><th>البريد</th><th>الدور</th><th>الحالة</th></tr>
+              <tr><td>إيمان الشمري</td><td class="muted">iman@maslak.sa</td><td class="muted">مدير المنصة</td><td><span class="pill green">نشط</span></td></tr>
+              <tr><td>خالد الغامدي</td><td class="muted">khaled@maslak.sa</td><td class="muted">دعم فني</td><td><span class="pill green">نشط</span></td></tr>
+            </table>
+          </div>
+          <div class="panel" style="padding:6px 20px;">
+            <div class="toggle-row"><div><b>تنبيهات البلاغات الفورية</b><span>إشعار فوري عند فتح بلاغ سلامة</span></div><div class="switch on" onclick="this.classList.toggle('on')"></div></div>
+            <div class="toggle-row"><div><b>مراجعة المدارس الجديدة يدويًا</b><span>اعتماد يدوي قبل تفعيل أي مدرسة</span></div><div class="switch on" onclick="this.classList.toggle('on')"></div></div>
+            <div class="toggle-row"><div><b>تقرير أسبوعي بالفوترة</b><span>إرسال ملخص الاشتراكات كل أسبوع</span></div><div class="switch" onclick="this.classList.toggle('on')"></div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const SCREENS = ['login','overview','schools','school-detail','alerts','settings'];
+const LABELS = {login:'دخول',overview:'نظرة عامة',schools:'المدارس المسجّلة','school-detail':'ملف المدرسة',alerts:'البلاغات والتنبيهات',settings:'الإعدادات والصلاحيات'};
+const CRUMB = {overview:'منصة مسلك / نظرة عامة',schools:'منصة مسلك / المدارس المسجّلة','school-detail':'منصة مسلك / المدارس المسجّلة / ملف المدرسة',alerts:'منصة مسلك / البلاغات',settings:'منصة مسلك / الإعدادات'};
+let stack = ['login'];
+function render(){
+  const id = stack[stack.length-1];
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById('s-'+id).classList.add('active');
+  document.getElementById('shell').style.display = (id==='login') ? 'none' : 'flex';
+  if(id!=='login'){
+    document.querySelectorAll('.side-link').forEach(b=>b.classList.toggle('active', b.dataset.tab===id || (id==='school-detail' && b.dataset.tab==='schools')));
+    document.getElementById('pageTitle').textContent = LABELS[id];
+    document.getElementById('pageCrumb').textContent = CRUMB[id] || '';
+    document.getElementById('backBtn').classList.toggle('hidden', stack.length<=1);
+  }
+  document.getElementById('addr').textContent = 'platform.maslak.sa/' + id;
+  document.querySelectorAll('.proto-jump button').forEach(b=>b.classList.toggle('on', b.dataset.j===id));
+  location.hash = id;
+}
+function go(id, opts){
+  opts = opts||{};
+  if(opts.root){ stack = [id]; } else { stack.push(id); }
+  render();
+}
+function back(){ if(stack.length>1){ stack.pop(); render(); } }
+function openSchool(name){
+  document.getElementById('sdName').textContent = name;
+  document.getElementById('sdAvatar').textContent = name.trim().split(' ').slice(-1)[0].slice(0,2);
+  go('school-detail');
+}
+const jumpBar = document.getElementById('jumpBar');
+SCREENS.forEach(id=>{
+  const b = document.createElement('button');
+  b.textContent = LABELS[id]; b.dataset.j = id;
+  b.onclick = ()=>{ stack=[id]; render(); };
+  jumpBar.appendChild(b);
+});
+render();
+</script>
+</body>
+</html>
