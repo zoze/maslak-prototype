@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مسلك — ملخص حل تحضير الطلاب وإشعار الوصول</title>
+<title>مسلك — لوحة اجتماع حلول تحضير الطلاب وإشعار الوصول</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -31,9 +31,10 @@
 }
 
 *{box-sizing:border-box;}
-html{scroll-behavior:smooth;scroll-padding-top:88px;}
+html{scroll-behavior:smooth;scroll-padding-top:88px;overflow-x:hidden;}
 body{
   margin:0;
+  overflow-x:hidden;
   background:var(--bg);
   color:var(--text);
   font-family:'Tajawal',sans-serif;
@@ -108,6 +109,7 @@ a{color:inherit;}
   border-radius:999px;
 }
 .nav a:hover,.nav a.active{color:#fff;background:var(--primary);}
+.top-actions{display:flex;align-items:center;gap:7px;}
 .full-link{
   color:#fff;
   text-decoration:none;
@@ -118,8 +120,14 @@ a{color:inherit;}
   border-radius:999px;
   white-space:nowrap;
 }
+.meeting-toggle{
+  display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border:1px solid rgba(255,255,255,.2);
+  border-radius:999px;background:transparent;color:#fff;font-family:'Tajawal',sans-serif;font-size:11px;font-weight:800;cursor:pointer;white-space:nowrap;
+}
+.meeting-toggle:hover,.meeting-toggle[aria-pressed="true"]{background:var(--primary);border-color:var(--primary);}
+.meeting-toggle svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2;}
 
-.wrap{max-width:var(--max);margin:auto;padding:0 24px;}
+.wrap{width:100%;max-width:var(--max);min-width:0;margin:auto;padding:0 24px;}
 .hero{
   margin-top:30px;
   padding:66px 58px 48px;
@@ -163,6 +171,76 @@ a{color:inherit;}
 .hero-meta span{display:block;color:var(--text-muted);font-size:11px;font-weight:700;}
 .hero-meta b{display:block;margin-top:3px;font-size:15px;}
 
+.meeting-board{padding-top:58px;min-width:0;}
+.meeting-intro{display:grid;grid-template-columns:1.15fr .85fr;gap:16px;margin-bottom:38px;}
+.meeting-intro > *,.meeting-track,.meeting-track-head > *,.idea-grid > *,.criteria-grid > *,.discussion-grid > *{min-width:0;}
+.meeting-purpose,.meeting-output{border-radius:22px;padding:26px;box-shadow:var(--shadow);}
+.meeting-purpose{background:#fff;border:1px solid var(--line);}
+.meeting-purpose h3{font-size:24px;margin:10px 0 8px;}
+.meeting-purpose p{margin-bottom:0;}
+.meeting-output{background:linear-gradient(145deg,#17162E,#28244D);color:#fff;}
+.meeting-output span{display:block;color:#AAA7D2;font-size:11px;font-weight:800;}
+.meeting-output h3{color:#fff;font-size:20px;margin:8px 0 12px;}
+.meeting-output ul{margin:0;padding-inline-start:20px;color:#D4D2ED;font-size:13px;}
+.meeting-output li{margin-bottom:7px;}
+.journey-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin:0 0 42px;}
+.journey-event{position:relative;padding:16px;background:#fff;border:1px solid var(--line);border-radius:17px;box-shadow:var(--shadow);}
+.journey-event:not(:last-child)::after{content:'←';position:absolute;left:-15px;top:50%;transform:translateY(-50%);color:var(--primary);font-size:18px;font-weight:800;}
+.journey-event > span{display:grid;place-items:center;width:27px;height:27px;border-radius:9px;background:var(--primary);color:#fff;font-size:10px;font-weight:800;margin-bottom:10px;}
+.journey-event b{display:block;font-size:13px;}
+.journey-event small{display:block;color:var(--text-muted);font-size:10px;line-height:1.6;margin-top:4px;font-weight:700;}
+.meeting-stages{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:20px;}
+.meeting-stage{padding:12px;border:1px solid var(--line);border-radius:14px;background:var(--bg);}
+.meeting-stage b{display:grid;place-items:center;width:25px;height:25px;border-radius:8px;background:var(--primary);color:#fff;font-size:11px;margin-bottom:8px;}
+.meeting-stage span{display:block;color:var(--text-muted);font-size:10px;font-weight:800;}
+.meeting-track{margin-top:36px;}
+.meeting-track-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:15px;}
+.meeting-track-head h3{font-size:24px;margin:0;}
+.meeting-track-head p{font-size:13px;margin:0;max-width:52ch;}
+.idea-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;}
+.idea-grid.two-by-two{grid-template-columns:repeat(2,minmax(0,1fr));}
+.idea-card{
+  display:flex;flex-direction:column;align-items:flex-start;min-height:250px;background:#fff;border:1px solid var(--line);
+  border-radius:19px;padding:20px;box-shadow:var(--shadow);position:relative;overflow:hidden;
+}
+.idea-card::before{content:'';position:absolute;inset-inline-start:0;top:0;width:5px;height:100%;background:var(--primary);}
+.idea-card.hardware::before{background:#0EA5A8;}
+.idea-card.process::before{background:#F59E0B;}
+.idea-card.communication::before{background:#EC4899;}
+.idea-tag{display:inline-flex;padding:4px 9px;border-radius:999px;background:var(--primary-light);color:var(--primary);font-size:10px;font-weight:800;margin-bottom:13px;}
+.idea-card.hardware .idea-tag{background:#E1F8F8;color:#087D80;}
+.idea-card.process .idea-tag{background:#FFF3D8;color:#9A6300;}
+.idea-card.communication .idea-tag{background:#FDE8F1;color:#B42362;}
+.idea-card h4{font-size:18px;margin-bottom:7px;}
+.idea-card > p{font-size:13px;line-height:1.7;flex:1;margin-bottom:12px;}
+.idea-focus{display:block;padding-top:10px;border-top:1px solid var(--line);color:var(--text-muted);font-size:10px;font-weight:700;width:100%;}
+.idea-focus b{font-size:10px;color:var(--primary);}
+.idea-card .modal-trigger{margin-top:14px;padding:9px 13px;font-size:11px;box-shadow:none;}
+.meeting-criteria{margin-top:38px;}
+.meeting-criteria h3{font-size:24px;margin-bottom:8px;}
+.criteria-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px;margin-top:15px;}
+.criterion{background:#fff;border:1px solid var(--line);border-radius:16px;padding:15px;box-shadow:var(--shadow);}
+.criterion b{display:block;color:var(--primary);font-size:13px;}
+.criterion span{display:block;color:var(--text-muted);font-size:10px;margin-top:5px;}
+.discussion-panel{margin-top:28px;padding:26px;border:1px solid #D6D1FA;border-radius:22px;background:linear-gradient(135deg,#F0EEFF,#fff);box-shadow:var(--shadow);}
+.discussion-panel h3{font-size:23px;margin-bottom:14px;}
+.discussion-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;counter-reset:questions;}
+.discussion-question{display:flex;align-items:flex-start;gap:10px;padding:13px 14px;border-radius:14px;background:#fff;border:1px solid var(--line);font-size:13px;font-weight:700;color:var(--text);}
+.discussion-question::before{counter-increment:questions;content:counter(questions);display:grid;place-items:center;flex:0 0 26px;width:26px;height:26px;border-radius:8px;background:var(--primary);color:#fff;font-size:10px;font-weight:800;}
+.meeting-rule{margin-top:16px;color:var(--text-muted);font-size:12px;}
+.meeting-rule b{color:var(--primary);}
+.detail-divider{padding:30px 0 0;text-align:center;}
+.detail-divider span{display:inline-flex;padding:7px 13px;border-radius:999px;background:var(--primary-light);color:var(--primary);font-size:11px;font-weight:800;}
+
+body.meeting-mode #boarding,
+body.meeting-mode #return-trip,
+body.meeting-mode #arrival,
+body.meeting-mode #implementation,
+body.meeting-mode .detail-divider{display:none;}
+body.meeting-mode .meeting-board{border-bottom:0;}
+body.meeting-mode .nav a:not([href="#meeting"]){display:none;}
+body.meeting-mode .full-link{display:none;}
+
 section{padding:70px 0;border-bottom:1px solid var(--line);}
 .section-head{margin-bottom:34px;}
 .section-head h2{font-size:clamp(28px,4vw,42px);margin:14px 0 10px;}
@@ -181,6 +259,9 @@ section{padding:70px 0;border-bottom:1px solid var(--line);}
 .card h3{font-size:19px;margin-bottom:9px;}
 .card h4{font-size:16px;margin-bottom:7px;}
 .card p:last-child{margin-bottom:0;}
+.solution-card{display:flex;flex-direction:column;align-items:flex-start;}
+.solution-card > p{flex:1;}
+.solution-card .modal-trigger{margin-top:16px;}
 .icon{
   width:44px;
   height:44px;
@@ -250,6 +331,23 @@ section{padding:70px 0;border-bottom:1px solid var(--line);}
 .decision h3{font-size:21px;margin-bottom:8px;}
 .decision p{margin-bottom:0;}
 
+.seat-layout{display:grid;grid-template-columns:1.05fr .95fr;gap:16px;margin-top:28px;align-items:stretch;}
+.seat-copy{display:flex;flex-direction:column;justify-content:center;}
+.seat-copy ul{margin:8px 0 0;padding-inline-start:20px;color:var(--text-muted);}
+.seat-copy li{margin-bottom:8px;}
+.bus-map{background:#fff;border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:var(--shadow);}
+.bus-front{text-align:center;background:var(--primary-light);color:var(--primary);border-radius:12px;padding:7px;font-size:11px;font-weight:800;margin-bottom:15px;}
+.seat-row{display:grid;grid-template-columns:1fr 1fr .5fr 1fr 1fr;gap:7px;margin-bottom:8px;}
+.aisle{display:grid;place-items:center;color:#C9C5E2;font-size:9px;font-weight:800;}
+.seat{min-height:45px;border-radius:11px;display:grid;place-items:center;text-align:center;font-size:11px;font-weight:800;border:1px solid;}
+.seat.present{background:var(--green-light);border-color:#BDE5C9;color:#15803D;}
+.seat.manual{background:var(--primary-light);border-color:#D3CEF6;color:var(--primary);}
+.seat.empty{background:var(--red-light);border-color:#F2C5C5;color:#B91C1C;}
+.seat.pending{background:#FFF8D8;border-color:#EEDC91;color:#806700;}
+.seat-legend{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px;}
+.seat-legend span{display:inline-flex;align-items:center;gap:5px;color:var(--text-muted);font-size:10px;font-weight:700;}
+.seat-legend i{width:9px;height:9px;border-radius:3px;display:inline-block;}
+
 .radio-diagram{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -278,6 +376,119 @@ section{padding:70px 0;border-bottom:1px solid var(--line);}
 .radio-node .icon{margin:0 auto 10px;}
 .radio-node b{display:block;font-size:14px;}
 .radio-node span{display:block;color:var(--text-muted);font-size:12px;margin-top:3px;}
+
+.modal-trigger{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;margin-top:18px;
+  padding:11px 18px;border:0;border-radius:999px;background:var(--primary);color:#fff;
+  font-family:'Tajawal',sans-serif;font-size:13px;font-weight:800;cursor:pointer;
+  box-shadow:0 9px 20px rgba(92,76,227,.25);
+}
+.modal-trigger:hover{background:var(--primary-dark);}
+.modal-trigger:focus-visible,.modal-close:focus-visible{outline:3px solid var(--sky);outline-offset:3px;}
+.modal-trigger.secondary{background:var(--primary-light);color:var(--primary);box-shadow:none;border:1px solid #D8D3FA;}
+.modal-trigger.secondary:hover{background:#DDD9FA;}
+.modal-trigger svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;}
+body.modal-open{overflow:hidden;}
+.device-modal{
+  position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;
+  padding:20px;background:rgba(16,15,34,.72);backdrop-filter:blur(8px);
+}
+.device-modal.open{display:flex;}
+.modal-panel{
+  width:min(100%,1000px);max-height:92vh;overflow:auto;background:var(--bg);
+  border:1px solid rgba(255,255,255,.2);border-radius:26px;box-shadow:0 34px 100px rgba(16,15,34,.42);
+}
+.modal-head{
+  position:sticky;top:0;z-index:4;display:flex;align-items:flex-start;gap:16px;
+  padding:20px 24px;background:rgba(255,255,255,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);
+}
+.modal-head-copy{flex:1;}
+.modal-head h2{font-size:24px;margin:2px 0 4px;}
+.modal-head p{font-size:13px;margin:0;}
+.modal-close{
+  width:38px;height:38px;flex:0 0 38px;border:0;border-radius:12px;background:var(--primary-light);
+  color:var(--primary);font-family:'Tajawal',sans-serif;font-size:22px;font-weight:800;cursor:pointer;
+}
+.modal-close:hover{background:#DDD9FA;}
+.modal-body{padding:24px;}
+.modal-summary{
+  display:grid;grid-template-columns:1.2fr .8fr;gap:16px;margin-bottom:20px;
+}
+.device-figure{
+  margin:0;background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:var(--shadow);
+}
+.device-figure svg{display:block;width:100%;height:auto;max-height:330px;}
+.device-figure figcaption{margin-top:12px;color:var(--text-muted);font-size:11px;text-align:center;}
+.buy-card{
+  background:linear-gradient(145deg,#17162E,#242047);color:#fff;border-radius:20px;padding:22px;
+  box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:center;
+}
+.buy-card .product-tag{display:inline-flex;align-self:flex-start;padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.11);color:#D8D6F4;font-size:10px;font-weight:800;}
+.buy-card h3{font-size:21px;color:#fff;margin:14px 0 8px;}
+.buy-card p{color:#C7C6E6;font-size:13px;margin-bottom:16px;}
+.price{display:flex;align-items:flex-end;gap:7px;margin-bottom:16px;}
+.price b{font-size:28px;color:#fff;line-height:1;}
+.price span{color:#A8A6C9;font-size:11px;}
+.buy-links{display:flex;gap:8px;flex-wrap:wrap;}
+.buy-link{
+  display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border-radius:999px;
+  padding:9px 14px;background:var(--primary);color:#fff;font-size:12px;font-weight:800;
+}
+.buy-link.secondary{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);}
+.modal-section{margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:var(--shadow);}
+.modal-section h3{font-size:20px;margin-bottom:8px;}
+.modal-section > p:last-child{margin-bottom:0;}
+.scenario-lead{
+  display:grid;grid-template-columns:1.2fr .8fr;gap:16px;margin-bottom:18px;
+}
+.scenario-lead > div{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:var(--shadow);}
+.scenario-lead .scenario-result{background:linear-gradient(145deg,#17162E,#27234C);border-color:transparent;}
+.scenario-result span{display:block;color:#A8A6C9;font-size:11px;font-weight:800;}
+.scenario-result b{display:block;color:#fff;font-size:22px;line-height:1.5;margin-top:6px;}
+.scenario-result p{color:#C7C6E6;font-size:13px;margin:8px 0 0;}
+.scenario-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+.scenario-meta span{display:inline-flex;padding:5px 10px;border-radius:999px;background:var(--primary-light);color:var(--primary);font-size:10px;font-weight:800;}
+.state-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px;}
+.state-item{padding:14px;border-radius:15px;border:1px solid var(--line);background:var(--bg);}
+.state-item i{display:block;width:10px;height:10px;border-radius:50%;margin-bottom:8px;}
+.state-item b{display:block;font-size:12px;}
+.state-item span{display:block;color:var(--text-muted);font-size:10px;margin-top:4px;}
+.scenario-table{margin-top:14px;overflow-x:auto;border:1px solid var(--line);border-radius:15px;}
+.scenario-table table{min-width:580px;box-shadow:none;}
+.seat-device-card{
+  margin-top:28px;display:grid;grid-template-columns:1.15fr .85fr;gap:20px;align-items:center;
+  padding:26px;background:linear-gradient(140deg,#fff,#F1EFFF);border:1px solid #D8D3FA;border-radius:22px;box-shadow:var(--shadow);
+}
+.seat-device-card h3{font-size:23px;margin:10px 0 8px;}
+.seat-device-card p{margin-bottom:0;}
+.seat-module{
+  min-height:230px;border-radius:22px;background:#17162E;padding:20px;display:grid;grid-template-columns:1fr .8fr;gap:15px;color:#fff;box-shadow:0 18px 38px rgba(22,22,44,.2);
+}
+.seat-screen{border-radius:16px;background:#292650;border:1px solid rgba(255,255,255,.13);padding:16px;display:flex;flex-direction:column;justify-content:space-between;}
+.seat-screen span{color:#B9B6DD;font-size:10px;font-weight:800;}
+.seat-screen b{color:#fff;font-size:18px;}
+.seat-dots{display:flex;gap:7px;direction:ltr;}
+.seat-dots i{width:11px;height:11px;border-radius:50%;background:#22C55E;box-shadow:0 0 12px rgba(34,197,94,.5);}
+.seat-keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;direction:ltr;}
+.seat-keypad span{display:grid;place-items:center;min-height:38px;border-radius:10px;background:rgba(255,255,255,.1);color:#fff;font-size:12px;font-weight:800;}
+.seat-keypad .confirm{background:var(--primary);grid-column:span 2;}
+.modal-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;margin-top:18px;}
+.modal-flow-step{position:relative;text-align:center;padding:14px 9px;border:1px solid var(--line);border-radius:15px;background:var(--bg);}
+.modal-flow-step:not(:last-child)::after{content:'←';position:absolute;left:-16px;top:50%;transform:translateY(-50%);color:var(--primary);font-size:19px;font-weight:800;}
+.modal-flow-step b{display:block;font-size:12px;}
+.modal-flow-step span{display:block;color:var(--text-muted);font-size:10px;margin-top:3px;}
+.spec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px;}
+.spec-item{padding:13px 14px;border-radius:14px;background:var(--bg);border:1px solid var(--line);}
+.spec-item span{display:block;color:var(--text-muted);font-size:10px;font-weight:700;}
+.spec-item b{display:block;font-size:13px;margin-top:4px;}
+.detail-list{margin:12px 0 0;padding-inline-start:20px;color:var(--text-muted);}
+.detail-list li{margin-bottom:8px;font-size:14px;}
+.modal-warning{margin-top:18px;padding:18px 20px;border:1px solid #F0D896;border-radius:17px;background:#FFF9E5;color:#725E0C;font-size:13px;}
+.modal-warning b{color:#5E4B00;}
+.modal-danger{border-color:#F0C1C1;background:#FFF4F4;color:#8F2525;}
+.modal-danger b{color:#761B1B;}
+.modal-sources{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+.modal-sources a{color:var(--primary);background:var(--primary-light);text-decoration:none;padding:7px 11px;border-radius:999px;font-size:11px;font-weight:800;}
 
 .note{
   margin-top:18px;
@@ -312,14 +523,30 @@ footer{padding:34px 0 46px;color:var(--text-muted);font-size:13px;}
   .topbar-in{align-items:flex-start;flex-direction:column;gap:7px;padding:8px 16px;}
   .nav{order:3;margin:0;width:100%;overflow-x:auto;flex-wrap:nowrap;scrollbar-width:none;}
   .nav::-webkit-scrollbar{display:none;}
-  .full-link{position:absolute;left:16px;top:17px;}
+  .top-actions{position:absolute;left:16px;top:15px;}
+  .full-link{display:none;}
   .wrap{padding:0 16px;}
   .hero{margin-top:16px;padding:42px 24px 28px;border-radius:22px;}
-  .hero h1{font-size:38px;}
-  .hero-meta,.grid.two,.grid.three,.metrics{grid-template-columns:1fr;}
+  .hero h1{font-size:34px;max-width:100%;overflow-wrap:anywhere;}
+  .hero-meta,.grid.two,.grid.three,.metrics,.seat-layout,.meeting-intro,.idea-grid,.idea-grid.two-by-two,.discussion-grid,.journey-strip{grid-template-columns:1fr;}
+  .meeting-stages,.criteria-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .meeting-track-head{align-items:flex-start;flex-direction:column;}
+  .journey-strip{gap:10px;}
+  .journey-event:not(:last-child)::after{content:'↓';left:50%;top:auto;bottom:-16px;transform:translateX(-50%);z-index:2;}
+  .idea-card{min-height:0;}
   section{padding:52px 0;}
   .radio-diagram{grid-template-columns:1fr;gap:12px;}
   .radio-node:not(:last-child)::after{content:'↓';left:50%;top:auto;bottom:-22px;transform:translateX(-50%);z-index:2;}
+  .device-modal{padding:8px;align-items:flex-end;}
+  .modal-panel{max-height:96vh;border-radius:22px 22px 0 0;}
+  .modal-head{padding:16px;}
+  .modal-head h2{font-size:20px;}
+  .modal-body{padding:14px;}
+  .modal-summary,.spec-grid,.scenario-lead,.seat-device-card{grid-template-columns:1fr;}
+  .modal-flow{grid-template-columns:1fr;gap:10px;}
+  .modal-flow-step:not(:last-child)::after{content:'↓';left:50%;top:auto;bottom:-17px;transform:translateX(-50%);z-index:2;}
+  .state-grid{grid-template-columns:repeat(2,1fr);}
+  .seat-module{min-height:210px;}
 }
 
 @media print{
@@ -328,47 +555,222 @@ footer{padding:34px 0 46px;color:var(--text-muted);font-size:13px;}
   .hero{margin-top:0;box-shadow:none;}
   section{padding:34px 0;}
   .card,.flow-step,.decision,.radio-node,.metric,.table-wrap{box-shadow:none;break-inside:avoid;}
+  .device-modal,.modal-trigger{display:none!important;}
+  .idea-grid{grid-template-columns:repeat(2,1fr);}
+  .idea-card{min-height:0;break-inside:avoid;}
 }
 </style>
 </head>
-<body>
+<body class="meeting-mode">
 
 <div class="topbar">
   <div class="topbar-in">
     <a class="brand" href="index.html">
       <span class="brand-logo"><svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 21V9l8-5 8 5v12M9 21v-6h6v6M4 21h16"/></svg></span>
-      <span><b>مسلك</b><small>ملخص الحلول</small></span>
+      <span><b>مسلك</b><small>لوحة عصف ذهني</small></span>
     </a>
     <nav class="nav">
+      <a href="#meeting">لوحة الاجتماع</a>
       <a href="#boarding">الركوب والنزول</a>
       <a href="#return-trip">رحلة العودة</a>
       <a href="#arrival">إشعار الوصول</a>
       <a href="#implementation">التنفيذ</a>
     </nav>
-    <a class="full-link" href="solutions-briefing.html">الملف التفصيلي</a>
+    <div class="top-actions">
+      <button class="meeting-toggle" type="button" id="meetingModeToggle" aria-pressed="true">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 5h16v12H4zM8 21h8M12 17v4"/></svg>
+        <span>إظهار التفاصيل</span>
+      </button>
+      <a class="full-link" href="solutions-briefing.html">الملف التفصيلي</a>
+    </div>
   </div>
 </div>
 
 <main class="wrap">
   <header class="hero">
-    <span class="eyebrow">ملخص تنفيذي مركز</span>
-    <h1>مشكلتان، <span>وحلّان واضحان</span></h1>
+    <span class="eyebrow">جلسة عصف ذهني · حلول النقل المدرسي</span>
+    <h1>مساحتان للحل، <span>وخيارات للنقاش</span></h1>
     <p class="hero-lede">
-      صفحة مختصرة لاتخاذ القرار حول تحضير الطلاب عند ركوب الحافلة والنزول منها،
-      وإعلام الأسرة بوصول الحافلة قبل أن تضطر للانتظار أو استخدام البوري.
+      لوحة اجتماع لعرض الأفكار ومناقشة سيناريوهات تحضير الطلاب عند الركوب والنزول،
+      وإشعار الأسرة قبل وصول الحافلة، ثم اختيار تجارب صغيرة قابلة للقياس.
     </p>
     <div class="hero-meta">
-      <div><span>المستخدم الميداني</span><b>المرافق</b></div>
-      <div><span>أولوية التصميم</span><b>زمن المحطة</b></div>
-      <div><span>البداية</span><b>حل برمجي بلا عتاد</b></div>
+      <div><span>نوع الجلسة</span><b>عصف ذهني ومقارنة حلول</b></div>
+      <div><span>محورا النقاش</span><b>التحضير · الاستعداد للوصول</b></div>
+      <div><span>المخرج المستهدف</span><b>تجارب محددة بمعايير نجاح</b></div>
     </div>
   </header>
+
+  <section id="meeting" class="meeting-board">
+    <div class="section-head">
+      <span class="section-num">لوحة الاجتماع</span>
+      <h2>من عرض الأفكار إلى تجربة قابلة للقياس</h2>
+      <p>نعرض كل فكرة في دقيقة، نفتح سيناريوها عند الحاجة، ثم نقارنها بمعايير موحدة. الهدف ليس اعتماد منتج نهائي في الجلسة، بل اختيار ما يستحق التجربة الميدانية أولًا.</p>
+    </div>
+
+    <div class="meeting-intro">
+      <div class="meeting-purpose">
+        <span class="label" style="color:var(--primary);background:var(--primary-light);">مسار الجلسة المقترح</span>
+        <h3>مشكلة ← فكرة ← سيناريو ← تجربة</h3>
+        <p>يحافظ هذا التسلسل على تركيز النقاش: ما الخطر الذي نعالجه؟ كيف يعمل الحل في يوم حقيقي؟ ما الاستثناء؟ وما القياس الذي يثبت نجاحه؟</p>
+        <div class="meeting-stages">
+          <div class="meeting-stage"><b>١</b><span>تعريف المشكلة</span></div>
+          <div class="meeting-stage"><b>٢</b><span>عرض الأفكار</span></div>
+          <div class="meeting-stage"><b>٣</b><span>اختبار السيناريو</span></div>
+          <div class="meeting-stage"><b>٤</b><span>اختيار تجربة</span></div>
+        </div>
+      </div>
+      <aside class="meeting-output">
+        <span>المخرجات المطلوبة من الاجتماع</span>
+        <h3>اتفاق واضح بدل قائمة أمنيات</h3>
+        <ul>
+          <li>تجربة أولى لتحضير الصباح وأخرى لركوب العودة الجماعي.</li>
+          <li>قناة أساسية لإشعار الأسرة وقاعدة تصعيد عند الفشل.</li>
+          <li>مسؤول واضح عن كل تأكيد: المدرسة أو السائق أو النظام.</li>
+          <li>معيار نجاح ومدة تجربة وحل بديل لكل فكرة مختارة.</li>
+        </ul>
+      </aside>
+    </div>
+
+    <div class="journey-strip" aria-label="أحداث التحضير الأربعة في رحلة الطالب اليومية">
+      <div class="journey-event"><span>١</span><b>البيت — ركوب الصباح</b><small>تأكيد من ركب عند المحطة الحالية.</small></div>
+      <div class="journey-event"><span>٢</span><b>المدرسة — النزول</b><small>مطابقة العدد ثم فحص خلو الحافلة.</small></div>
+      <div class="journey-event"><span>٣</span><b>المدرسة — ركوب العودة</b><small>تحضير جماعي وتسوية الغائبين والمتأخرين.</small></div>
+      <div class="journey-event"><span>٤</span><b>المنزل — النزول</b><small>قائمة المتوقعين وتسجيل أي نزول استثنائي.</small></div>
+    </div>
+
+    <div class="meeting-track">
+      <div class="meeting-track-head">
+        <div><span class="section-num">المحور ٠١</span><h3>تحضير الطلاب عند الركوب والنزول</h3></div>
+        <p>الصباح دخول متتابع عند المنازل، بينما العودة دخول جماعي بعد المدرسة؛ لذلك نقارن حلولًا مختلفة لكل نمط.</p>
+      </div>
+
+      <div class="idea-grid">
+        <article class="idea-card">
+          <span class="idea-tag">برمجي · نسخة أولى</span>
+          <h4>قائمة المحطة وتأكيد النزول</h4>
+          <p>يعرض مسلك طلاب المنزل الحالي لتسجيل الركوب، ثم يعرض المتوقع نزولهم في المدرسة أو المنزل لتأكيد العدد والاستثناءات.</p>
+          <span class="idea-focus"><b>قوة الفكرة:</b> سريعة وقليلة التكلفة ولا تتطلب شيئًا يحمله الطالب.</span>
+          <button class="modal-trigger secondary" type="button" data-modal-target="scenarioModal" data-scenario="morning" data-title="سيناريو تحضير الصباح والنزول" aria-haspopup="dialog" aria-controls="scenarioModal">فتح السيناريو</button>
+        </article>
+
+        <article class="idea-card process">
+          <span class="idea-tag">إجراء تشغيلي</span>
+          <h4>الإخوة في منزل واحد</h4>
+          <p>محطة واحدة للأسرة، مع حضور ومقعد واستثناء مستقل لكل طالب، وزر جماعي مشروط بمطابقة العدد.</p>
+          <span class="idea-focus"><b>سؤال النقاش:</b> متى نسمح بـ«ركب الجميع» ومتى نفرض التأكيد الفردي؟</span>
+          <button class="modal-trigger secondary" type="button" data-modal-target="scenarioModal" data-scenario="siblings" data-title="سيناريو تحضير الإخوة في المنزل نفسه" aria-haspopup="dialog" aria-controls="scenarioModal">فتح السيناريو</button>
+        </article>
+
+        <article class="idea-card process">
+          <span class="idea-tag">تكامل مع المدرسة</span>
+          <h4>تسوية قائمة رحلة العودة</h4>
+          <p>بوابة المدرسة تؤكد خروج الطالب مع ولي الأمر، فيُحذف من المتوقعين دون التأثير على إخوته.</p>
+          <span class="idea-focus"><b>قيمة السلامة:</b> لا يُعامل الطالب المفقود من الحافلة كغائب بلا دليل.</span>
+          <button class="modal-trigger secondary" type="button" data-modal-target="scenarioModal" data-scenario="return-reconciliation" data-title="سيناريو تسوية رحلة العودة" aria-haspopup="dialog" aria-controls="scenarioModal">فتح السيناريو</button>
+        </article>
+
+        <article class="idea-card">
+          <span class="idea-tag">برمجي · رحلة العودة</span>
+          <h4>خريطة المقاعد للتحضير الجماعي</h4>
+          <p>يركب الطلاب دفعة واحدة ويتجهون إلى مقاعدهم، ثم يراجع السائق المقاعد الفارغة والمخالفة فقط.</p>
+          <span class="idea-focus"><b>حد الفكرة:</b> المقعد يسرّع المراجعة لكنه لا يثبت الهوية بمفرده.</span>
+          <button class="modal-trigger secondary" type="button" data-modal-target="scenarioModal" data-scenario="group-boarding" data-title="سيناريو التحضير الجماعي بالمقاعد" aria-haspopup="dialog" aria-controls="scenarioModal">فتح السيناريو</button>
+        </article>
+
+        <article class="idea-card hardware">
+          <span class="idea-tag">عتاد تجريبي</span>
+          <h4>جهاز ثابت في كل مقعد</h4>
+          <p>رمز شخصي وحساس جلوس يربطان الطالب بمقعده دون بطاقة أو سوار قابل للضياع.</p>
+          <span class="idea-focus"><b>سؤال الجدوى:</b> هل زيادة الدقة تبرر تكلفة الوحدات وصيانتها؟</span>
+          <button class="modal-trigger secondary" type="button" data-modal-target="scenarioModal" data-scenario="seat-device" data-title="سيناريو جهاز المقعد الثابت" aria-haspopup="dialog" aria-controls="scenarioModal">فتح السيناريو</button>
+        </article>
+
+        <article class="idea-card process">
+          <span class="idea-tag">قاعدة سلامة</span>
+          <h4>منع المغادرة مع طالب غير محسوم</h4>
+          <p>إذا حضر الطالب المدرسة ولم يركب ولم يثبت خروجه، يبدأ تصعيد للمدرسة ومشرف النقل قبل تحرك الحافلة.</p>
+          <span class="idea-focus"><b>قرار مطلوب:</b> من يملك صلاحية حسم الحالة وكم تستغرق المهلة؟</span>
+          <button class="modal-trigger secondary" type="button" data-modal-target="scenarioModal" data-scenario="late-student" data-title="سيناريو الطالب المتأخر بعد الانصراف" aria-haspopup="dialog" aria-controls="scenarioModal">فتح السيناريو</button>
+        </article>
+      </div>
+    </div>
+
+    <div class="meeting-track">
+      <div class="meeting-track-head">
+        <div><span class="section-num">المحور ٠٢</span><h3>جعل الطالب جاهزًا قبل وصول الحافلة</h3></div>
+        <p>نعتمد زمن الوصول المتوقع من المسار والموقع الحي، ثم نختار القناة المناسبة للأسرة بدل الاتصال اليدوي أو استخدام البوري.</p>
+      </div>
+
+      <div class="idea-grid two-by-two">
+        <article class="idea-card communication">
+          <span class="idea-tag">إشعار آلي</span>
+          <h4>ETA قبل الوصول</h4>
+          <p>عندما يصبح منزل الطالب هو التالي ويصل ETA إلى الحد المضبوط، يرسل مسلك إشعار «متبقي ٥ دقائق».</p>
+          <span class="idea-focus"><b>قابل للضبط:</b> وقت عام للمسار أو وقت خاص لطالب يحتاج استعدادًا أطول.</span>
+          <button class="modal-trigger secondary" type="button" data-modal-target="scenarioModal" data-scenario="arrival-alerts" data-title="سيناريو إشعارات الوصول الاستباقية" aria-haspopup="dialog" aria-controls="scenarioModal">فتح السيناريو</button>
+        </article>
+
+        <article class="idea-card communication">
+          <span class="idea-tag">تواصل باتجاهين</span>
+          <h4>رد الأسرة بحالة قابلة للتنفيذ</h4>
+          <p>«لن يركب»، «جاهز عند الباب»، أو «تأخرنا دقيقتين» تتحول إلى قرار واضح في محطة الطالب.</p>
+          <span class="idea-focus"><b>سؤال السياسة:</b> ما مدة الانتظار المسموحة ومن يعتمد إلغاء المحطة؟</span>
+          <button class="modal-trigger secondary" type="button" data-modal-target="scenarioModal" data-scenario="family-response" data-title="سيناريو رد الأسرة على الحافلة" aria-haspopup="dialog" aria-controls="scenarioModal">فتح السيناريو</button>
+        </article>
+
+        <article class="idea-card communication">
+          <span class="idea-tag">Push · WhatsApp · SMS</span>
+          <h4>تصعيد تدريجي للقنوات</h4>
+          <p>تبدأ الرسالة بالقناة المفضلة، ثم تنتقل إلى قناة بديلة عند الفشل بدل إرسال كل القنوات دفعة واحدة.</p>
+          <span class="idea-focus"><b>مقياس النجاح:</b> نسبة الوصول والتفاعل والتكلفة لكل أسرة.</span>
+          <button class="modal-trigger secondary" type="button" data-modal-target="scenarioModal" data-scenario="notification-escalation" data-title="سيناريو تصعيد إشعار الوصول" aria-haspopup="dialog" aria-controls="scenarioModal">فتح السيناريو</button>
+        </article>
+
+        <article class="idea-card hardware">
+          <span class="idea-tag">بديل دون هاتف</span>
+          <h4>زر واحد ومستقبِل معنوَن للمنزل</h4>
+          <p>ضغطة واحدة للحافلة ترسل معرّف المحطة الحالية؛ لا يرن إلا جهاز المنزل المقصود ويعيد تأكيد الاستلام.</p>
+          <span class="idea-focus"><b>نطاق التجربة:</b> منزل واحد أولًا لقياس المدى والاعتمادية والاعتماد النظامي.</span>
+          <button class="modal-trigger secondary" type="button" data-modal-target="radioDeviceModal" aria-haspopup="dialog" aria-controls="radioDeviceModal">فتح السيناريو والجهاز</button>
+        </article>
+      </div>
+    </div>
+
+    <div class="meeting-criteria">
+      <h3>معايير موحدة لمقارنة أي فكرة تُطرح</h3>
+      <p>نقيّم الفكرة نفسها بدل الانطباع الأول عنها، ويمكن تطبيق هذه المعايير على حلول المشاركين غير الموجودة في اللوحة.</p>
+      <div class="criteria-grid">
+        <div class="criterion"><b>السلامة والدقة</b><span>هل تمنع ترك طالب أو تسجيل طالب خطأ؟</span></div>
+        <div class="criterion"><b>السرعة</b><span>كم تضيف للمحطة أو وقت التجمع؟</span></div>
+        <div class="criterion"><b>الشمول</b><span>هل تعمل دون هاتف أو أداة محمولة؟</span></div>
+        <div class="criterion"><b>التكلفة والتشغيل</b><span>ما العتاد والتكامل والصيانة المطلوبة؟</span></div>
+        <div class="criterion"><b>الاستثناء والبديل</b><span>ماذا يحدث عند النسيان أو العطل أو فقد الاتصال؟</span></div>
+      </div>
+    </div>
+
+    <div class="discussion-panel">
+      <span class="label" style="color:var(--primary);background:#fff;">أسئلة الحسم في نهاية الجلسة</span>
+      <h3>ما الذي يجب أن نخرج به اليوم؟</h3>
+      <div class="discussion-grid">
+        <div class="discussion-question">ما الحد الأدنى المقبول لإثبات ركوب الطالب ونزوله؟</div>
+        <div class="discussion-question">من يؤكد كل حالة: السائق، المدرسة، الأسرة أم النظام؟</div>
+        <div class="discussion-question">ما أقصى زمن مسموح للتحضير والانتظار في كل محطة؟</div>
+        <div class="discussion-question">أي حل برمجي نختبره قبل شراء أو تصنيع العتاد؟</div>
+        <div class="discussion-question">ما الفئة التي لا تغطيها Push أو WhatsApp أو SMS؟</div>
+        <div class="discussion-question">ما معيار نجاح التجربة، ومن يملك قرار إيقافها أو توسيعها؟</div>
+      </div>
+      <p class="meeting-rule"><b>قاعدة الجلسة:</b> لا نغلق النقاش بعبارة «الحل ممتاز»؛ نغلقه باسم تجربة، مسؤول، مدة، مقياس نجاح، وحل بديل عند الفشل.</p>
+    </div>
+  </section>
+
+  <div class="detail-divider"><span>المرجع التفصيلي للحلول والسيناريوهات</span></div>
 
   <section id="boarding">
     <div class="section-head">
       <span class="section-num">المشكلة ٠١</span>
       <h2>تحضير الطلاب عند الركوب والنزول</h2>
-      <p>نحتاج معرفة من ركب ومن نزل، دون قائمة طويلة أو تأخير للمسار، ودون أن يؤدي نسيان بطاقة إلى منع الطالب من الركوب.</p>
+      <p>للتحضير نمطان مختلفان: صباحًا يركب الطلاب تباعًا عند المحطات، وبعد المدرسة يركب عدد كبير في وقت واحد. لذلك لا ينبغي استخدام الواجهة نفسها للحالتين.</p>
     </div>
 
     <div class="grid two">
@@ -377,10 +779,14 @@ footer{padding:34px 0 46px;color:var(--text-muted);font-size:13px;}
         <h3>تحضير يدوي لكل طلاب المسار</h3>
         <p>قائمة طويلة وأزرار متعددة، ومسؤولية تقع على السائق، مع احتمال تعبئة البيانات لاحقًا إذا أصبح الاستخدام بطيئًا أثناء الرحلة.</p>
       </article>
-      <article class="card outcome">
+      <article class="card outcome solution-card">
         <span class="label">النتيجة المطلوبة</span>
-        <h3>تسجيل سريع وواضح عند كل محطة</h3>
-        <p>المرافق يرى طلاب المحطة الحالية فقط، ويسجل الحدث بنقرة واحدة، ويستطيع العمل دون اتصال ثم المزامنة لاحقًا.</p>
+        <h3>الصباح: تسجيل سريع عند كل محطة</h3>
+        <p>سائق الحافلة يرى طلاب المحطة الحالية فقط، ويسجل الحدث بنقرة واحدة، ويستطيع العمل دون اتصال ثم المزامنة لاحقًا. أما التحضير الجماعي بعد المدرسة فله وضع مستقل في القسم التالي.</p>
+        <button class="modal-trigger secondary" type="button" data-modal-target="scenarioModal" data-scenario="morning" data-title="سيناريو تحضير الصباح والنزول" aria-haspopup="dialog" aria-controls="scenarioModal">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 11v5M12 8h.01"/></svg>
+          عرض السيناريو الكامل
+        </button>
       </article>
     </div>
 
@@ -389,14 +795,24 @@ footer{padding:34px 0 46px;color:var(--text-muted);font-size:13px;}
         <div><h4>عند الوصول تظهر قائمة المحطة الحالية</h4><p>بدل عرض جميع الطلاب، يظهر طالبان إلى أربعة فقط بأزرار كبيرة: الاسم الأول + لون + رمز ثابت، دون صور.</p></div>
       </div>
       <div class="flow-step">
-        <div><h4>الركوب يُسجَّل بفعل صريح</h4><p>في النسخة الأولى يضغط المرافق اسم الطالب. لاحقًا تصبح بطاقة NFC مسارًا سريعًا، وتبقى القائمة حلًا فوريًا عند نسيان البطاقة.</p></div>
+        <div><h4>الركوب يُسجَّل بفعل صريح</h4><p>في النسخة الأولى يضغط سائق الحافلة اسم الطالب. إذا أثبت القياس الحاجة إلى عتاد، يُختبر جهاز المقعد الثابت دون إلزام الطالب بحمل بطاقة أو سوار.</p></div>
       </div>
       <div class="flow-step">
-        <div><h4>النزول يبدأ من المتوقع ويُسجّل الاستثناء</h4><p>يعرض النظام الطلاب المتوقع نزولهم في المحطة، ويؤكد المرافق العدد مرة واحدة. إذا نزل طالب في محطة أخرى أو لم ينزل، يسجّل الاستثناء.</p></div>
+        <div><h4>النزول يبدأ من المتوقع ويُسجّل الاستثناء</h4><p>يعرض النظام الطلاب المتوقع نزولهم في المحطة، ويؤكد سائق الحافلة العدد مرة واحدة. إذا نزل طالب في محطة أخرى أو لم ينزل، يسجّل الاستثناء.</p></div>
       </div>
       <div class="flow-step">
         <div><h4>فحص خلو الحافلة إجراء مستقل</h4><p>لا تنتهي الرحلة حتى يُمسح وسم في مؤخرة الحافلة، لأن سلامة الطفل لا يجوز أن تعتمد على دقة بيانات التحضير.</p></div>
       </div>
+    </div>
+
+    <div class="decision">
+      <span class="label">حالة متكررة في الصباح</span>
+      <h3>إخوة في منزل واحد: محطة واحدة وتحضير مستقل لكل طالب</h3>
+      <p>يجمع النظام الإخوة تحت المنزل نفسه لتقليل التوقفات، لكنه لا يعتبر وصول أحدهم إثباتًا لركوب الآخرين. يستطيع السائق تأكيد «ركب الجميع» بعد مطابقة العدد، أو تسجيل كل طالب والاستثناء بصورة مستقلة.</p>
+      <button class="modal-trigger" type="button" data-modal-target="scenarioModal" data-scenario="siblings" data-title="سيناريو تحضير الإخوة في المنزل نفسه" aria-haspopup="dialog" aria-controls="scenarioModal">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 11v5M12 8h.01"/></svg>
+        عرض الحالات وأفضل الممارسات
+      </button>
     </div>
 
     <div class="table-wrap">
@@ -404,16 +820,16 @@ footer{padding:34px 0 46px;color:var(--text-muted);font-size:13px;}
         <thead><tr><th>المرحلة</th><th>آلية التحضير</th><th>العتاد</th><th>القرار</th></tr></thead>
         <tbody>
           <tr><td>النسخة الأولى</td><td>قائمة طلاب المحطة + نقرة واحدة + تأكيد عدد النزول</td><td>لا شيء</td><td><span class="pill">ابدأ بها</span></td></tr>
-          <tr><td>بعد القياس</td><td>بطاقة NFC للركوب، والقائمة عند النسيان</td><td>بطاقات فقط</td><td><span class="pill">إن ثبتت الحاجة</span></td></tr>
-          <tr><td>دقة نزول أعلى</td><td>مسح NFC عند الركوب والنزول</td><td>بطاقات</td><td><span class="pill">إذا كانت المحطة الخاطئة أولوية</span></td></tr>
+          <tr><td>بعد القياس</td><td>جهاز ثابت في المقعد + رمز شخصي + حساس جلوس</td><td>وحدة لكل مقعد</td><td><span class="pill">لرحلة العودة الجماعية</span></td></tr>
+          <tr><td>دقة نزول أعلى</td><td>قائمة المتوقع نزولهم + تأكيد العدد وتسجيل الاستثناء</td><td>لا شيء إضافي</td><td><span class="pill">ابدأ بها</span></td></tr>
         </tbody>
       </table>
     </div>
 
     <div class="decision">
       <span class="label">القرار المقترح</span>
-      <h3>ابدأ بقائمة المحطة، ثم أضف NFC بناءً على القياس</h3>
-      <p>إذا كان التحضير من قائمة قصيرة سريعًا بما يكفي، فلا حاجة لشراء بطاقات. المعيار الحاسم: ألا يضيف الحل أكثر من ٣٠ ثانية للمحطة.</p>
+      <h3>للصباح: ابدأ بقائمة المحطة القصيرة دون أدوات يحملها الطالب</h3>
+      <p>المعيار الحاسم: ألا يضيف الحل أكثر من ٣٠ ثانية للمحطة. بعد المدرسة نستخدم خريطة المقاعد، ثم نختبر جهاز المقعد الثابت إذا احتجنا إثباتًا أسرع عند الركوب الجماعي.</p>
     </div>
   </section>
 
@@ -433,10 +849,14 @@ footer{padding:34px 0 46px;color:var(--text-muted);font-size:13px;}
         <h3>طالب غير موجود في قائمة الركوب دون سبب مؤكّد</h3>
         <p>قد يكون غادر مع ولي أمره، أو ما زال داخل المدرسة، أو متأخرًا في طريقه للحافلة. التعامل مع الحالات الثلاث كـ«غائب» فقط قد يجعل الحافلة تغادر وتترك طالبًا خلفها.</p>
       </article>
-      <article class="card outcome">
+      <article class="card outcome solution-card">
         <span class="label">المبدأ</span>
         <h3>بوابة المدرسة هي مصدر حالة الخروج</h3>
         <p>طلب ولي الأمر إشارة أولية، لكن إلغاء رحلة العودة لا يصبح مؤكدًا إلا عندما يسجّل موظف المدرسة خروج الطالب فعليًا مع ولي الأمر أو بتصريح خروج معتمد.</p>
+        <button class="modal-trigger secondary" type="button" data-modal-target="scenarioModal" data-scenario="return-reconciliation" data-title="سيناريو تسوية رحلة العودة" aria-haspopup="dialog" aria-controls="scenarioModal">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 11v5M12 8h.01"/></svg>
+          عرض السيناريو الكامل
+        </button>
       </article>
     </div>
 
@@ -448,7 +868,7 @@ footer{padding:34px 0 46px;color:var(--text-muted);font-size:13px;}
         <div><h4>المدرسة تؤكد الخروج الفعلي</h4><p>بعد التحقق من المستلم، يسجّل موظف البوابة «غادر مع ولي الأمر» مع الوقت واسم الموظف. وللطالب الأكبر يمكن تسجيل «خروج مستقل مصرح» بالطريقة نفسها.</p></div>
       </div>
       <div class="flow-step">
-        <div><h4>مسلك يلغي رحلة العودة تلقائيًا</h4><p>يُنقل الطالب من «متوقع للركوب» إلى «معفى — غادر المدرسة»، ويصل التنبيه إلى المرافق والسائق ومشرف النقل دون الحاجة لاتصال منفصل.</p></div>
+        <div><h4>مسلك يلغي رحلة العودة تلقائيًا</h4><p>يُنقل الطالب من «متوقع للركوب» إلى «معفى — غادر المدرسة»، ويصل التنبيه إلى سائق الحافلة ومشرف النقل دون الحاجة لاتصال منفصل.</p></div>
       </div>
       <div class="flow-step">
         <div><h4>تُسوّى القائمة قبل تحرك الحافلة</h4><p>كل طالب متوقع يجب أن ينتهي إلى حالة مؤكدة. أي طالب بقي «غير محسوم» يطلق تنبيهًا للمدرسة ولا يسمح بإغلاق التحضير بصمت.</p></div>
@@ -459,12 +879,107 @@ footer{padding:34px 0 46px;color:var(--text-muted);font-size:13px;}
       <table>
         <thead><tr><th>الحالة النهائية</th><th>معناها</th><th>من يؤكدها؟</th><th>أثرها على الرحلة</th></tr></thead>
         <tbody>
-          <tr><td>ركب الحافلة</td><td>تم تسجيل صعود الطالب</td><td>المرافق</td><td><span class="pill">ضمن الركاب</span></td></tr>
+          <tr><td>ركب الحافلة</td><td>تم تسجيل صعود الطالب</td><td>سائق الحافلة</td><td><span class="pill">ضمن الركاب</span></td></tr>
           <tr><td>غادر المدرسة</td><td>استلمه ولي الأمر أو خرج بتصريح معتمد</td><td>موظف المدرسة</td><td><span class="pill">يُلغى مقعد العودة</span></td></tr>
           <tr><td>غياب مدرسي مؤكد</td><td>لم يحضر المدرسة أصلًا</td><td>نظام الحضور أو الإدارة</td><td><span class="pill">لا يُنتظر</span></td></tr>
           <tr><td>غير محسوم</td><td>لم يركب، ولا يوجد خروج أو غياب مؤكد</td><td>مشرف النقل</td><td><span class="pill">تصعيد قبل المغادرة</span></td></tr>
         </tbody>
       </table>
+    </div>
+
+    <h3 style="font-size:22px;margin:42px 0 10px;">هل يفيد تخصيص مقعد لكل طالب؟</h3>
+    <p><b>نعم، خصوصًا في رحلة العودة الجماعية،</b> لكنه أداة لتسريع التسوية وليس دليل حضور مستقلًا.</p>
+
+    <div class="grid two">
+      <article class="card">
+        <div class="icon sky"><svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16V9a3 3 0 013-3h10a3 3 0 013 3v7M2 16h20v3H2zM6 19v2M18 19v2"/></svg></div>
+        <h3>الصباح — فائدة مساندة</h3>
+        <p>الطلاب يركبون على دفعات صغيرة عند المحطات؛ لذلك تبقى قائمة المحطة القصيرة هي الأسرع. المقعد المخصص ينظم الجلوس ويسهّل ملاحظة المقعد الفارغ، لكنه لا يختصر التحضير كثيرًا.</p>
+      </article>
+      <article class="card outcome solution-card">
+        <span class="label">الأعلى فائدة</span>
+        <h3>بعد المدرسة — أداة تحضير جماعي</h3>
+        <p>يدخل الطلاب في وقت متقارب ثم يتجه كل طالب إلى مقعده. تظهر لسائق الحافلة خريطة المقاعد، فيراجع المقاعد الفارغة أو المخالفة فقط بدل الضغط على اسم كل طالب.</p>
+        <button class="modal-trigger secondary" type="button" data-modal-target="scenarioModal" data-scenario="group-boarding" data-title="سيناريو التحضير الجماعي بالمقاعد" aria-haspopup="dialog" aria-controls="scenarioModal">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 11v5M12 8h.01"/></svg>
+          عرض السيناريو الكامل
+        </button>
+      </article>
+    </div>
+
+    <div class="note">
+      <b>حدود الإجراء:</b> وجود شخص على المقعد لا يثبت هويته، وقد توضع حقيبة على مقعد فارغ.
+      لذلك يُدعّم المقعد بجهاز ثابت لإدخال الرمز مع حساس جلوس، أو بجولة تحقق واحدة لسائق الحافلة تركز على المقاعد الفارغة والمخالفات.
+      ويحمل ملصق المقعد رقمًا فقط دون اسم الطالب.
+    </div>
+
+    <h3 style="font-size:22px;margin:42px 0 10px;">التحضير الجماعي المقترح بعد الانصراف</h3>
+    <p>الهدف أن يركب الطلاب دفعة واحدة دون إنشاء طابور تحضير طويل عند باب الحافلة.</p>
+
+    <div class="seat-layout">
+      <article class="card seat-copy">
+        <span class="label" style="color:var(--primary);background:var(--primary-light);width:max-content;">وضع رحلة العودة</span>
+        <h3>خريطة مقاعد بدل قائمة أسماء طويلة</h3>
+        <ul>
+          <li>تُبنى القائمة المتوقعة من الحضور المدرسي وحالات الخروج المؤكدة.</li>
+          <li>يدخل الطلاب مباشرة ويتجه كل طالب إلى مقعده المخصص.</li>
+          <li>إدخال الرمز في جهاز المقعد — إن توفر — يلوّن المقعد تلقائيًا.</li>
+          <li>سائق الحافلة يتحقق من المقاعد الفارغة أو غير المطابقة فقط.</li>
+        </ul>
+      </article>
+
+      <div class="bus-map" aria-label="مثال لخريطة مقاعد الحافلة">
+        <div class="bus-front">مقدمة الحافلة · باب الركوب</div>
+        <div class="seat-row"><div class="seat present">١<br>تم</div><div class="seat present">٢<br>تم</div><div class="aisle">ممر</div><div class="seat manual">٣<br>يدوي</div><div class="seat present">٤<br>تم</div></div>
+        <div class="seat-row"><div class="seat present">٥<br>تم</div><div class="seat empty">٦<br>فارغ</div><div class="aisle">ممر</div><div class="seat present">٧<br>تم</div><div class="seat pending">٨<br>يتحقق</div></div>
+        <div class="seat-row"><div class="seat present">٩<br>تم</div><div class="seat present">١٠<br>تم</div><div class="aisle">ممر</div><div class="seat present">١١<br>تم</div><div class="seat present">١٢<br>تم</div></div>
+        <div class="seat-legend">
+          <span><i style="background:var(--green-light);border:1px solid #BDE5C9;"></i>مؤكد</span>
+          <span><i style="background:var(--primary-light);border:1px solid #D3CEF6;"></i>تأكيد يدوي</span>
+          <span><i style="background:var(--red-light);border:1px solid #F2C5C5;"></i>مقعد فارغ</span>
+          <span><i style="background:#FFF8D8;border:1px solid #EEDC91;"></i>قيد التحقق</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flow">
+      <div class="flow-step">
+        <div><h4>قبل فتح الأبواب: أنشئ القائمة المتوقعة</h4><p>يُستبعد تلقائيًا من غادر المدرسة أو كان غائبًا، ويبقى كل طالب حضر المدرسة ولم يثبت خروجه.</p></div>
+      </div>
+      <div class="flow-step">
+        <div><h4>الطلاب يركبون في تدفق واحد</h4><p>يتجه كل طالب إلى مقعده دون طابور عند الباب. في النسخة المتقدمة يدخل رمزه في جهاز المقعد الثابت، ومن نسي الرمز يُراجع يدويًا.</p></div>
+      </div>
+      <div class="flow-step">
+        <div><h4>سائق الحافلة ينفذ جولة واحدة بعد استقرار الطلاب</h4><p>في النسخة الأولى يؤكد الصفوف ويحدد المقاعد الفارغة أو الطلاب في مقاعد غير مخصصة. لا يحتاج إلى تحضير كل طالب منفردًا.</p></div>
+      </div>
+      <div class="flow-step">
+        <div><h4>تُحل الاستثناءات فقط</h4><p>كل مقعد فارغ يفتح حالة الطالب المرتبط به: غادر المدرسة، متأخر، غائب، أو غير محسوم. ولا تتحرك الحافلة حتى تُسوّى الحالات غير المحسومة.</p></div>
+      </div>
+    </div>
+
+    <div class="seat-device-card">
+      <div>
+        <span class="label" style="color:var(--primary);background:#fff;">حل عتادي بلا أدوات محمولة</span>
+        <h3>جهاز ثابت في كل مقعد لإثبات وجود الطالب</h3>
+        <p>يجلس الطالب في مقعده، ويدخل رمزًا شخصيًا قصيرًا، ثم يطابق النظام بين الرمز ورقم المقعد وحساس الجلوس. تعمل الوحدات بالتوازي، لذلك يتم تحضير الطلاب دفعة واحدة دون بطاقات أو أساور قابلة للضياع.</p>
+        <button class="modal-trigger" type="button" data-modal-target="scenarioModal" data-scenario="seat-device" data-title="سيناريو جهاز المقعد الثابت" aria-haspopup="dialog" aria-controls="scenarioModal">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 11v5M12 8h.01"/></svg>
+          عرض السيناريو الكامل والحالات الاستثنائية
+        </button>
+      </div>
+      <div class="seat-module" aria-label="تصور مبسط لجهاز إلكتروني ثابت في المقعد">
+        <div class="seat-screen">
+          <span>المقعد ١٢ · أدخل رمزك</span>
+          <div class="seat-dots"><i></i><i></i><i></i><i></i></div>
+          <b>تم تأكيد الطالب</b>
+        </div>
+        <div class="seat-keypad" aria-hidden="true">
+          <span>1</span><span>2</span><span>3</span>
+          <span>4</span><span>5</span><span>6</span>
+          <span>7</span><span>8</span><span>9</span>
+          <span>0</span><span class="confirm">تأكيد</span>
+        </div>
+      </div>
     </div>
 
     <h3 style="font-size:22px;margin:42px 0 10px;">إذا تأخر الطالب بعد الانصراف</h3>
@@ -493,8 +1008,12 @@ footer{padding:34px 0 46px;color:var(--text-muted);font-size:13px;}
       <h3>لا يغادر الباص بوجود طالب «غير محسوم»</h3>
       <p>
         يجب أن تكون حالته: ركب، أو غادر المدرسة، أو غائبًا بشكل مؤكد.
-        هاتف الطالب قناة مساعدة فقط؛ الحل الأساسي يعمل للصغار والكبار، ولمن يملك هاتفًا أو لا يملكه، عبر المدرسة والمرافق ومشرف النقل.
+        هاتف الطالب قناة مساعدة فقط؛ الحل الأساسي يعمل للصغار والكبار، ولمن يملك هاتفًا أو لا يملكه، عبر المدرسة وسائق الحافلة ومشرف النقل.
       </p>
+      <button class="modal-trigger" type="button" data-modal-target="scenarioModal" data-scenario="late-student" data-title="سيناريو الطالب المتأخر بعد الانصراف" aria-haspopup="dialog" aria-controls="scenarioModal">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 11v5M12 8h.01"/></svg>
+        عرض سيناريو التأخر والتصعيد
+      </button>
     </div>
   </section>
 
@@ -502,34 +1021,52 @@ footer{padding:34px 0 46px;color:var(--text-muted);font-size:13px;}
     <div class="section-head">
       <span class="section-num">المشكلة ٠٢</span>
       <h2>إعلام الطالب والأسرة بوصول الحافلة</h2>
-      <p>الهدف ليس إعلان وصول الحافلة بعد توقفها، بل جعل الطالب جاهزًا قبل وصولها وتقليل الانتظار والبوري.</p>
+      <p>الهدف ليس إعلان وصول الحافلة بعد توقفها، بل حساب زمن الوصول لكل منزل من المسار الصباحي والموقع الحي، ثم إشعار ولي الأمر قبل الموعد المحدد ليكون الطالب جاهزًا.</p>
     </div>
 
     <div class="grid three">
-      <article class="card">
+      <article class="card solution-card">
         <div class="icon pink"><svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M18 8a6 6 0 00-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg></div>
-        <h3>إشعاران استباقيان</h3>
-        <p>«استعد» قبل عشر دقائق، ثم «اخرج الآن» قبل دقيقتين، اعتمادًا على الزمن المتوقع لا المسافة فقط.</p>
+        <h3>إشعار تلقائي حسب زمن الوصول</h3>
+        <p>عندما يصبح منزل الطالب هو المحطة التالية ويصل الزمن المتوقع إلى الحد المضبوط — مثل ٥ دقائق — يرسل مسلك Push أو WhatsApp أو SMS وفق تفضيل الأسرة.</p>
+        <button class="modal-trigger secondary" type="button" data-modal-target="scenarioModal" data-scenario="arrival-alerts" data-title="سيناريو إشعارات الوصول الاستباقية" aria-haspopup="dialog" aria-controls="scenarioModal">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 11v5M12 8h.01"/></svg>
+          عرض السيناريو الكامل
+        </button>
       </article>
-      <article class="card">
+      <article class="card solution-card">
         <div class="icon sky"><svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12l4 4L19 6M4 21h16"/></svg></div>
         <h3>الأسرة تبلّغ الحافلة</h3>
-        <p>«لن يركب اليوم» لتجاوز المحطة، و«جاهز عند الباب» لطمأنة المرافق، و«تأخرنا دقيقتين» لمنع المغادرة المبكرة.</p>
+        <p>«لن يركب اليوم» لتجاوز المحطة، و«جاهز عند الباب» لطمأنة سائق الحافلة، و«تأخرنا دقيقتين» لمنع المغادرة المبكرة.</p>
+        <button class="modal-trigger secondary" type="button" data-modal-target="scenarioModal" data-scenario="family-response" data-title="سيناريو رد الأسرة على الحافلة" aria-haspopup="dialog" aria-controls="scenarioModal">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 11v5M12 8h.01"/></svg>
+          عرض السيناريو الكامل
+        </button>
       </article>
-      <article class="card">
+      <article class="card solution-card">
         <div class="icon yellow"><svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4h16v13H7l-3 3V4zM8 9h8M8 13h5"/></svg></div>
         <h3>تصعيد عند عدم الوصول</h3>
         <p>إشعار التطبيق أولًا، ثم واتساب عند عدم الفتح، ثم رسالة نصية للحالات المتبقية بدل إرسال كل القنوات للجميع.</p>
+        <button class="modal-trigger secondary" type="button" data-modal-target="scenarioModal" data-scenario="notification-escalation" data-title="سيناريو تصعيد إشعار الوصول" aria-haspopup="dialog" aria-controls="scenarioModal">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 11v5M12 8h.01"/></svg>
+          عرض السيناريو الكامل
+        </button>
       </article>
     </div>
 
+    <div class="decision">
+      <span class="label">طريقة التشغيل في رحلة جلب الطلاب</span>
+      <h3>مسار صباحي معتمد + موقع حي + وقت وصول متجدد لكل منزل</h3>
+      <p>يقترح مسلك ترتيب نقاط الالتقاط انطلاقًا من موقع الحافلة ومواقع المنازل والمدرسة، ثم يعتمد مشرف النقل المسار. أثناء الرحلة يحدد النظام المنزل التالي ويعيد حساب ETA تلقائيًا؛ لا يختار السائق الطالب ولا يرسل الإشعار يدويًا أثناء القيادة.</p>
+    </div>
+
     <h3 style="font-size:22px;margin:42px 0 10px;">الخيار الإضافي: جهاز راديوي في المنزل</h3>
-    <p>حل للعائلات التي لا يصلها إشعار التطبيق أو لا تملك جوالًا. يعمل مباشرة بين الحافلة والمنزل دون إنترنت منزلي.</p>
+    <p>حل للعائلات التي لا يصلها إشعار التطبيق أو لا تملك جوالًا. يكفي زر واحد في الحافلة ومستقبِل واحد لكل منزل؛ يحدد مسلك المحطة الحالية ويرسل معرّف المنزل، فلا يرن إلا الجهاز المقصود.</p>
 
     <div class="radio-diagram" aria-label="آلية الجهاز الراديوي المنزلي">
       <div class="radio-node">
         <div class="icon blue"><svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16V9a3 3 0 013-3h10a3 3 0 013 3v7M2 16h20v3H2zM6 19v2M18 19v2"/></svg></div>
-        <b>الحافلة</b><span>زر «المحطة الحالية»</span>
+        <b>الحافلة</b><span>زر واحد «إشعار المنزل الحالي»</span>
       </div>
       <div class="radio-node">
         <div class="icon sky"><svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" d="M5 12a10 10 0 0114 0M8 15a6 6 0 018 0M11 18a2 2 0 012 0"/></svg></div>
@@ -537,7 +1074,7 @@ footer{padding:34px 0 46px;color:var(--text-muted);font-size:13px;}
       </div>
       <div class="radio-node">
         <div class="icon pink"><svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 21V9l8-5 8 5v12M9 21v-6h6v6"/></svg></div>
-        <b>مستقبِل المنزل</b><span>يستجيب لمعرّفه فقط</span>
+        <b>مستقبِل المنزل</b><span>جهاز واحد للأسرة يستجيب لمعرّفه</span>
       </div>
       <div class="radio-node">
         <div class="icon yellow"><svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M18 8a6 6 0 00-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg></div>
@@ -545,9 +1082,14 @@ footer{padding:34px 0 46px;color:var(--text-muted);font-size:13px;}
       </div>
     </div>
 
+    <button class="modal-trigger" type="button" id="radioModalOpen" data-modal-target="radioDeviceModal" aria-haspopup="dialog" aria-controls="radioDeviceModal">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 11v5M12 8h.01"/></svg>
+      عرض سيناريو الزر الواحد وتفاصيل الجهاز
+    </button>
+
     <div class="note">
-      <b>شرطان قبل اعتماده:</b> كل منزل يجب أن يملك معرّفًا مستقلًا حتى لا ترن أجراس الجميع،
-      كما يجب اعتماد النطاق الراديوي وقدرة الإرسال والجهاز من هيئة الاتصالات والفضاء والتقنية قبل التصنيع أو الاستيراد.
+      <b>القاعدة:</b> الزر الواحد لا يرسل «رن للجميع»، بل يرسل «رن للمنزل ذي المعرّف H‑1048».
+      إذا كان في المنزل إخوة فيكفيهم مستقبِل واحد، وتبقى حالة ركوب كل طالب منفصلة داخل مسلك. كما يجب اعتماد النطاق الراديوي وقدرة الإرسال والجهاز من هيئة الاتصالات والفضاء والتقنية قبل التصنيع أو الاستيراد.
     </div>
 
     <div class="decision">
@@ -568,18 +1110,19 @@ footer{padding:34px 0 46px;color:var(--text-muted);font-size:13px;}
       <article class="card">
         <div class="icon blue"><svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
         <h3>النسخة الأولى — بلا عتاد</h3>
-        <p>دور المرافق، قائمة المحطة، تسجيل الركوب، تسوية رحلة العودة مع خروج المدرسة، تأكيد النزول والاستثناءات، العمل دون اتصال، فحص خلو الحافلة، الإشعارات الاستباقية، وحالات «غائب» و«جاهز».</p>
+        <p>دور سائق الحافلة، قائمة المحطة للصباح، وضع تحضير جماعي بخريطة المقاعد بعد المدرسة، تسوية رحلة العودة مع خروج المدرسة، تأكيد النزول والاستثناءات، العمل دون اتصال، وفحص خلو الحافلة.</p>
       </article>
       <article class="card">
         <div class="icon sky"><svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2v20M5 9l7-7 7 7M5 15l7 7 7-7"/></svg></div>
         <h3>اختبارات العتاد</h3>
-        <p>بطاقات NFC لعينة صغيرة، وزوج مرسِل ومستقبِل راديوي لمنزل واحد، وقياس المدى داخل حي سعودي ومن داخل جسم الحافلة.</p>
+        <p>وحدتان تجريبيتان ثابتتان للمقاعد مع حساس جلوس، وزوج مرسِل ومستقبِل راديوي لمنزل واحد، وقياس الاعتمادية داخل الحافلة وحي سعودي.</p>
       </article>
     </div>
 
     <div class="metrics">
       <div class="metric"><b>≤ ٣٠ ث</b><span>الزمن المضاف للمحطة</span></div>
       <div class="metric"><b>١٠٠٪</b><span>رحلات أنهت فحص خلو الحافلة</span></div>
+      <div class="metric"><b>دفعة واحدة</b><span>تحضير رحلة العودة بخريطة المقاعد</span></div>
       <div class="metric"><b>صفر</b><span>طلاب غير محسومين عند المغادرة</span></div>
       <div class="metric"><b>↓</b><span>مرات استخدام البوري والانتظار</span></div>
       <div class="metric"><b>↑</b><span>الطلاب الجاهزون قبل الوصول</span></div>
@@ -589,13 +1132,734 @@ footer{padding:34px 0 46px;color:var(--text-muted);font-size:13px;}
 
 <footer class="wrap">
   <div class="footer-in">
-    <div><b>مسلك — منصة النقل المدرسي</b><br>ملخص مركز للمشكلتين والحلول المقترحة</div>
+    <div><b>مسلك — منصة النقل المدرسي</b><br>لوحة اجتماع لعصف الأفكار واختيار التجارب المقترحة</div>
     <div class="footer-links">
       <a href="solutions-briefing.html">قراءة الملف التفصيلي</a>
       <a href="docs/README.md">توثيق الأبحاث</a>
     </div>
   </div>
 </footer>
+
+<div class="device-modal" id="scenarioModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="scenarioModalTitle">
+  <div class="modal-panel" tabindex="-1">
+    <div class="modal-head">
+      <div class="modal-head-copy">
+        <span class="pill">السيناريو التشغيلي الكامل</span>
+        <h2 id="scenarioModalTitle">طريقة عمل الحل</h2>
+        <p>من بداية الحالة حتى إغلاقها، مع المسؤوليات والاستثناءات وقاعدة القرار.</p>
+      </div>
+      <button class="modal-close" type="button" data-modal-close aria-label="إغلاق نافذة السيناريو">×</button>
+    </div>
+    <div class="modal-body" id="scenarioModalBody"></div>
+  </div>
+</div>
+
+<template id="scenario-morning">
+  <div class="scenario-lead">
+    <div>
+      <span class="label" style="color:var(--primary);background:var(--primary-light);">الحالة</span>
+      <h3>ركوب متتابع عند محطات صغيرة</h3>
+      <p>تقترب الحافلة من منزل يضم طالبين متوقعين. المطلوب تسجيل من ركب بسرعة، دون فتح قائمة المسار كاملة أو استخدام أداة يحملها الطالب.</p>
+      <div class="scenario-meta"><span>المسؤول: سائق الحافلة</span><span>يعمل دون اتصال</span><span>هدف المحطة: ≤ ٣٠ ثانية</span></div>
+    </div>
+    <div class="scenario-result">
+      <span>النتيجة النهائية</span>
+      <b>قائمة ركاب مؤكدة مع استثناء واضح لكل طالب</b>
+      <p>لا تعتمد سلامة الرحلة على ذاكرة السائق، وتبقى عملية فحص خلو الحافلة إجراءً مستقلًا.</p>
+    </div>
+  </div>
+  <div class="modal-section">
+    <h3>تسلسل الركوب صباحًا</h3>
+    <div class="modal-flow">
+      <div class="modal-flow-step"><b>تقترب الحافلة</b><span>مسلك يحدد المحطة الحالية</span></div>
+      <div class="modal-flow-step"><b>تظهر قائمة قصيرة</b><span>طلاب هذه المحطة فقط</span></div>
+      <div class="modal-flow-step"><b>يركب الطالب</b><span>والحافلة متوقفة</span></div>
+      <div class="modal-flow-step"><b>يسجل السائق</b><span>ركب أو لن يركب</span></div>
+      <div class="modal-flow-step"><b>تغلق المحطة</b><span>وتنتقل القائمة للتالية</span></div>
+    </div>
+  </div>
+  <div class="modal-section">
+    <h3>عند النزول</h3>
+    <ol class="detail-list">
+      <li>عند دخول نطاق المحطة يعرض النظام أسماء الطلاب المتوقع نزولهم وعددهم.</li>
+      <li>بعد توقف الحافلة ونزول الطلاب، يؤكد السائق العدد مرة واحدة.</li>
+      <li>إذا نزل طالب في محطة مختلفة، يسجّل «نزول استثنائي» مع المحطة والوقت.</li>
+      <li>إذا بقي طالب داخل الحافلة، تظل حالته ظاهرة ولا يُغلق النزول كأنه اكتمل.</li>
+      <li>عند نهاية المسار يمسح السائق وسمًا ثابتًا في مؤخرة الحافلة لإثبات تنفيذ جولة فحص الخلو.</li>
+    </ol>
+    <div class="modal-warning"><b>ضابط سلامة:</b> تسجيل الركوب والنزول لا يستبدل الفحص البصري لخلو الحافلة، ولا يُطلب من السائق لمس الشاشة أثناء تحرك المركبة.</div>
+  </div>
+</template>
+
+<template id="scenario-siblings">
+  <div class="scenario-lead">
+    <div>
+      <span class="label" style="color:var(--primary);background:var(--primary-light);">مثال أسرة واحدة</span>
+      <h3>ثلاثة إخوة في المنزل نفسه، لكن لكل طالب حالة مستقلة</h3>
+      <p>يظهر المنزل كمحطة واحدة وبداخله الطلاب المتوقعون لهذه الرحلة فقط. تجميعهم يقلل زمن التوقف، لكنه لا يدمج سجلات حضورهم.</p>
+      <div class="scenario-meta"><span>محطة واحدة</span><span>مستقبِل منزلي واحد</span><span>سجل مستقل لكل طالب</span><span>استثناء مستقل</span></div>
+    </div>
+    <div class="scenario-result">
+      <span>قاعدة التحضير</span>
+      <b>حضور أحد الإخوة لا يعني حضور البقية</b>
+      <p>حتى عند استخدام زر «ركب الجميع»، ينشئ النظام حدث ركوب منفصلًا لكل طالب مع الوقت والمحطة والسائق.</p>
+    </div>
+  </div>
+
+  <div class="modal-section">
+    <h3>السيناريو الطبيعي: جميع الإخوة سيركبون</h3>
+    <div class="modal-flow">
+      <div class="modal-flow-step"><b>تقترب الحافلة</b><span>يظهر منزل الأسرة</span></div>
+      <div class="modal-flow-step"><b>يرن جهاز المنزل</b><span>مرة واحدة للأسرة</span></div>
+      <div class="modal-flow-step"><b>تظهر قائمة الإخوة</b><span>٣ طلاب متوقعين</span></div>
+      <div class="modal-flow-step"><b>يصعد الثلاثة</b><span>والسائق يطابق العدد</span></div>
+      <div class="modal-flow-step"><b>تأكيد ٣ من ٣</b><span>ثلاثة سجلات مستقلة</span></div>
+    </div>
+    <p style="margin:16px 0 0;">تعرض واجهة المحطة الاسم الأول، الصف، ورقم المقعد لكل طالب. وبعد صعودهم والحافلة متوقفة، يستطيع السائق ضغط «ركب الجميع ٣/٣» بدل ثلاث ضغطات منفصلة.</p>
+  </div>
+
+  <div class="modal-section">
+    <h3>الحالات المحتملة وكيف تُعالج</h3>
+    <div class="scenario-table">
+      <table>
+        <thead><tr><th>الحالة</th><th>ما يظهر قبل الوصول</th><th>إجراء التحضير</th></tr></thead>
+        <tbody>
+          <tr><td>جميع الإخوة سيركبون</td><td>متوقعون ٣</td><td>مطابقة العدد ثم «ركب الجميع ٣/٣»</td></tr>
+          <tr><td>الأسرة أبلغت أن أحدهم لن يركب</td><td>متوقعون ٢ + معفى ١</td><td>يُحضّر الطالبان فقط ولا ينتظر الثالث</td></tr>
+          <tr><td>ركب طالبان والثالث لم يظهر</td><td>متوقعون ٣</td><td>تأكيد الطالبين بالاسم، ويبقى الثالث «غير محسوم»</td></tr>
+          <tr><td>أحد الإخوة على مسار أو وقت مختلف</td><td>تظهر أسماء رحلة الحافلة الحالية فقط</td><td>لا يُخلط سجل الرحلتين حتى لو كان المنزل واحدًا</td></tr>
+          <tr><td>غادر أحدهم المدرسة مع ولي الأمر</td><td>في العودة: معفى لهذا الطالب فقط</td><td>يبقى إخوته متوقعين لركوب حافلة العودة</td></tr>
+          <tr><td>إخوة في مقاعد مختلفة</td><td>رقم مقعد مستقل بجانب كل اسم</td><td>يرتبط تأكيد كل طالب بمقعده المخصص</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="modal-section">
+    <h3>أفضل الممارسات</h3>
+    <ul class="detail-list">
+      <li><b>المنزل للتجميع فقط:</b> يكون معرّف المنزل ومحطته مشتركين، بينما الهوية والحضور والمقعد وحالة العودة مستقلة لكل طالب.</li>
+      <li><b>زر المجموعة مشروط:</b> لا يظهر «ركب الجميع» إلا إذا كانت القائمة قصيرة وواضحة، ويعرض العدد صراحة: «أؤكد ركوب ٣ من ٣».</li>
+      <li><b>الاستثناء أولًا:</b> عند غياب أخ واحد، يسجل السائق من ركبوا ثم يعالج الغائب وحده؛ لا يلغي المحطة ولا يعيد فتح حضور الجميع.</li>
+      <li><b>لا يعتمد على اللون وحده:</b> تعرض الواجهة الاسم والصف ورقم المقعد مع رمز بصري مساعد، مراعاة للوضوح وإمكانية الوصول.</li>
+      <li><b>سجل تدقيق فردي:</b> حتى التأكيد الجماعي يحفظ حدثًا منفصلًا لكل طالب لتصحيح أي خطأ دون التأثير على إخوته.</li>
+      <li><b>فصل الإشعار عن التحضير:</b> رنين الجهاز المنزلي يعني وصول الحافلة للأسرة فقط، ولا يحوّل أي طالب تلقائيًا إلى «ركب».</li>
+    </ul>
+    <div class="modal-warning"><b>ممنوع الافتراض:</b> خروج طفل واحد من المنزل أو رد الأسرة «جاهزون» لا يثبت أن جميع الإخوة صعدوا؛ التسجيل يتم بعد الصعود الفعلي والحافلة متوقفة.</div>
+  </div>
+</template>
+
+<template id="scenario-return-reconciliation">
+  <div class="scenario-lead">
+    <div>
+      <span class="label" style="color:var(--primary);background:var(--primary-light);">مثال</span>
+      <h3>وصل الطالب صباحًا ثم استلمه ولي أمره أثناء اليوم</h3>
+      <p>يجب حذف الطالب من المتوقعين لرحلة العودة، لكن فقط بعد أن تؤكد المدرسة خروجه الفعلي؛ طلب ولي الأمر وحده لا يكفي.</p>
+      <div class="scenario-meta"><span>مصدر الحقيقة: بوابة المدرسة</span><span>المستلم: سائق الحافلة</span><span>التصعيد: مشرف النقل</span></div>
+    </div>
+    <div class="scenario-result">
+      <span>النتيجة النهائية</span>
+      <b>لا يُنتظر طالب غادر فعلًا، ولا يُترك طالب ما زال داخل المدرسة</b>
+      <p>كل تغيير محفوظ بوقت التنفيذ والموظف الذي أكده.</p>
+    </div>
+  </div>
+  <div class="modal-section">
+    <h3>التسلسل الكامل</h3>
+    <div class="modal-flow">
+      <div class="modal-flow-step"><b>طلب استلام</b><span>حالة معلّقة فقط</span></div>
+      <div class="modal-flow-step"><b>تحقق البوابة</b><span>من هوية المستلم</span></div>
+      <div class="modal-flow-step"><b>تأكيد الخروج</b><span>مع الوقت والموظف</span></div>
+      <div class="modal-flow-step"><b>تحديث العودة</b><span>معفى — غادر المدرسة</span></div>
+      <div class="modal-flow-step"><b>إبلاغ الحافلة</b><span>إزالة المقعد من المتوقع</span></div>
+    </div>
+  </div>
+  <div class="modal-section">
+    <h3>ما يحدث قبل تحرك الحافلة</h3>
+    <div class="scenario-table">
+      <table>
+        <thead><tr><th>ما يراه السائق</th><th>مصدر الحالة</th><th>القرار</th></tr></thead>
+        <tbody>
+          <tr><td>ركب الحافلة</td><td>تحضير الحافلة</td><td>ضمن الركاب</td></tr>
+          <tr><td>غادر مع ولي الأمر</td><td>موظف بوابة المدرسة</td><td>لا يُنتظر</td></tr>
+          <tr><td>غياب مدرسي مؤكد</td><td>نظام حضور المدرسة</td><td>لا يُنتظر</td></tr>
+          <tr><td>غير محسوم</td><td>لا يوجد إثبات كافٍ</td><td>يمنع إغلاق التحضير ويُصعّد</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="modal-warning"><b>إذا أُلغي طلب الاستلام أو لم يصل ولي الأمر:</b> يبقى الطالب في قائمة العودة؛ النظام لا يغيّر حالته إلا بعد تسجيل الخروج الفعلي.</div>
+  </div>
+</template>
+
+<template id="scenario-group-boarding">
+  <div class="scenario-lead">
+    <div>
+      <span class="label" style="color:var(--primary);background:var(--primary-light);">وقت الذروة</span>
+      <h3>عشرات الطلاب يركبون في وقت متقارب</h3>
+      <p>بدل إنشاء طابور عند الباب أو الضغط على كل اسم، يدخل الطلاب ويتجه كل منهم إلى مقعده المخصص، ثم يراجع السائق الاستثناءات فقط.</p>
+      <div class="scenario-meta"><span>دخول متوازٍ</span><span>خريطة مقاعد مباشرة</span><span>لا أدوات محمولة</span></div>
+    </div>
+    <div class="scenario-result">
+      <span>النتيجة النهائية</span>
+      <b>تحضير دفعة واحدة بدل قائمة أسماء طويلة</b>
+      <p>المقعد ينظم عملية المطابقة، لكنه لا يُعد إثبات هوية منفردًا دون رمز أو تحقق بشري.</p>
+    </div>
+  </div>
+  <div class="modal-section">
+    <h3>التسلسل الكامل</h3>
+    <div class="modal-flow">
+      <div class="modal-flow-step"><b>إنشاء المتوقعين</b><span>حضور المدرسة ناقص الخروج</span></div>
+      <div class="modal-flow-step"><b>فتح الركوب</b><span>يدخل الجميع دون توقف</span></div>
+      <div class="modal-flow-step"><b>الجلوس المخصص</b><span>كل طالب يتجه لمقعده</span></div>
+      <div class="modal-flow-step"><b>تلوين الخريطة</b><span>مؤكد أو فارغ أو مخالف</span></div>
+      <div class="modal-flow-step"><b>حل الاستثناءات</b><span>ثم اعتماد المغادرة</span></div>
+    </div>
+    <div class="state-grid">
+      <div class="state-item"><i style="background:#22C55E;"></i><b>مؤكد</b><span>الطالب في مقعده الصحيح</span></div>
+      <div class="state-item"><i style="background:#EAB308;"></i><b>قيد التحقق</b><span>المقعد مشغول بلا تأكيد</span></div>
+      <div class="state-item"><i style="background:#F97316;"></i><b>مقعد مخالف</b><span>الرمز صحيح في مقعد آخر</span></div>
+      <div class="state-item"><i style="background:#EF4444;"></i><b>فارغ</b><span>طالب متوقع لم يظهر</span></div>
+    </div>
+  </div>
+  <div class="modal-section">
+    <h3>جولة السائق الواحدة</h3>
+    <p>بعد استقرار الطلاب والحافلة متوقفة، تعرض الشاشة المقاعد غير الخضراء فقط. يتحقق السائق من المقعد الفارغ أو المخالف، ويحوّل كل طالب إلى «ركب»، «متأخر»، «غادر المدرسة»، أو «غير محسوم». لا يسمح النظام بإنهاء التحضير مع بقاء الحالة الأخيرة.</p>
+  </div>
+</template>
+
+<template id="scenario-seat-device">
+  <div class="scenario-lead">
+    <div>
+      <span class="label" style="color:var(--primary);background:var(--primary-light);">حل ثابت داخل الحافلة</span>
+      <h3>رمز الطالب + رقم المقعد + حساس الجلوس</h3>
+      <p>لا يحمل الطالب بطاقة أو سوارًا أو هاتفًا. وحدة المقعد مثبتة في الحافلة وتعمل بالتوازي مع الوحدات الأخرى، بينما يحتفظ الطالب برمز قصير يمكن للمدرسة إعادة تعيينه.</p>
+      <div class="scenario-meta"><span>وحدة ثابتة لكل مقعد</span><span>رمز ٤ أرقام</span><span>حساس جلوس</span><span>وضع دون اتصال</span></div>
+    </div>
+    <div class="scenario-result">
+      <span>قيمة الحل</span>
+      <b>إثبات تشغيلي سريع دون مقتنيات قابلة للضياع</b>
+      <p>جميع الطلاب يؤكدون وجودهم في الوقت نفسه، ويظهر للسائق من يحتاج تدخلًا فقط.</p>
+    </div>
+  </div>
+  <div class="modal-section">
+    <h3>سيناريو الطالب الصحيح</h3>
+    <div class="modal-flow">
+      <div class="modal-flow-step"><b>يجلس الطالب</b><span>في مقعده المخصص</span></div>
+      <div class="modal-flow-step"><b>يستشعر المقعد</b><span>وجود وزن مستقر</span></div>
+      <div class="modal-flow-step"><b>يُدخل الرمز</b><span>أربع خانات ثم تأكيد</span></div>
+      <div class="modal-flow-step"><b>يطابق النظام</b><span>الرمز والمقعد والمتوقعين</span></div>
+      <div class="modal-flow-step"><b>يصبح أخضر</b><span>في الوحدة وخريطة السائق</span></div>
+    </div>
+    <div class="state-grid">
+      <div class="state-item"><i style="background:#22C55E;"></i><b>أخضر</b><span>رمز صحيح + مقعد صحيح + جلوس</span></div>
+      <div class="state-item"><i style="background:#EAB308;"></i><b>أصفر</b><span>جلوس موجود ولم يُدخل الرمز</span></div>
+      <div class="state-item"><i style="background:#F97316;"></i><b>برتقالي</b><span>الطالب أكد من مقعد غير مخصص</span></div>
+      <div class="state-item"><i style="background:#EF4444;"></i><b>أحمر</b><span>طالب متوقع لم يؤكد وجوده</span></div>
+    </div>
+  </div>
+  <div class="modal-section">
+    <h3>الحالات الاستثنائية</h3>
+    <div class="scenario-table">
+      <table>
+        <thead><tr><th>الحالة</th><th>استجابة النظام</th><th>الإجراء البشري</th></tr></thead>
+        <tbody>
+          <tr><td>نسي الطالب الرمز</td><td>يظل المقعد أصفر ولا يتوقف تدفق الركوب</td><td>السائق يؤكد هويته يدويًا بعد استقرار الجميع</td></tr>
+          <tr><td>رمز صحيح في مقعد خاطئ</td><td>تنبيه برتقالي على المقعدين</td><td>ينتقل الطالب لمقعده أو يعتمد السائق تبديلًا مؤقتًا</td></tr>
+          <tr><td>رمز خاطئ متكرر</td><td>قفل مؤقت للوحدة وتنبيه دون عرض الرمز</td><td>تحقق يدوي وإعادة تعيين عبر المدرسة</td></tr>
+          <tr><td>حقيبة على المقعد</td><td>حساس الجلوس وحده لا يحول الحالة إلى أخضر</td><td>لا حضور دون رمز صحيح أو تأكيد يدوي</td></tr>
+          <tr><td>انقطاع الشبكة</td><td>مطابقة محلية مشفرة وتخزين الأحداث مؤقتًا</td><td>مزامنة تلقائية عند عودة الاتصال</td></tr>
+          <tr><td>تعطل وحدة</td><td>تظهر «وحدة غير متاحة» بدل اعتبار الطالب غائبًا</td><td>العودة إلى خريطة المقاعد والتحقق اليدوي</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="modal-section">
+    <h3>متطلبات الوحدة قبل التجربة</h3>
+    <ul class="detail-list">
+      <li>لوحة أرقام كبيرة مضيئة، زر تأكيد، مؤشر حالة، وحساس جلوس لا يعتمد عليه منفردًا.</li>
+      <li>تثبيت مقاوم للعبث والسوائل والصدمات، وأسلاك محمية دون حواف أو أجزاء تعيق الإخلاء.</li>
+      <li>لا يُخزن اسم الطالب أو رمزُه بصيغة مكشوفة داخل المقعد، ولا يظهر الرمز على شاشة السائق.</li>
+      <li>تُقبل محاولة واحدة للطالب في الرحلة نفسها، ويُمنع استخدام الرمز في مقعدين في الوقت ذاته.</li>
+      <li>تبدأ التجربة على مقعدين أو أربعة قبل تجهيز حافلة كاملة، مع قياس الأعطال ووقت الإدخال وقبول الطلاب.</li>
+    </ul>
+    <div class="modal-warning"><b>حدود الإثبات:</b> الرمز يقلل الاعتماد على التحقق اليدوي لكنه لا يثبت الهوية بشكل قطعي، لأن الطالب قد يشارك رمزه. لذلك تبقى مراجعة الحالات غير الطبيعية ومسؤولية المدرسة والسائق جزءًا من الحل.</div>
+  </div>
+</template>
+
+<template id="scenario-late-student">
+  <div class="scenario-lead">
+    <div>
+      <span class="label" style="color:var(--primary);background:var(--primary-light);">حالة قبل المغادرة</span>
+      <h3>الطالب حضر المدرسة لكنه لم يصل إلى مقعده</h3>
+      <p>غياب التأكيد لا يعني أنه غادر؛ ربما يكون في الصف أو نشاط أو في طريقه للحافلة. لذلك يبدأ مؤقت وتصعيد منظم.</p>
+      <div class="scenario-meta"><span>لا يعتمد على هاتف الطالب</span><span>المدرسة مسؤولة عن البحث</span><span>السائق يرى الحالة لحظيًا</span></div>
+    </div>
+    <div class="scenario-result">
+      <span>قاعدة القرار</span>
+      <b>لا مغادرة مع طالب «غير محسوم»</b>
+      <p>الحالات المقبولة عند الإغلاق: ركب، غادر المدرسة، أو غائب مدرسيًا بتأكيد رسمي.</p>
+    </div>
+  </div>
+  <div class="modal-section">
+    <h3>التسلسل الكامل</h3>
+    <div class="modal-flow">
+      <div class="modal-flow-step"><b>انتهاء نافذة الركوب</b><span>الطالب ما زال أحمر</span></div>
+      <div class="modal-flow-step"><b>تنبيه المدرسة</b><span>اسم الطالب وآخر حالة</span></div>
+      <div class="modal-flow-step"><b>تحديد موقعه</b><span>الصف أو النشاط أو البوابة</span></div>
+      <div class="modal-flow-step"><b>تحديث الحالة</b><span>في الطريق أو غادر أو غائب</span></div>
+      <div class="modal-flow-step"><b>إغلاق التسوية</b><span>ثم يسمح بالمغادرة</span></div>
+    </div>
+  </div>
+  <div class="modal-section">
+    <h3>مثال زمني</h3>
+    <ol class="detail-list">
+      <li><b>الدقيقة ٠:</b> ينتهي وقت التجمع ويظهر الطالب «متوقع — لم يركب».</li>
+      <li><b>الدقيقة ١:</b> يصل تنبيه إلى مشرف النقل وموظف المدرسة المحدد مسبقًا.</li>
+      <li><b>الدقيقة ٢:</b> يؤكد المشرف «في الطريق للحافلة» فتظهر مهلة قصيرة للسائق، أو يبدأ التحقق من الصف.</li>
+      <li><b>قبل المغادرة:</b> لا يقبل النظام عبارة عامة مثل «غائب»؛ يجب اختيار مصدر مؤكد وتسجيل اسم الموظف.</li>
+    </ol>
+  </div>
+</template>
+
+<template id="scenario-arrival-alerts">
+  <div class="scenario-lead">
+    <div>
+      <span class="label" style="color:var(--primary);background:var(--primary-light);">رحلة جلب الطلاب صباحًا</span>
+      <h3>خمسة منازل ومسار معتمد وإشعار خاص بكل محطة</h3>
+      <p>يرتب مسلك نقاط الالتقاط من موقع انطلاق الحافلة حتى المدرسة، ثم يستخدم موقع الحافلة الحي وزمن الطريق والتوقفات لتحديث وقت الوصول لكل منزل.</p>
+      <div class="scenario-meta"><span>مسار معتمد</span><span>GPS حي</span><span>ETA لكل منزل</span><span>حد عام أو خاص</span></div>
+    </div>
+    <div class="scenario-result">
+      <span>النتيجة النهائية</span>
+      <b>ولي الأمر يعرف أن الحافلة ستصل بعد ٥ دقائق</b>
+      <p>يصل الإشعار آليًا عبر القناة المفضلة دون أن يختار السائق الطالب أو يرسل رسالة أثناء القيادة.</p>
+    </div>
+  </div>
+
+  <div class="modal-section">
+    <h3>أولًا: إنشاء مسار الصباح</h3>
+    <div class="modal-flow">
+      <div class="modal-flow-step"><b>بيانات الرحلة</b><span>موقع الحافلة والمنازل والمدرسة</span></div>
+      <div class="modal-flow-step"><b>استبعاد الغائبين</b><span>ومن اختار «لن يركب»</span></div>
+      <div class="modal-flow-step"><b>اقتراح الترتيب</b><span>وفق القيود وزمن الطريق</span></div>
+      <div class="modal-flow-step"><b>اعتماد المشرف</b><span>تثبيت نقاط الالتقاط الآمنة</span></div>
+      <div class="modal-flow-step"><b>إرسال المسار</b><span>إلى تطبيق سائق الحافلة</span></div>
+    </div>
+    <div class="modal-warning"><b>أفضل مسار ليس الأقصر فقط:</b> يراعي اتجاهات الطرق، نقاط التوقف الآمنة، أوقات الالتقاط، سعة الحافلة، أقصى مدة لبقاء الطالب فيها، وأولوية الوصول للمدرسة. يقترح النظام المسار ويعتمده مشرف النقل قبل التشغيل.</div>
+  </div>
+
+  <div class="modal-section">
+    <h3>ثانيًا: مثال منزل عبدالعزيز</h3>
+    <p>بدأت الحافلة رحلتها وفي المسار خمسة طلاب. بعد إتمام المحطة السابقة حدد مسلك أن منزل عبدالعزيز هو المحطة التالية، واستمر في إعادة حساب زمن الوصول لحظيًا.</p>
+    <div class="modal-flow">
+      <div class="modal-flow-step"><b>تتحرك الحافلة</b><span>الموقع يصل تلقائيًا</span></div>
+      <div class="modal-flow-step"><b>عبدالعزيز التالي</b><span>وفق تسلسل المسار</span></div>
+      <div class="modal-flow-step"><b>ETA = ٥ دقائق</b><span>تجاوز حد التنبيه المضبوط</span></div>
+      <div class="modal-flow-step"><b>إشعار ولي الأمر</b><span>Push أو WhatsApp أو SMS</span></div>
+      <div class="modal-flow-step"><b>الطالب جاهز</b><span>قبل توقف الحافلة</span></div>
+    </div>
+
+    <div class="scenario-table">
+      <table>
+        <thead><tr><th>اللحظة</th><th>قرار النظام</th><th>ما يراه ولي الأمر</th></tr></thead>
+        <tbody>
+          <tr><td>وقت الوصول ٨ دقائق</td><td>تحديث داخلي فقط</td><td>لا إشعار بعد</td></tr>
+          <tr><td>وقت الوصول يهبط إلى ٥ دقائق</td><td>إنشاء حدث إشعار واحد لهذه الرحلة</td><td>«حافلة عبدالعزيز ستصل تقريبًا بعد ٥ دقائق»</td></tr>
+          <tr><td>وقت الوصول يتذبذب بين ٤ و٦ دقائق</td><td>منع التكرار لنفس الحد</td><td>لا تصل رسائل متتابعة مزعجة</td></tr>
+          <tr><td>الحافلة تدخل نطاق المنزل</td><td>تنبيه وصول ثانٍ إذا كان مفعّلًا</td><td>«الحافلة وصلت — يرجى التوجه لنقطة الالتقاط»</td></tr>
+          <tr><td>يركب عبدالعزيز</td><td>تسجيل الركوب بصورة مستقلة</td><td>إشعار ركوب اختياري منفصل عن إشعار الاقتراب</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="modal-section">
+    <h3>إعداد وقت التنبيه</h3>
+    <div class="grid two" style="margin-top:14px;">
+      <article class="card" style="box-shadow:none;">
+        <span class="label" style="color:var(--primary);background:var(--primary-light);">الإعداد العام</span>
+        <h4>مثال: قبل ٥ دقائق لجميع الطلاب</h4>
+        <p>يحدده مشرف النقل كقيمة افتراضية للمسار أو للمدرسة، وتُطبق تلقائيًا على الأسر التي لا تملك إعدادًا خاصًا.</p>
+      </article>
+      <article class="card outcome" style="box-shadow:none;">
+        <span class="label">استثناء لكل طالب</span>
+        <h4>مثال: قبل ١٠ دقائق لعبدالعزيز</h4>
+        <p>يُستخدم عند حاجة الأسرة لوقت أطول، أو لطالب صغير أو ذي احتياج حركي، ضمن الحدود التي تسمح بها سياسة النقل.</p>
+      </article>
+    </div>
+    <ul class="detail-list">
+      <li>يمكن اعتماد إشعار واحد قبل الوصول، أو إشعار استعداد ثم إشعار وصول ثانٍ؛ ولا تُفرض أوقات ١٠ و٢ دقيقة على الجميع.</li>
+      <li>يُحسب التنبيه من <b>الزمن المتوقع ETA</b> وليس من المسافة وحدها؛ فقد تكون مسافة قصيرة لكنها تستغرق وقتًا أطول بسبب الطريق.</li>
+      <li>إذا كان إخوة في المنزل نفسه وعلى الرحلة نفسها، تُرسل رسالة أسرية واحدة توضح عدد الأبناء المتوقعين بدل تكرار الرسالة لكل طفل.</li>
+    </ul>
+  </div>
+
+  <div class="modal-section">
+    <h3>اختيار قناة ولي الأمر</h3>
+    <div class="scenario-table">
+      <table>
+        <thead><tr><th>القناة</th><th>متى تستخدم؟</th><th>التعامل عند الفشل</th></tr></thead>
+        <tbody>
+          <tr><td>Push Notification</td><td>القناة الأساسية عند وجود تطبيق مسلك وتفعيل الإشعارات</td><td>ينتظر النظام حالة التسليم أو التفاعل وفق الإمكانات المتاحة</td></tr>
+          <tr><td>WhatsApp</td><td>قناة مفضلة للأسرة أو مرحلة تصعيد بعد التطبيق</td><td>تستخدم رسالة وصول مختصرة ومعتمدة من حساب الخدمة</td></tr>
+          <tr><td>SMS</td><td>عند عدم توفر التطبيق أو واتساب، أو كقناة احتياطية</td><td>تُرسل للحالات المتبقية فقط للتحكم في التكلفة</td></tr>
+          <tr><td>الجهاز الراديوي</td><td>للأسرة دون هاتف أو اتصال مناسب</td><td>يرن مستقبِل المنزل المعنوَن عند اقتراب الحافلة</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="modal-warning"><b>لا ترسل جميع القنوات دفعة واحدة:</b> يحفظ مسلك قناة الأسرة المفضلة، ثم يصعّد تدريجيًا فقط إذا لم تنجح القناة الأولى. ويمكن لولي الأمر ضغط «جاهز عند الباب» لإيقاف التصعيد.</div>
+  </div>
+
+  <div class="modal-section">
+    <h3>الحالات الاستثنائية وأفضل الممارسات</h3>
+    <ul class="detail-list">
+      <li><b>تغير ترتيب المحطات:</b> لا يعيد النظام ترتيب الطلاب بصمت أثناء الرحلة. إذا حدث تحويل معتمد، يعيد حساب الأوقات ويرسل تحديثًا فقط للأسر المتأثرة.</li>
+      <li><b>توقف غير متوقع:</b> يؤخر الإشعار التالي تلقائيًا بدل إرسال «اخرج الآن» بينما الحافلة ما زالت بعيدة.</li>
+      <li><b>فقدان GPS:</b> لا يعرض عدادًا دقيقًا على أنه مؤكد؛ يستخدم آخر تقدير موثوق مع عبارة «الوقت تقريبي»، أو يوقف التنبيه حتى عودة الموقع.</li>
+      <li><b>طالب لن يركب:</b> تُحذف محطته قبل تحسين المسار، ثم يعاد حساب ETA لبقية المنازل لأن الحافلة قد تصلهم أبكر.</li>
+      <li><b>تقلب ETA حول ٥ دقائق:</b> يستخدم النظام حد عبور ومعرّف حدث واحد حتى لا يكرر الإشعار عند تغير الزمن صعودًا وهبوطًا.</li>
+      <li><b>خصوصية المسار:</b> يرى ولي الأمر وقت وصول حافلة أبنائه فقط، ولا تظهر له أسماء الطلاب الآخرين أو مواقع منازلهم أو ترتيبهم.</li>
+      <li><b>سلامة السائق:</b> تحديد المحطة والإرسال آليان؛ تعرض شاشة السائق المنزل التالي للمراجعة، ولا تتطلب الكتابة أو اختيار قناة أثناء الحركة.</li>
+      <li><b>قياس الأداء:</b> تُقاس دقة ETA، ونسبة وصول الرسائل، ونسبة «جاهز عند الباب»، ومتوسط انتظار الحافلة في كل محطة.</li>
+    </ul>
+  </div>
+</template>
+
+<template id="scenario-family-response">
+  <div class="scenario-lead">
+    <div>
+      <span class="label" style="color:var(--primary);background:var(--primary-light);">تواصل باتجاهين</span>
+      <h3>الأسرة ترد بحالة مختصرة قابلة للتنفيذ</h3>
+      <p>لا يحتاج ولي الأمر إلى الاتصال بالسائق؛ يختار زرًا واضحًا، ويتحول الرد إلى قرار يظهر في محطة الطالب.</p>
+      <div class="scenario-meta"><span>لن يركب</span><span>جاهز عند الباب</span><span>تأخرنا دقيقتين</span></div>
+    </div>
+    <div class="scenario-result">
+      <span>النتيجة النهائية</span>
+      <b>السائق يرى القرار، لا الرسائل الطويلة</b>
+      <p>تُطبق قواعد موحدة تمنع اختلاف التفسير بين الأسرة والحافلة.</p>
+    </div>
+  </div>
+  <div class="modal-section">
+    <h3>أثر كل رد</h3>
+    <div class="scenario-table">
+      <table>
+        <thead><tr><th>اختيار الأسرة</th><th>ما يحدث في مسلك</th><th>ما يراه السائق</th></tr></thead>
+        <tbody>
+          <tr><td>لن يركب اليوم</td><td>تُلغى محطة الطالب بعد التحقق من صلاحية المرسل</td><td>«تجاوز المحطة» قبل الوصول إليها</td></tr>
+          <tr><td>جاهز عند الباب</td><td>تُحفظ جاهزية محدثة بوقت الرد</td><td>علامة خضراء بجانب المحطة</td></tr>
+          <tr><td>تأخرنا دقيقتين</td><td>تبدأ مهلة محدودة وفق سياسة النقل</td><td>عداد واضح دون محادثة أثناء القيادة</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="modal-warning"><b>منع إساءة الاستخدام:</b> «تأخرنا» لا يضمن انتظارًا مفتوحًا، ولا يقبل بعد تجاوز الحافلة للمحطة. تحدد الجهة المشغلة مدة المهلة وعدد مرات استخدامها.</div>
+  </div>
+</template>
+
+<template id="scenario-notification-escalation">
+  <div class="scenario-lead">
+    <div>
+      <span class="label" style="color:var(--primary);background:var(--primary-light);">عند عدم فتح الإشعار</span>
+      <h3>تصعيد تدريجي بدل إرسال كل القنوات دفعة واحدة</h3>
+      <p>يبدأ مسلك بالقناة الأقل تكلفة والأقل إزعاجًا، ثم ينتقل للقناة التالية فقط إذا لم يصل تأكيد تقني أو تفاعل من الأسرة.</p>
+      <div class="scenario-meta"><span>تطبيق</span><span>واتساب</span><span>SMS</span><span>جهاز منزلي اختياري</span></div>
+    </div>
+    <div class="scenario-result">
+      <span>النتيجة النهائية</span>
+      <b>وصول أعلى دون تكرار مزعج</b>
+      <p>تُسجل القناة التي نجحت، لتبدأ بها الرحلات التالية عند الحاجة وفق سياسة الخصوصية والتكلفة.</p>
+    </div>
+  </div>
+  <div class="modal-section">
+    <h3>مسار التصعيد</h3>
+    <div class="modal-flow">
+      <div class="modal-flow-step"><b>إشعار التطبيق</b><span>القناة الأساسية</span></div>
+      <div class="modal-flow-step"><b>فحص الوصول</b><span>تم التسليم أو الفتح؟</span></div>
+      <div class="modal-flow-step"><b>واتساب</b><span>إذا لم يُفتح التطبيق</span></div>
+      <div class="modal-flow-step"><b>رسالة SMS</b><span>للحالات المتبقية</span></div>
+      <div class="modal-flow-step"><b>الجهاز المنزلي</b><span>للمشتركين دون جوال</span></div>
+    </div>
+  </div>
+  <div class="modal-section">
+    <h3>متى يتوقف التصعيد؟</h3>
+    <ul class="detail-list">
+      <li>عند ضغط الأسرة «جاهز» أو «لن يركب» أو عند تحقق فتح الإشعار حسب السياسة المعتمدة.</li>
+      <li>لا يرسل واتساب وSMS معًا ما دام أحدهما حقق الغرض.</li>
+      <li>إذا كانت الأسرة مسجلة كـ«دون هاتف»، يتجاوز النظام القنوات البرمجية غير المتاحة ويستخدم الجهاز المنزلي المعتمد.</li>
+      <li>فشل جميع القنوات يظهر كسجل متابعة، لكنه لا يطلب من السائق إجراء اتصال أثناء القيادة.</li>
+    </ul>
+  </div>
+</template>
+
+<div class="device-modal" id="radioDeviceModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="radioModalTitle">
+  <div class="modal-panel" tabindex="-1">
+    <div class="modal-head">
+      <div class="modal-head-copy">
+        <span class="pill">سيناريو الزر الواحد والجهاز الراديوي المنزلي</span>
+        <h2 id="radioModalTitle">زر واحد في الحافلة ومستقبِل معنوَن لكل منزل</h2>
+        <p>مسلك يحدد المنزل الحالي، ويرسل معرّفه فقط، ثم يستقبل تأكيدًا بأن الجهاز المقصود رنّ.</p>
+      </div>
+      <button class="modal-close" type="button" id="radioModalClose" data-modal-close aria-label="إغلاق نافذة تفاصيل الجهاز">×</button>
+    </div>
+
+    <div class="modal-body">
+      <div class="modal-summary">
+        <figure class="device-figure">
+          <svg viewBox="0 0 680 350" role="img" aria-labelledby="deviceIllustrationTitle deviceIllustrationDesc">
+            <title id="deviceIllustrationTitle">رسم توضيحي لطقم ERA‑PBDCR</title>
+            <desc id="deviceIllustrationDesc">زر إرسال صغير يوضع في الحافلة ومستقبل منزلي يحتوي على مكبر صوت ومؤشرات مناطق ومخارج مرحل كهربائي.</desc>
+            <defs>
+              <linearGradient id="deviceBg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#F8F7FF"/><stop offset="1" stop-color="#EDEBFC"/></linearGradient>
+              <filter id="deviceShadow" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#16162C" flood-opacity=".14"/></filter>
+            </defs>
+            <rect x="1" y="1" width="678" height="348" rx="28" fill="url(#deviceBg)"/>
+
+            <g filter="url(#deviceShadow)">
+              <rect x="78" y="74" width="128" height="194" rx="54" fill="#FFFFFF" stroke="#D8D5ED" stroke-width="3"/>
+              <circle cx="142" cy="148" r="34" fill="#EDEBFC" stroke="#5C4CE3" stroke-width="4"/>
+              <circle cx="142" cy="148" r="18" fill="#5C4CE3"/>
+              <circle cx="142" cy="96" r="5" fill="#22C55E"/>
+              <path d="M112 220h60" stroke="#D8D5ED" stroke-width="7" stroke-linecap="round"/>
+            </g>
+
+            <g filter="url(#deviceShadow)">
+              <rect x="286" y="48" width="298" height="240" rx="30" fill="#FFFFFF" stroke="#D8D5ED" stroke-width="3"/>
+              <circle cx="435" cy="132" r="55" fill="#F7F7FB" stroke="#E9E7F4" stroke-width="3"/>
+              <g fill="#BDB9D9">
+                <circle cx="415" cy="112" r="4"/><circle cx="435" cy="112" r="4"/><circle cx="455" cy="112" r="4"/>
+                <circle cx="405" cy="132" r="4"/><circle cx="425" cy="132" r="4"/><circle cx="445" cy="132" r="4"/><circle cx="465" cy="132" r="4"/>
+                <circle cx="415" cy="152" r="4"/><circle cx="435" cy="152" r="4"/><circle cx="455" cy="152" r="4"/>
+              </g>
+              <g>
+                <circle cx="371" cy="216" r="6" fill="#22C55E"/><circle cx="414" cy="216" r="6" fill="#D6DEFF"/>
+                <circle cx="457" cy="216" r="6" fill="#D6DEFF"/><circle cx="500" cy="216" r="6" fill="#D6DEFF"/>
+                <text x="371" y="240" text-anchor="middle" font-family="Tajawal, sans-serif" font-size="10" fill="#6B6B85">١</text>
+                <text x="414" y="240" text-anchor="middle" font-family="Tajawal, sans-serif" font-size="10" fill="#6B6B85">٢</text>
+                <text x="457" y="240" text-anchor="middle" font-family="Tajawal, sans-serif" font-size="10" fill="#6B6B85">٣</text>
+                <text x="500" y="240" text-anchor="middle" font-family="Tajawal, sans-serif" font-size="10" fill="#6B6B85">٤</text>
+              </g>
+            </g>
+
+            <path d="M220 145c18-18 34-18 52 0M225 162c14-13 27-13 41 0M232 179c9-8 18-8 27 0" fill="none" stroke="#5C4CE3" stroke-width="5" stroke-linecap="round"/>
+            <text x="142" y="307" text-anchor="middle" font-family="Tajawal, sans-serif" font-size="16" font-weight="800" fill="#16162C">ERA‑PBTX</text>
+            <text x="142" y="328" text-anchor="middle" font-family="Tajawal, sans-serif" font-size="12" fill="#6B6B85">زر الإرسال في الحافلة</text>
+            <text x="435" y="307" text-anchor="middle" font-family="Tajawal, sans-serif" font-size="16" font-weight="800" fill="#16162C">ERA‑DCRX</text>
+            <text x="435" y="328" text-anchor="middle" font-family="Tajawal, sans-serif" font-size="12" fill="#6B6B85">المستقبِل داخل المنزل</text>
+          </svg>
+          <figcaption>رسم توضيحي مبسّط لشكل المرسِل والمستقبِل المرجعيين — وليس صورة مطابقة بمقياس حقيقي.</figcaption>
+        </figure>
+
+        <aside class="buy-card">
+          <span class="product-tag">نموذج متوفر تجاريًا · تجربة منزل واحد</span>
+          <h3>Safeguard Supply ERA‑PBDCR</h3>
+          <p>طقم كامل يضم زر ERA‑PBTX ومستقبِل ERA‑DCRX ومحوّل طاقة 12V، مع خرج مرحّل لتشغيل جرس أو جهاز خارجي.</p>
+          <div class="price"><b>79.95$</b><span>السعر المعروض في ١٦ أغسطس ٢٠٢٦ · قابل للتغيّر</span></div>
+          <div class="buy-links">
+            <a class="buy-link" href="https://safeguardsupply.com/safeguard-supply-era-pbdcr-wireless-push-button-and-chime-receiver-kit" target="_blank" rel="noopener">صفحة الشراء الرسمية ↗</a>
+            <a class="buy-link secondary" href="https://safeguardsupply.com/wp-content/uploads/pdf/ERA-DCRX-Manual-2024.pdf" target="_blank" rel="noopener">دليل المستقبِل ↗</a>
+          </div>
+        </aside>
+      </div>
+
+      <div class="modal-warning modal-danger">
+        <b>الحكم المختصر:</b> الجهاز مناسب لإثبات الفكرة وقياس المدى مع منزل واحد، لكنه ليس منتج مسلك النهائي.
+        لا يوفّر عنونة مرنة لعشرات المنازل ولا تأكيد استلام ثنائي الاتجاه، وتردده 433MHz لا يُعتمد في السعودية قبل التحقق من مواصفات واعتماد هيئة الاتصالات والفضاء والتقنية.
+      </div>
+
+      <section class="modal-section">
+        <h3>ما الجهاز تحديدًا؟</h3>
+        <p>
+          هو جرس لاسلكي تجاري بعيد المدى. عند ضغط زر <b>ERA‑PBTX</b> يرسل إشارة راديوية مباشرة إلى مستقبِل
+          <b>ERA‑DCRX</b> داخل المنزل. يصدر المستقبِل نغمة بنفسه، ويمكن لمخرجه الكهربائي تشغيل جرس المنزل القائم أو ضوء أو صفارة.
+          الاتصال مباشر ولا يحتاج إنترنتًا منزليًا أو تطبيقًا أو شريحة اتصال.
+        </p>
+        <div class="spec-grid">
+          <div class="spec-item"><span>مكوّن الحافلة</span><b>زر ERA‑PBTX</b></div>
+          <div class="spec-item"><span>مكوّن المنزل</span><b>مستقبِل ERA‑DCRX</b></div>
+          <div class="spec-item"><span>التردد في النسخة المعروضة</span><b>433 MHz</b></div>
+          <div class="spec-item"><span>المدى المعلن</span><b>حتى 4,000 قدم بخط رؤية</b></div>
+          <div class="spec-item"><span>طاقة الزر</span><b>بطارية ليثيوم · نحو 2–3 سنوات</b></div>
+          <div class="spec-item"><span>طاقة المستقبِل</span><b>محوّل 12V DC</b></div>
+          <div class="spec-item"><span>صوت المستقبِل</span><b>12 نغمة · 4 مستويات</b></div>
+          <div class="spec-item"><span>التوسعة</span><b>4 مناطق · حتى 12 مرسِلًا</b></div>
+          <div class="spec-item"><span>مخارج الربط</span><b>4 × 12V + مرحّل C‑FORM</b></div>
+        </div>
+      </section>
+
+      <section class="modal-section">
+        <h3>طريقة العمل في تجربة مسلك</h3>
+        <div class="modal-flow">
+          <div class="modal-flow-step"><b>تقترب الحافلة</b><span>من منزل الطالب</span></div>
+          <div class="modal-flow-step"><b>يضغط سائق الحافلة الزر</b><span>مرة واحدة</span></div>
+          <div class="modal-flow-step"><b>تُبث الإشارة</b><span>مباشرة دون إنترنت</span></div>
+          <div class="modal-flow-step"><b>يتعرف المستقبِل</b><span>على الزر المقترن</span></div>
+          <div class="modal-flow-step"><b>يرن الجرس</b><span>المدمج أو جرس المنزل</span></div>
+        </div>
+        <ul class="detail-list">
+          <li>يُثبّت زر الإرسال داخل الحافلة قرب سائق الحافلة، ولا يُطلب منه استخدامه أثناء القيادة.</li>
+          <li>يوضع المستقبِل داخل المنزل قرب واجهة مطلة على الشارع قدر الإمكان، بعيدًا عن الأجسام المعدنية الكبيرة.</li>
+          <li>المسافة المعلنة تقاس في خط رؤية مفتوح؛ الخرسانة وجسم الحافلة المعدني يخفضان المدى، لذلك الاختبار الميداني إلزامي.</li>
+          <li>إضاءة زر الإرسال تؤكد حدوث الضغطة، لكنها لا تثبت أن مستقبِل المنزل استلم الإشارة بالفعل.</li>
+        </ul>
+      </section>
+
+      <section class="modal-section">
+        <h3>صورة توضيحية لربطه بجرس المنزل</h3>
+        <figure class="device-figure" style="margin-top:14px;box-shadow:none;">
+          <svg viewBox="0 0 920 290" role="img" aria-labelledby="wiringTitle wiringDesc">
+            <title id="wiringTitle">مخطط ربط الجهاز الراديوي بجرس المنزل</title>
+            <desc id="wiringDesc">زر في الحافلة يرسل إشارة إلى المستقبل المنزلي، ثم يغلق المرحل دائرة زر الجرس منخفضة الجهد فيرن الجرس.</desc>
+            <defs><linearGradient id="wireBg" x1="0" x2="1"><stop offset="0" stop-color="#F8F7FF"/><stop offset="1" stop-color="#F4FBFC"/></linearGradient></defs>
+            <rect x="1" y="1" width="918" height="288" rx="26" fill="url(#wireBg)"/>
+
+            <g transform="translate(40 74)">
+              <rect x="0" y="38" width="154" height="78" rx="18" fill="#5C4CE3"/>
+              <rect x="22" y="12" width="95" height="55" rx="14" fill="#4636BF"/>
+              <circle cx="38" cy="126" r="16" fill="#16162C"/><circle cx="120" cy="126" r="16" fill="#16162C"/>
+              <circle cx="129" cy="40" r="14" fill="#FFEFB0"/>
+              <text x="77" y="88" text-anchor="middle" font-family="Tajawal, sans-serif" font-size="14" font-weight="800" fill="#fff">الحافلة</text>
+              <text x="129" y="45" text-anchor="middle" font-family="Tajawal, sans-serif" font-size="9" font-weight="800" fill="#806700">زر</text>
+            </g>
+
+            <g fill="none" stroke="#5C4CE3" stroke-width="5" stroke-linecap="round">
+              <path d="M230 125c26-25 51-25 77 0"/><path d="M242 145c18-17 35-17 53 0"/><path d="M256 165c10-9 19-9 29 0"/>
+            </g>
+            <text x="268" y="204" text-anchor="middle" font-family="Tajawal, sans-serif" font-size="11" fill="#6B6B85">إشارة راديوية</text>
+
+            <g transform="translate(348 56)">
+              <rect width="190" height="170" rx="24" fill="#fff" stroke="#D8D5ED" stroke-width="3"/>
+              <circle cx="95" cy="62" r="34" fill="#F1F0FA"/>
+              <circle cx="84" cy="56" r="4" fill="#BDB9D9"/><circle cx="106" cy="56" r="4" fill="#BDB9D9"/><circle cx="95" cy="75" r="4" fill="#BDB9D9"/>
+              <circle cx="70" cy="120" r="6" fill="#22C55E"/><circle cx="95" cy="120" r="6" fill="#D6DEFF"/><circle cx="120" cy="120" r="6" fill="#D6DEFF"/>
+              <text x="95" y="151" text-anchor="middle" font-family="Tajawal, sans-serif" font-size="12" font-weight="800" fill="#16162C">المستقبِل</text>
+            </g>
+
+            <path d="M538 141h76" stroke="#5C4CE3" stroke-width="5" stroke-linecap="round"/>
+            <path d="M598 128l16 13-16 13" fill="none" stroke="#5C4CE3" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+
+            <g transform="translate(630 72)">
+              <rect width="94" height="138" rx="18" fill="#EDEBFC" stroke="#5C4CE3" stroke-width="3"/>
+              <circle cx="47" cy="45" r="19" fill="#fff" stroke="#5C4CE3" stroke-width="3"/>
+              <path d="M30 92h34M30 108h34" stroke="#5C4CE3" stroke-width="5" stroke-linecap="round"/>
+              <text x="47" y="132" text-anchor="middle" font-family="Tajawal, sans-serif" font-size="11" font-weight="800" fill="#4636BF">المرحّل</text>
+            </g>
+
+            <path d="M724 141h67" stroke="#5C4CE3" stroke-width="5" stroke-linecap="round"/>
+            <path d="M775 128l16 13-16 13" fill="none" stroke="#5C4CE3" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+
+            <g transform="translate(805 76)">
+              <path d="M48 4c-27 0-38 20-38 45v35L0 102h96L86 84V49C86 24 75 4 48 4z" fill="#FFEFB0" stroke="#806700" stroke-width="3"/>
+              <path d="M35 116h26" stroke="#806700" stroke-width="7" stroke-linecap="round"/>
+              <text x="48" y="145" text-anchor="middle" font-family="Tajawal, sans-serif" font-size="12" font-weight="800" fill="#16162C">جرس المنزل</text>
+            </g>
+          </svg>
+          <figcaption>المرحّل يعمل كمفتاح معزول: يغلق دائرة زر الجرس لثوانٍ فيرن الجرس كما لو ضُغط زر الباب.</figcaption>
+        </figure>
+
+        <ul class="detail-list">
+          <li>في الجرس السلكي منخفض الجهد، يُربط طرفا <b>COM</b> و<b>NO</b> بالتوازي مع زر الجرس الخارجي.</li>
+          <li>عند استقبال الإشارة يغلق المرحّل الدائرة للمدة المضبوطة، فيعمل الجرس الموجود أصلًا.</li>
+          <li>لا يُربط المرحّل مباشرة بدائرة 220/230V. يجب أن ينفذ الربط كهربائي مؤهل مع عزل مناسب.</li>
+          <li>أجراس الفيديو والأجراس الذكية قد تحتاج واجهة مخصصة؛ البديل الأبسط أن يستخدم المنزل النغمة المدمجة في ERA‑DCRX دون تعديل الجرس.</li>
+        </ul>
+      </section>
+
+      <section class="modal-section">
+        <h3>خطوات التركيب والاختبار</h3>
+        <ol class="detail-list">
+          <li><b>التأكد قبل الشراء:</b> ابحث عن الجهاز في دليل الأجهزة المعتمدة لدى CST، وتحقق من سماح النطاق والقدرة ومن توافق محول الطاقة مع 230V.</li>
+          <li><b>إقران الجهازين:</b> شغّل ERA‑DCRX، اختر منطقة ونغمة، ثم اضغط ERA‑PBTX حتى يسجل المستقبِل الزر.</li>
+          <li><b>اختبار الطاولة:</b> اختبر النغمة والمؤشر عشرات المرات داخل المبنى قبل أي تركيب.</li>
+          <li><b>تركيب الحافلة:</b> ثبّت الزر قرب سائق الحافلة في مكان واضح، وابتعد قدر الإمكان عن صندوق معدني مغلق يضعف البث.</li>
+          <li><b>تركيب المنزل:</b> ضع المستقبِل داخل المنزل قرب الجهة المواجهة للشارع، ثم اختر النغمة ومستوى الصوت.</li>
+          <li><b>ربط الجرس اختياريًا:</b> استخدم خرج C‑FORM عبر كهربائي، أو اكتفِ بجرس المستقبِل المدمج للتجربة الأولى.</li>
+          <li><b>اختبار حي واقعي:</b> جرّب من 100 ثم 200 ثم 300 متر، في اتجاهات مختلفة، ومن داخل الحافلة وهي متوقفة ومتحركة ببطء.</li>
+          <li><b>تسجيل النتائج:</b> سجّل المسافة، عدد مرات النجاح من عشر محاولات، زمن الاستجابة، وتأثير الجدران واتجاه الحافلة.</li>
+        </ol>
+      </section>
+
+      <section class="modal-section">
+        <h3>هل يكفي زر واحد في الحافلة لكل المنازل؟</h3>
+        <p><b>نعم، بشرط أن يكون الزر متصلًا بوحدة مسلك معنوَنة، وليس زر جرس بسيطًا مقترنًا بجميع المستقبلات.</b> الضغطة تعني «أشعر المنزل الحالي»، ووحدة الحافلة هي التي تضيف معرّف المنزل إلى الرسالة.</p>
+
+        <div class="modal-flow">
+          <div class="modal-flow-step"><b>تحديد المحطة</b><span>المسار + الموقع الحالي</span></div>
+          <div class="modal-flow-step"><b>ضغطة واحدة</b><span>والحافلة متوقفة</span></div>
+          <div class="modal-flow-step"><b>رسالة معنوَنة</b><span>H‑1048 لا اسم الطالب</span></div>
+          <div class="modal-flow-step"><b>يرن منزل واحد</b><span>والبقية تتجاهل الرسالة</span></div>
+          <div class="modal-flow-step"><b>تأكيد الاستلام</b><span>علامة خضراء للسائق</span></div>
+        </div>
+
+        <div class="scenario-table">
+          <table>
+            <thead><tr><th>الحالة</th><th>ما ترسله الضغطة الواحدة</th><th>النتيجة</th></tr></thead>
+            <tbody>
+              <tr><td>طالب واحد في المنزل</td><td>معرّف المنزل الحالي</td><td>يرن مستقبِل ذلك المنزل فقط</td></tr>
+              <tr><td>إخوة في المنزل نفسه</td><td>معرّف واحد للأسرة</td><td>يرن الجهاز مرة واحدة، والتحضير منفصل لكل أخ</td></tr>
+              <tr><td>منزلان عند محطة مشتركة</td><td>معرّفا المنزلين بالتتابع</td><td>يرن الجهازان المقصودان بضغطة تشغيلية واحدة</td></tr>
+              <tr><td>إخوة على رحلات مختلفة</td><td>معرّف المنزل + معرّف الرحلة المصرح</td><td>يقبل الجهاز إشعار كل رحلة في وقتها دون جهاز إضافي</td></tr>
+              <tr><td>لم يصل تأكيد المنزل</td><td>إعادة إرسال بالرقم التسلسلي نفسه</td><td>لا يتكرر الرنين، ثم ينتقل النظام لقناة بديلة</td></tr>
+              <tr><td>اختيرت محطة خاطئة</td><td>لا تُرسل حتى يرى السائق اسم المحطة الحالية</td><td>يصححها من «السابق/التالي» والحافلة متوقفة</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="modal-warning"><b>مثال مبسط:</b> جميع مستقبلات المسار تسمع البث الراديوي، لكن الرسالة تحمل H‑1048؛ لذلك لا يرن إلا جهاز H‑1048. رنين الجهاز يُعلم الأسرة بوصول الحافلة، ولا يسجل ركوب الأبناء تلقائيًا.</div>
+      </section>
+
+      <section class="modal-section">
+        <h3>أفضل ممارسات تصميم الزر الواحد</h3>
+        <ul class="detail-list">
+          <li><b>الاختيار تلقائي:</b> تعتمد وحدة الحافلة ترتيب المسار وتستخدم الموقع للتحقق، حتى لا يختار السائق طالبًا من قائمة طويلة.</li>
+          <li><b>ضغطة آمنة:</b> يظهر المنزل الحالي بوضوح، ولا يُطلب من السائق الضغط أو التصحيح إلا والحافلة متوقفة.</li>
+          <li><b>مستقبِل واحد للأسرة:</b> يرتبط بمعرّف المنزل ويمكنه خدمة جميع الأبناء حتى مع اختلاف الرحلات المصرح بها.</li>
+          <li><b>عنونة تحمي الخصوصية:</b> لا تحتوي الرسالة على اسم الطالب أو عنوان المنزل؛ تستخدم معرّفًا عشوائيًا مع تشفير وتوقيع ورقم تسلسلي.</li>
+          <li><b>تأكيد ثنائي الاتجاه:</b> لا تعتبر إضاءة زر الحافلة دليلًا على رنين المنزل؛ يجب أن يعيد المستقبِل إقرار استلام.</li>
+          <li><b>منع التكرار:</b> إذا أُعيد الإرسال، يتعرف الجهاز على الرقم التسلسلي فلا يرن عدة مرات لنفس الوصول.</li>
+          <li><b>بديل عند الفشل:</b> بعد محاولات محدودة يظهر الفشل للسائق ويستخدم مسلك التطبيق أو واتساب أو SMS وفق إعداد الأسرة.</li>
+          <li><b>إدارة مركزية:</b> نقل الطالب إلى حافلة أخرى أو تغيير المنزل يحدّث الصلاحيات دون تغيير أزرار داخل الحافلة.</li>
+        </ul>
+      </section>
+
+      <section class="modal-section">
+        <h3>لماذا لا يكفي هذا الطقم لمسار كامل؟</h3>
+        <p>
+          الطقم صُمم كجرس باب: زر واحد يمكن أن يرن أي مستقبِل تم إقرانه به. إذا أُقرنت أجهزة منازل المسار كلها بزر الحافلة نفسه،
+          فسترن أجراس الجميع معًا. وضع زر مستقل لكل منزل داخل الحافلة ممكن نظريًا لكنه غير عملي عند تغير الطلاب والمسارات.
+        </p>
+        <div class="grid two" style="margin-top:16px;">
+          <article class="card outcome" style="box-shadow:none;">
+            <span class="label">التجربة</span>
+            <h4>طقم ERA لمنزل واحد</h4>
+            <p>يختبر المدى، أثر جسم الحافلة، وضوح النغمة، وإمكانية تشغيل جرس المنزل.</p>
+          </article>
+          <article class="card" style="box-shadow:none;">
+            <span class="label" style="color:var(--primary);background:var(--primary-light);">المنتج النهائي</span>
+            <h4>جهاز مسلك معنوَن وثنائي الاتجاه</h4>
+            <p>زر واحد لـ«المحطة الحالية»، ورسالة مشفرة بمعرّف المنزل، ولا يستجيب إلا الجهاز المقصود، مع تأكيد استلام للحافلة.</p>
+          </article>
+        </div>
+        <ul class="detail-list">
+          <li>كل منزل يحمل معرّفًا عشوائيًا لا اسم الطالب ولا عنوانه.</li>
+          <li>وحدة الحافلة تختار معرّف المحطة من المسار تلقائيًا؛ لا توجد عشرات الأزرار.</li>
+          <li>تُرسل الرسالة أكثر من مرة مع رقم تسلسلي وتوقيع لمنع التكرار أو التشغيل المزيف.</li>
+          <li>يعيد جهاز المنزل تأكيد الاستلام؛ عند الفشل ينتقل مسلك إلى واتساب أو SMS أو النغمة الخارجية.</li>
+        </ul>
+      </section>
+
+      <div class="modal-warning">
+        <b>قبل الشراء أو الاستيراد:</b> السعر والتوفر وروابط المنتج تخص متجرًا أمريكيًا، ولا تعني أن الجهاز معتمد أو قابل للشحن والتشغيل نظاميًا في السعودية.
+        استخدم صفحة هيئة الاتصالات للتحقق من الجهاز أو طلب اعتماده، ولا تعتمد رقم 4,000 قدم كمدى واقعي داخل حي سعودي.
+      </div>
+
+      <div class="modal-sources">
+        <a href="https://safeguardsupply.com/safeguard-supply-era-pbdcr-wireless-push-button-and-chime-receiver-kit" target="_blank" rel="noopener">المواصفات والشراء الرسمي ↗</a>
+        <a href="https://safeguardsupply.com/era-dcrx-doorbell-receiver-long-range" target="_blank" rel="noopener">تفاصيل ERA‑DCRX ↗</a>
+        <a href="https://safeguardsupply.com/wp-content/uploads/pdf/ERA-DCRX-Manual-2024.pdf" target="_blank" rel="noopener">الدليل الفني PDF ↗</a>
+        <a href="https://www.cst.gov.sa/services/equipment-licensing" target="_blank" rel="noopener">اعتماد الأجهزة لدى CST ↗</a>
+        <a href="https://www.cst.gov.sa/en/regulations-and-licenses/directories/approved-devices" target="_blank" rel="noopener">دليل الأجهزة المعتمدة ↗</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
 const navLinks=[...document.querySelectorAll('.nav a')];
@@ -608,6 +1872,86 @@ const observer=new IntersectionObserver(entries=>{
   });
 },{rootMargin:'-80px 0px -65% 0px'});
 sections.forEach(section=>observer.observe(section));
+
+const meetingModeToggle=document.getElementById('meetingModeToggle');
+const meetingModeLabel=meetingModeToggle.querySelector('span');
+
+function setMeetingMode(enabled){
+  document.body.classList.toggle('meeting-mode',enabled);
+  meetingModeToggle.setAttribute('aria-pressed',String(enabled));
+  meetingModeLabel.textContent=enabled?'إظهار التفاصيل':'وضع الاجتماع';
+  if(enabled) document.getElementById('meeting').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+meetingModeToggle.addEventListener('click',()=>{
+  setMeetingMode(!document.body.classList.contains('meeting-mode'));
+});
+
+const scenarioModal=document.getElementById('scenarioModal');
+const scenarioModalTitle=document.getElementById('scenarioModalTitle');
+const scenarioModalBody=document.getElementById('scenarioModalBody');
+let modalReturnFocus=null;
+let activeModal=null;
+
+function openModal(trigger){
+  const modal=document.getElementById(trigger.dataset.modalTarget);
+  if(!modal) return;
+
+  if(modal===scenarioModal){
+    const template=document.getElementById(`scenario-${trigger.dataset.scenario}`);
+    if(!template) return;
+    scenarioModalTitle.textContent=trigger.dataset.title||'طريقة عمل الحل';
+    scenarioModalBody.replaceChildren(template.content.cloneNode(true));
+  }
+
+  modalReturnFocus=trigger;
+  activeModal=modal;
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden','false');
+  document.body.classList.add('modal-open');
+  modal.querySelector('.modal-panel').focus();
+}
+
+function closeModal(modal=activeModal){
+  if(!modal) return;
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden','true');
+  document.body.classList.remove('modal-open');
+  activeModal=null;
+  if(modalReturnFocus){
+    modalReturnFocus.focus();
+    modalReturnFocus=null;
+  }
+}
+
+document.querySelectorAll('[data-modal-target]').forEach(trigger=>{
+  trigger.addEventListener('click',()=>openModal(trigger));
+});
+
+document.querySelectorAll('[data-modal-close]').forEach(button=>{
+  button.addEventListener('click',()=>closeModal(button.closest('.device-modal')));
+});
+
+document.querySelectorAll('.device-modal').forEach(modal=>{
+  modal.addEventListener('click',event=>{if(event.target===modal) closeModal(modal);});
+});
+
+document.addEventListener('keydown',event=>{
+  if(event.key==='Escape'&&activeModal){
+    closeModal();
+    return;
+  }
+  if(event.key==='Tab'&&activeModal){
+    const focusable=[...activeModal.querySelectorAll('button:not([disabled]),a[href],[tabindex]:not([tabindex="-1"])')];
+    if(!focusable.length) return;
+    const first=focusable[0];
+    const last=focusable[focusable.length-1];
+    const panel=activeModal.querySelector('.modal-panel');
+    if(document.activeElement===panel){event.preventDefault();(event.shiftKey?last:first).focus();}
+    else if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}
+    else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}
+  }
+});
 </script>
 </body>
 </html>
