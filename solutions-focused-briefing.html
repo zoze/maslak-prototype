@@ -211,6 +211,8 @@ a{color:inherit;}
 .idea-card.hardware .idea-tag{background:#E1F8F8;color:#087D80;}
 .idea-card.process .idea-tag{background:#FFF3D8;color:#9A6300;}
 .idea-card.communication .idea-tag{background:#FDE8F1;color:#B42362;}
+.idea-card.legal::before{background:#DC2626;}
+.idea-card.legal .idea-tag{background:var(--red-light);color:#B91C1C;}
 .idea-card h4{font-size:18px;margin-bottom:7px;}
 .idea-card > p{font-size:13px;line-height:1.7;flex:1;margin-bottom:12px;}
 .idea-focus{display:block;padding-top:10px;border-top:1px solid var(--line);color:var(--text-muted);font-size:10px;font-weight:700;width:100%;}
@@ -686,6 +688,30 @@ footer{padding:34px 0 46px;color:var(--text-muted);font-size:13px;}
           <button class="modal-trigger secondary" type="button" data-modal-target="scenarioModal" data-scenario="seat-device" data-title="سيناريو جهاز المقعد الثابت" aria-haspopup="dialog" aria-controls="scenarioModal">فتح السيناريو</button>
         </article>
 
+        <article class="idea-card hardware">
+          <span class="idea-tag">عتاد · أداة تعريف</span>
+          <h4>وسم NFC + قارئ</h4>
+          <p>بطاقة أو سوار يحمل رقمًا مجهولًا، يلمسه الطالب على جهاز المرافق فيُسجَّل ركوبه في أقل من ثانية دون محاذاة ولا إضاءة.</p>
+          <span class="idea-focus"><b>قوة الفكرة:</b> الأسرع بين أدوات التعريف، ويعمل فجرًا وفي الشمس على حد سواء.</span>
+          <button class="modal-trigger secondary" type="button" data-modal-target="scenarioModal" data-scenario="nfc" data-title="سيناريو التحضير بوسم NFC" aria-haspopup="dialog" aria-controls="scenarioModal">فتح السيناريو</button>
+        </article>
+
+        <article class="idea-card hardware">
+          <span class="idea-tag">عتاد · الأرخص للتجربة</span>
+          <h4>رمز QR + قارئ</h4>
+          <p>رمز مطبوع على بطاقة الطالب يُقرأ بكاميرا جهاز المرافق نفسه، بلا شراء قارئ ولا وسوم، والبديل يُطبع فورًا عند الفقد.</p>
+          <span class="idea-focus"><b>سؤال النقاش:</b> هل تختصر أداة التعريف زمن المحطة فعلًا؟ هذا أرخص اختبار للإجابة.</span>
+          <button class="modal-trigger secondary" type="button" data-modal-target="scenarioModal" data-scenario="qr" data-title="سيناريو التحضير برمز QR" aria-haspopup="dialog" aria-controls="scenarioModal">فتح السيناريو</button>
+        </article>
+
+        <article class="idea-card legal">
+          <span class="idea-tag">يحتاج رأيًا قانونيًا</span>
+          <h4>جهاز بصمة يدوي في الحافلة</h4>
+          <p>جهاز محمول يضع الطالب إصبعه عليه. لا يحمل الطالب شيئًا ولا ينسى شيئًا، ولا يستطيع طالب أن يُحضّر عن آخر.</p>
+          <span class="idea-focus"><b>قرار مطلوب:</b> هل التحضير نيابة عن طالب آخر مشكلة قائمة عندنا فعلًا؟ وهل نقبل معالجة بيانات حيوية لقاصرين؟</span>
+          <button class="modal-trigger secondary" type="button" data-modal-target="scenarioModal" data-scenario="biometric" data-title="سيناريو جهاز البصمة اليدوي وشروطه" aria-haspopup="dialog" aria-controls="scenarioModal">فتح السيناريو</button>
+        </article>
+
         <article class="idea-card process">
           <span class="idea-tag">قاعدة سلامة</span>
           <h4>منع المغادرة مع طالب غير محسوم</h4>
@@ -815,6 +841,70 @@ footer{padding:34px 0 46px;color:var(--text-muted);font-size:13px;}
       </button>
     </div>
 
+    <h3 style="font-size:22px;margin:42px 0 10px;">خيارات تأكيد الركوب بأداة تعريف</h3>
+    <p>
+      قائمة المحطة تعتمد على تأشير سائق الحافلة أو المرافق. وإذا أردنا إثباتًا أقوى للركوب لا يعتمد على تأشير بشري،
+      فأمامنا ثلاث تقنيات. الفارق بينها ليس في الفكرة بل في ثلاثة أشياء: <b>كم ثانية تكلّف كل طالب</b>،
+      و<b>هل يحمل الطالب أداة قد ينساها</b>، و<b>ما وضعها أمام نظام حماية البيانات الشخصية</b>.
+    </p>
+
+    <div class="grid three">
+      <article class="card solution-card">
+        <div class="icon sky"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="10" height="14" rx="2"/><path stroke-linecap="round" d="M16.5 8.5a5 5 0 010 7M19.5 6a9 9 0 010 12"/></svg></div>
+        <h3>وسم NFC + قارئ</h3>
+        <p>بطاقة أو سوار يحمل <b>رقمًا مجهولًا فقط</b>. يلمسه الطالب على جهاز المرافق فيُسجَّل الركوب خلال أقل من ثانية، دون محاذاة ودون حاجة إلى إضاءة.</p>
+        <button class="modal-trigger secondary" type="button" data-modal-target="scenarioModal" data-scenario="nfc" data-title="سيناريو التحضير بوسم NFC" aria-haspopup="dialog" aria-controls="scenarioModal">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 11v5M12 8h.01"/></svg>
+          عرض السيناريو الكامل
+        </button>
+      </article>
+
+      <article class="card solution-card">
+        <div class="icon yellow"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><path stroke-linecap="round" d="M14 14h3M20 14v3M14 20h6"/></svg></div>
+        <h3>رمز QR + قارئ</h3>
+        <p>رمز مطبوع على بطاقة الطالب، يُقرأ بكاميرا جهاز المرافق. <b>الأرخص بفارق كبير</b>: الرمز ورقة مطبوعة، والقارئ هو الجهاز نفسه، والبديل يُطبع فورًا عند الفقد.</p>
+        <button class="modal-trigger secondary" type="button" data-modal-target="scenarioModal" data-scenario="qr" data-title="سيناريو التحضير برمز QR" aria-haspopup="dialog" aria-controls="scenarioModal">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 11v5M12 8h.01"/></svg>
+          عرض السيناريو الكامل
+        </button>
+      </article>
+
+      <article class="card solution-card">
+        <div class="icon pink"><svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" d="M12 11v5M9 9.5a4 4 0 016 0v5.5M6 8.5a7.5 7.5 0 0112 0V12M12 20a9 9 0 002-4"/></svg></div>
+        <h3>جهاز بصمة يدوي في الحافلة</h3>
+        <p>جهاز محمول يضع الطالب إصبعه عليه. <b>ميزته الوحيدة الفريدة:</b> لا يحمل الطالب شيئًا ولا ينسى شيئًا، ولا يستطيع طالب أن يُحضّر عن آخر.</p>
+        <button class="modal-trigger secondary" type="button" data-modal-target="scenarioModal" data-scenario="biometric" data-title="سيناريو جهاز البصمة اليدوي وشروطه" aria-haspopup="dialog" aria-controls="scenarioModal">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 11v5M12 8h.01"/></svg>
+          عرض السيناريو والشروط
+        </button>
+      </article>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>المعيار</th><th>قائمة المحطة (الحالي)</th><th>وسم NFC</th><th>رمز QR</th><th>جهاز البصمة</th></tr></thead>
+        <tbody>
+          <tr><td>الزمن لكل طالب</td><td>~٢ ثانية</td><td><b>أقل من ثانية</b></td><td>٢–٤ ثوانٍ</td><td>٣–٨ ثوانٍ وقد تزيد</td></tr>
+          <tr><td>هل يحمل الطالب أداة؟</td><td>لا</td><td>نعم — بطاقة أو سوار</td><td>نعم — بطاقة مطبوعة</td><td><b>لا</b></td></tr>
+          <tr><td>تكلفة الوحدة للطالب</td><td>لا شيء</td><td>متوسطة</td><td><b>الأرخص</b></td><td>لا شيء للطالب · الجهاز مكلف</td></tr>
+          <tr><td>الأداء فجرًا وفي الشمس</td><td>غير متأثر</td><td><b>غير متأثر</b></td><td>يتأثر بالإضاءة</td><td>يتأثر بالبرد وبلل الأصابع</td></tr>
+          <tr><td>عند الفقد أو النسيان</td><td>لا ينطبق</td><td>تسجيل يدوي + إصدار بديل</td><td><b>يُطبع بديل فورًا</b></td><td>لا ينطبق</td></tr>
+          <tr><td>خطر التحضير نيابة عن آخر</td><td>قائم</td><td>قائم — البطاقة تُعار</td><td>قائم — الرمز يُصوَّر</td><td><b>منعدم</b></td></tr>
+          <tr><td>يعمل دون اتصال</td><td>نعم</td><td>نعم</td><td>نعم</td><td>نعم</td></tr>
+          <tr><td>وضعه أمام PDPL</td><td>لا بيانات إضافية</td><td><b>رقم مجهول — محايد</b></td><td>رقم مجهول — محايد</td><td><b>بيانات حيوية حسّاسة لقاصرين</b></td></tr>
+          <tr><td>الملاءمة لحافلات الطالبات</td><td>محايد</td><td><b>محايد تمامًا</b></td><td>محايد مع منع حفظ الصور</td><td>حساسية ثقافية مرتفعة</td></tr>
+          <tr><td>القرار المقترح</td><td><span class="pill">ابدأ بها</span></td><td><span class="pill">الخيار الأول للعتاد</span></td><td><span class="pill">الأنسب للتجربة</span></td><td><span class="pill">بعد رأي قانوني</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <b>تنبيه نظامي على خيار البصمة:</b> البصمة <b>بيانات حيوية</b>، وهي مصنَّفة «بيانات حسّاسة» في نظام حماية البيانات الشخصية،
+      والمستفيدون <b>قاصرون</b>. هذا يعني موافقة صريحة من ولي الأمر، وتسجيل الجهة لدى سدايا، وتخزين البيانات داخل المملكة، وبديلًا دائمًا لمن يرفض.
+      كما أن <b>لائحة النقل التعليمي لا تفرض أي آلية حضور محددة</b> — فلا يوجد إلزام نظامي يبرّر اختيار الحل الأكثر حساسية.
+      <b>لا يُعتمد هذا الخيار قبل رأي قانوني مكتوب.</b>
+    </div>
+
     <div class="table-wrap">
       <table>
         <thead><tr><th>المرحلة</th><th>آلية التحضير</th><th>العتاد</th><th>القرار</th></tr></thead>
@@ -830,6 +920,7 @@ footer{padding:34px 0 46px;color:var(--text-muted);font-size:13px;}
       <span class="label">القرار المقترح</span>
       <h3>للصباح: ابدأ بقائمة المحطة القصيرة دون أدوات يحملها الطالب</h3>
       <p>المعيار الحاسم: ألا يضيف الحل أكثر من ٣٠ ثانية للمحطة. بعد المدرسة نستخدم خريطة المقاعد، ثم نختبر جهاز المقعد الثابت إذا احتجنا إثباتًا أسرع عند الركوب الجماعي.</p>
+      <p style="margin-top:10px;margin-bottom:0;"><b>وإن احتجنا أداة تعريف:</b> نجرّب <b>QR</b> أولًا لأنه الأرخص وأسرع تجهيزًا للاختبار، فإن ثبتت الحاجة انتقلنا إلى <b>NFC</b> لأنه أسرع وأثبت في الظروف الواقعية. أما <b>البصمة</b> فلا تدخل الترتيب قبل رأي قانوني مكتوب، لأن ما تضيفه — منع التحضير نيابة عن طالب آخر — يمكن تحقيق معظمه بإشراف المرافق بلا بيانات حيوية.</p>
     </div>
   </section>
 
@@ -1188,6 +1279,145 @@ footer{padding:34px 0 46px;color:var(--text-muted);font-size:13px;}
       <li>عند نهاية المسار يمسح السائق وسمًا ثابتًا في مؤخرة الحافلة لإثبات تنفيذ جولة فحص الخلو.</li>
     </ol>
     <div class="modal-warning"><b>ضابط سلامة:</b> تسجيل الركوب والنزول لا يستبدل الفحص البصري لخلو الحافلة، ولا يُطلب من السائق لمس الشاشة أثناء تحرك المركبة.</div>
+  </div>
+</template>
+
+<template id="scenario-nfc">
+  <div class="scenario-lead">
+    <div>
+      <span class="label" style="color:var(--primary);background:var(--primary-light);">الحالة</span>
+      <h3>تسجيل الركوب بلمسة واحدة عند باب الحافلة</h3>
+      <p>يلمس الطالب وسمه على جهاز المرافق فيُسجَّل ركوبه فورًا. الوسم لا يحمل اسمًا ولا رقم هوية ولا صورة — رقمًا عشوائيًا فقط، والربط بالطالب يتم داخل مسلك على الخادم.</p>
+      <div class="scenario-meta"><span>المسؤول: المرافق</span><span>أقل من ثانية للطالب</span><span>يعمل دون اتصال</span><span>رقم مجهول على الوسم</span></div>
+    </div>
+    <div class="scenario-result">
+      <span>النتيجة النهائية</span>
+      <b>سجل ركوب موثوق دون تأشير يدوي</b>
+      <p>والوسم الضائع في الشارع يبقى قطعة بلاستيك بلا أي بيان شخصي، فلا يترتب على فقده أي أثر على خصوصية الطالب.</p>
+    </div>
+  </div>
+  <div class="modal-section">
+    <h3>تسلسل الركوب</h3>
+    <div class="modal-flow">
+      <div class="modal-flow-step"><b>يقترب الطالب</b><span>من باب الحافلة</span></div>
+      <div class="modal-flow-step"><b>يلمس الوسم</b><span>دون محاذاة دقيقة</span></div>
+      <div class="modal-flow-step"><b>نغمة وضوء أخضر</b><span>تأكيد فوري للطالب</span></div>
+      <div class="modal-flow-step"><b>يُسجَّل محليًا</b><span>ولو بلا إنترنت</span></div>
+      <div class="modal-flow-step"><b>يظهر في القائمة</b><span>محضَّرًا في محطته</span></div>
+    </div>
+  </div>
+  <div class="modal-section">
+    <h3>التفاصيل والحالات الاستثنائية</h3>
+    <ol class="detail-list">
+      <li>يوضع الوسم في بطاقة أو سوار أو معلّق حقيبة، <b>ولا يُطبع عليه اسم ولا صورة</b> — رقم مجهول فقط.</li>
+      <li>يعمل القارئ دون اتصال ويخزّن الأحداث محليًا، ثم يزامنها عند عودة الشبكة.</li>
+      <li><b>إذا نسي الطالب وسمه:</b> يسجّله المرافق يدويًا من قائمة المحطة. <b>لا يُمنع أي طالب من الركوب بسبب وسم منسي إطلاقًا.</b></li>
+      <li>الوسم المفقود يُلغى من مسلك فورًا فيصبح بلا قيمة، ويُصدر بديل برقم جديد.</li>
+      <li>يمكن استخدام الوسوم نفسها عند النزول إن أردنا تأكيد النزول بدل استنتاجه من المحطة.</li>
+      <li>يعمل في الظلام وفي الشمس المباشرة على حد سواء، لأنه لا يعتمد على الكاميرا.</li>
+    </ol>
+    <div class="modal-warning"><b>حد هذه التقنية:</b> الوسم يمكن أن يُعار بين الطلاب، فهو <b>يسرّع التسجيل ولا يثبت الهوية</b>. يبقى إشراف المرافق هو الضمانة، ولا يُبنى على الوسم وحده أي قرار يخص سلامة طالب.</div>
+  </div>
+</template>
+
+<template id="scenario-qr">
+  <div class="scenario-lead">
+    <div>
+      <span class="label" style="color:var(--primary);background:var(--primary-light);">الحالة</span>
+      <h3>أرخص طريقة لاختبار فكرة «أداة تعريف»</h3>
+      <p>رمز مطبوع على بطاقة الطالب، يُقرأ بكاميرا جهاز المرافق نفسه. لا حاجة لشراء قارئ ولا وسوم — ورقة مطبوعة وتطبيق، وهذا يجعله الأسرع تجهيزًا لتجربة ميدانية.</p>
+      <div class="scenario-meta"><span>المسؤول: المرافق</span><span>٢–٤ ثوانٍ للطالب</span><span>طباعة عادية</span><span>بديل فوري عند الفقد</span></div>
+    </div>
+    <div class="scenario-result">
+      <span>النتيجة النهائية</span>
+      <b>نعرف هل تفيد أداة التعريف أصلًا — قبل شراء أي عتاد</b>
+      <p>إن لم تختصر الزمن فعلًا، نكون قد عرفنا ذلك بتكلفة طباعة بطاقات لا بتكلفة وسوم وقارئات لمسار كامل.</p>
+    </div>
+  </div>
+  <div class="modal-section">
+    <h3>تسلسل الركوب</h3>
+    <div class="modal-flow">
+      <div class="modal-flow-step"><b>يعرض الطالب بطاقته</b><span>عند الباب</span></div>
+      <div class="modal-flow-step"><b>يوجّه المرافق الكاميرا</b><span>مسافة قصيرة</span></div>
+      <div class="modal-flow-step"><b>يُقرأ الرمز</b><span>رقم مجهول فقط</span></div>
+      <div class="modal-flow-step"><b>نغمة تأكيد</b><span>يسمعها الطالب</span></div>
+      <div class="modal-flow-step"><b>يُسجَّل الركوب</b><span>ويُخزَّن محليًا</span></div>
+    </div>
+  </div>
+  <div class="modal-section">
+    <h3>الشروط والحدود</h3>
+    <ol class="detail-list">
+      <li>الرمز يحمل <b>رقمًا مجهولًا فقط</b> — لا اسمًا ولا رابطًا يكشف بيانات عند تصويره.</li>
+      <li><b>لا تُحفظ أي صورة من الكاميرا إطلاقًا.</b> المسح فوري ولا يُخزَّن الإطار. هذا شرط لازم، وهو ما يجعل الحل صالحًا لحافلات الطالبات.</li>
+      <li>لا تُفتح الكاميرا إلا لحظة المسح، وتُغلق فور القراءة.</li>
+      <li>الإضاءة الضعيفة فجرًا والشمس المباشرة يبطئان القراءة — <b>وهذا بالضبط ما يجب قياسه ميدانيًا</b> قبل الحكم على التقنية.</li>
+      <li>البطاقة الورقية تتلف بالماء والانثناء؛ التغليف البلاستيكي يطيل عمرها كثيرًا.</li>
+      <li>عند الفقد يُطبع بديل فورًا بعد إلغاء الرمز القديم — وهذه ميزة تشغيلية حقيقية على الوسوم.</li>
+    </ol>
+    <div class="modal-warning"><b>حد هذه التقنية:</b> الرمز <b>قابل للتصوير والنسخ</b>، فهو أضعف الثلاثة في إثبات الهوية. استخدمه لتسريع التسجيل تحت إشراف المرافق، لا كدليل على أن هذا الطالب تحديدًا هو من ركب.</div>
+  </div>
+</template>
+
+<template id="scenario-biometric">
+  <div class="scenario-lead">
+    <div>
+      <span class="label" style="color:#B91C1C;background:var(--red-light);">خيار مطروح — بشروط نظامية</span>
+      <h3>جهاز بصمة محمول يحمله المرافق داخل الحافلة</h3>
+      <p>يضع الطالب إصبعه على الجهاز فيتأكد ركوبه. الميزة الفريدة التي لا يقدّمها أي خيار آخر: <b>الطالب لا يحمل شيئًا ولا ينسى شيئًا، ولا يستطيع طالب أن يُحضّر عن آخر.</b></p>
+      <div class="scenario-meta"><span>المسؤول: المرافق</span><span>٣–٨ ثوانٍ للطالب</span><span>لا أداة يحملها الطالب</span><span>يحتاج موافقة صريحة</span></div>
+    </div>
+    <div class="scenario-result">
+      <span>الخلاصة</span>
+      <b>قرار قانوني قبل أن يكون قرارًا تقنيًا</b>
+      <p>الجهاز متاح ورخيص نسبيًا، لكن ما يحكم اعتماده ليس سعره ولا سرعته — بل وضع البيانات الحيوية للقاصرين أمام النظام.</p>
+    </div>
+  </div>
+
+  <div class="modal-section">
+    <h3>ماذا يضيف فعلًا؟ وماذا يكلّف؟</h3>
+    <div class="scenario-table">
+      <table>
+        <thead><tr><th>ما يضيفه</th><th>ما يكلّفه</th></tr></thead>
+        <tbody>
+          <tr><td>يمنع نهائيًا أن يُحضّر طالب عن آخر</td><td>بيانات حيوية حسّاسة لقاصرين تحت نظام حماية البيانات الشخصية</td></tr>
+          <tr><td>لا بطاقة تُنسى ولا تُفقد ولا تُصدَر بدائل لها</td><td>معدل فشل أعلى لدى الأطفال، وزمن محطة أطول</td></tr>
+          <tr><td>لا تكلفة وسوم متكررة لكل طالب</td><td>حساسية ثقافية مرتفعة في حافلات الطالبات</td></tr>
+          <tr><td>سجل يصعب الطعن فيه أمام المدرسة</td><td>مسؤولية قانونية وأمنية مستمرة على الجهة</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px;margin-bottom:0;">
+      <b>لاحظ أن الميزة الحقيقية واحدة فقط</b> — منع التحضير نيابة عن طالب آخر.
+      والسؤال الذي يجب أن يُطرح قبل الشراء: <b>هل هذه مشكلة قائمة فعلًا في حافلاتنا؟</b>
+      في حافلة يشرف عليها مرافق ويعرف طلابه، غالبًا لا تكون كذلك — وعندها نكون قد دفعنا ثمنًا نظاميًا كبيرًا مقابل مشكلة لا وجود لها.
+    </p>
+  </div>
+
+  <div class="modal-section">
+    <h3>الشروط التي لا تنازل عنها إذا اعتُمد</h3>
+    <ol class="detail-list">
+      <li><b>رأي قانوني مكتوب قبل أي شراء أو تعاقد.</b> هذه الخطوة أولًا، لا بعد التجربة.</li>
+      <li><b>موافقة صريحة من ولي الأمر لكل طالب</b>، مع <b>بديل دائم</b> لمن يرفض دون أي أثر على الخدمة أو معاملة الطالب.</li>
+      <li><b>تخزين قالب رياضي لا صورة بصمة</b>، بحيث لا يمكن عكسه لاستخراج البصمة الأصلية.</li>
+      <li><b>التخزين داخل المملكة</b>، وتسجيل الجهة لدى سدايا كمعالج لبيانات أطفال.</li>
+      <li><b>حذف البيانات فور انتهاء اشتراك الطالب</b> في خدمة النقل، بسياسة احتفاظ مكتوبة ومعلنة.</li>
+      <li><b>تراجع فوري إلى قائمة المحطة</b> عند فشل القراءة — ولا يُمنع أي طالب من الركوب بسبب بصمة لم تُقرأ.</li>
+    </ol>
+  </div>
+
+  <div class="modal-section">
+    <h3>المخاطر التشغيلية</h3>
+    <ul class="detail-list">
+      <li><b>بصمات الأطفال صغيرة وناعمة</b>، ومعدل فشل القراءة فيها أعلى منه لدى البالغين.</li>
+      <li>الأصابع المتسخة أو المبللة أو الباردة فجرًا ترفع نسبة الفشل أكثر.</li>
+      <li>كل الطلاب يلمسون <b>السطح نفسه</b> — اعتبار صحي يتطلب تنظيفًا متكررًا خلال اليوم.</li>
+      <li>عند تكرار المحاولة يرتفع زمن المحطة، <b>وقد يتجاوز حد الثلاثين ثانية</b> وهو معيار القبول الأول عندنا.</li>
+      <li>عطل الجهاز يوقف التحضير لكل المسار، بخلاف البطاقة التي يتعطل منها واحدة فقط.</li>
+    </ul>
+    <div class="modal-warning modal-danger">
+      <b>تنبيه تنظيمي:</b> لائحة النقل التعليمي <b>لا تفرض آلية حضور محددة ولا تذكر البصمة إطلاقًا</b> — فلا يوجد غطاء تنظيمي يبرّر اختيار الحل الأعلى حساسية.
+      ووجود <b>بديل أقل تدخّلًا ومتاح ومُثبت</b> — وسم NFC أو رمز QR — يجعل تبرير التناسب أصعب أمام المنظّم إن سُئلنا: لماذا البصمة تحديدًا؟
+    </div>
   </div>
 </template>
 
